@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class User(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
-    phone_no = models.BigIntegerField(unique=True,null=True)
+    phone_no = models.BigIntegerField(unique=True,  null=True)
     USERNAME_FIELD = 'email'
     objects = CustomUserManager() 
     REQUIRED_FIELDS = []

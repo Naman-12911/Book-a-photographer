@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import contact  # importing models from model file
-from .serializer import contactSerializer # import pizza_choice form seializer file.
+from .serializer import contactSerializer, top_destinationSerializer # import pizza_choice form seializer file.
 from rest_framework.parsers import JSONParser
 from rest_framework import viewsets
 from django.http import HttpResponse,JsonResponse
@@ -10,8 +10,6 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.views import APIView
 # api  for contact
 @csrf_exempt
-
-
 def contact(request):
     if request.method == 'POST': # post request to post the contact form
         data = JSONParser().parse(request)
@@ -20,3 +18,12 @@ def contact(request):
             serializer.save()
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)#
+@csrf_exempt
+def destination(request):
+    if request.method == 'POST': # post request to post the top_destination form
+        data = JSONParser().parse(request)
+        serializer = top_destinationSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)

@@ -5,4 +5,5 @@ from django.urls import path
 urlpatterns = [
     #path('contact/', contact.as_view()),
     path('contact/', views.contact, name='contact'),
+    path('top-destination/', views.destination, name='destination'),
 ]
