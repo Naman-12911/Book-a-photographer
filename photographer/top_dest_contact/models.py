@@ -10,11 +10,11 @@ class contact(models.Model):
         return self.email
 class destination(models.Model):
     place = models.CharField(max_length=100)
-    popular_for = models.CharField(max_length=100,null=True)
+    popular_for = models.CharField(max_length=100, null=True)
     tumbnail = models.URLField()
-    pic1 = models.URLField(null=True)
-    pic2 = models.URLField(null=True)
-    pic3 = models.URLField(null=True)
+    pic1 = models.URLField(null=True, blank=True)
+    pic2 = models.URLField(null=True,blank=True)
+    pic3 = models.URLField(null=True,blank=True)
     decription = models.TextField()
     def __str__(self):
         return self.place

@@ -5,9 +5,7 @@ class contactAdmin(admin.ModelAdmin):
     readonly_fields = ('id',)
 admin.site.register(contact,contactAdmin)
 
-@admin.register(destination)
+#@admin.register(destination)
 class destinationAdmin(admin.ModelAdmin):
-    class Media:
-        js = ('tinyInjet.js',)
     readonly_fields = ('id',)
-#admin.site.register(destination, destinationAdmin)
+admin.site.register(destination, destinationAdmin)
