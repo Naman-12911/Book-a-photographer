@@ -1,5 +1,6 @@
 import React from "react";
-
+import "./index.css";
+import axios from "axios";
 function Contact() {
   return (
     <>
@@ -15,20 +16,41 @@ function Contact() {
           <form className="form-container">
             <div>
               <div className="Name">
-                <label className="label"> Name </label>
-                <input className="input-feild" type="text" />
+                {/*<label className="label"> Name </label>*/}
+                <input
+                  className="input-feild"
+                  type="text"
+                  placeholder="* Name"
+                  required
+                />
               </div>
-              <div className="Company">
-                <label className="label"> Company </label>
-                <input className="input-feild" type="text" />
-              </div>
+
               <div className="E-mail">
-                <label className="label"> E-mail </label>
-                <input className="input-feild" type="text" />
+                {/*  <label className="label"> E-mail </label>*/}
+                <input
+                  className="input-feild"
+                  type="text"
+                  placeholder="* Email"
+                  required
+                />
               </div>
               <div className="Phone No.">
-                <label className="label"> Phone No.</label>
-                <input className="input-feild" type="text" />
+                {/*<label className="label"> Phone No.</label>*/}
+                <input
+                  className="input-feild"
+                  type="text"
+                  placeholder="* phone Number"
+                  required
+                />
+              </div>
+              <div className="Company">
+                {/*<label className="label"> Company </label> */}
+                <input
+                  className="input-feild"
+                  type="text"
+                  placeholder="* Tell us something your problem"
+                  required
+                />
               </div>
               <button className="Submit" type="Submit">
                 Submit

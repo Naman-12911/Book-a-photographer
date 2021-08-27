@@ -8,12 +8,7 @@ body {
 * {
   box-sizing: border-box;
 }
-.navbar-margin {
-  margin-bottom: 1rem;
-}
-ul {
-  list-style: none;
-}
+
 a {
   text-decoration: none;
 }
@@ -25,64 +20,20 @@ input {
   outline: none;
   border: none;
 }
-.logo img {
-  width: 120px;
-}
 .header {
   width: 100%;
   height: 768px;
   position: relative;
+  background-color: #15151d;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("./image/header-bg.png");
+  opacity: 10.9;
+  background-image: url("./image/photo2.jpg");
 }
-nav ul {
-  display: flex;
-}
-.active {
-  background-color: #236c7e;
-  color: rgb(255, 255, 255);
-  box-shadow: 5px 10px 30px rgba(64, 149, 198, 0.411);
-  transition: all ease 0.2s;
-}
-nav ul li a {
-  height: 40px;
-  line-height: 43px;
-  margin: 3px;
-  padding: 0px 22px;
-  display: flex;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #242424;
-  letter-spacing: 1px;
-  border-radius: 3px;
-  transition: 0.2s ease-in-out;
-}
-.sig-log {
-  font-family: calibri;
-  height: 40px;
-  line-height: 43px;
-  padding: 0px 10px;
-  display: flex;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #ffffff;
-  letter-spacing: 1px;
-  border-radius: 3px;
-  transition: 0.2s ease-in-out;
-  background-color: #236c7e;
-}
+
 nav ul li a:hover {
-  background-color: #064757;
-  color: #ffffff;
-  box-shadow: 5px 10px 30px rgba(64, 149, 198, 0.411);
+  background-color: #c3ccce;
   transition: all ease 0.2s;
-}
-nav .menu-btn,
-.menu-icon {
-  display: none;
 }
 .intro {
   font-family: "Montserrat";
@@ -93,7 +44,7 @@ nav .menu-btn,
   transform: translate(-20%, -50%);
 }
 .intro span {
-  color: #fc9700;
+  color: #2d2904;
 }
 .intro .details {
   color: #1e4f5c;
@@ -106,9 +57,11 @@ nav .menu-btn,
   color: #236c7e;
 }
 .intro p {
-  color: #064757;
-  font-weight: 500;
+  color: white;
+  font-weight: 15000;
+  font-size: medium;
 }
+
 .header-btn {
   width: 500px;
   height: 40px;
@@ -127,23 +80,9 @@ nav .menu-btn,
   box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
 }
 
-.navbar {
-  background: rgb(31, 3, 58);
-}
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  background-color: #ffffff;
-}
-
 /* let's talk conatainer */
 .feedback {
-  background-color: #15151d !important;
+  background-color: #353739 !important;
   width: 100%;
   height: 100vh;
   background-color: #ffffff;
@@ -161,9 +100,17 @@ nav {
   margin-block-end: auto;
   width: 30%;
   font-size: xx-large;
+  margin-top: 6rem;
+}
+.talk p {
+  font-weight: 300;
+  margin-top: 2rem;
+}
+.talk h2 {
+  margin-top: 5rem;
 }
 .talk-text {
-  font-size: 20px;
+  font-size: 18px;
 }
 .feedback-container {
   display: flex;
@@ -171,38 +118,25 @@ nav {
   display: block;
   width: 50%;
 }
-.label {
-  content: "*";
-  min-height: 2rem;
-  border: none;
-  border-radius: 0;
-  padding: 0.5rem 0;
-  position: relative;
-  box-shadow: none !important;
-  outline: none !important;
-  background: rgba(0, 0, 0, 0) !important;
-  color: #ffffff !important;
-  font-size: 0.8rem;
-  transition: all 0.3s ease;
-  font-size: large;
-}
 
-.input-feild {
-  width: 180px;
-  padding: 15px 0;
+.form-container .input-feild {
+  width: 26rem;
+  padding: 15px 0px;
   margin-left: 15px;
   border-bottom-style: solid;
+  margin-top: 3rem;
   background: transparent;
-  margin-block-start: auto;
+  cursor: pointer;
 }
+
 .Submit {
   display: flex;
   padding: 7px 75px;
   font-size: 20px;
   border-radius: 20px;
   background: rgba(161, 198, 223, 0.884);
-  margin: auto;
   margin-top: 15px;
+  margin-left: 6rem;
   cursor: pointer;
   transition: all 0.1s;
 }

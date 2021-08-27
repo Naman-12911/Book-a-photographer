@@ -10,7 +10,6 @@ const App = () => {
     <>
       <Router>
         <Navbar />
-
         <Switch>
           <Route exact path="/">
             <Header />
@@ -19,7 +18,6 @@ const App = () => {
             <Contact />
           </Route>
         </Switch>
-        <Footer />
       </Router>
     </>
   );
