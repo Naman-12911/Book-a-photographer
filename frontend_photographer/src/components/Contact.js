@@ -1,7 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+
 import "./index.css";
 import axios from "axios";
-function Contact() {
+function Contact(props) {
+  const url = "http://localhost:8000/top_dest_contact/contact/";
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    desc: "",
+  });
+  function sumbit(e) {
+    e.preventDefault();
+    axios
+      .post(url, {
+        name: data.name,
+        email: data.email,
+        phone: parseInt(data.phone),
+        desc: data.desc,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setData({
+          name: "",
+          email: "",
+          phone: "",
+          desc: "",
+        });
+        props.showAlert("Your problem has been sumbitted!", "success");
+        //alert("nnnnnnnnnnnn");
+      });
+  }
+  function handle(e) {
+    const newdata = { ...data };
+    newdata[e.target.id] = e.target.value;
+    setData(newdata);
+    console.log(newdata);
+  }
   return (
     <>
       <nav className="feedback">
@@ -13,7 +48,7 @@ function Contact() {
           </p>
         </div>
         <div className="feedback-container">
-          <form className="form-container">
+          <form className="form-container" onSubmit={(e) => sumbit(e)}>
             <div>
               <div className="Name">
                 {/*<label className="label"> Name </label>*/}
@@ -22,6 +57,9 @@ function Contact() {
                   type="text"
                   placeholder="* Name"
                   required
+                  onChange={(e) => handle(e)}
+                  id="name"
+                  value={data.name}
                 />
               </div>
 
@@ -29,18 +67,24 @@ function Contact() {
                 {/*  <label className="label"> E-mail </label>*/}
                 <input
                   className="input-feild"
-                  type="text"
+                  type="email"
                   placeholder="* Email"
                   required
+                  onChange={(e) => handle(e)}
+                  id="email"
+                  value={data.email}
                 />
               </div>
               <div className="Phone No.">
                 {/*<label className="label"> Phone No.</label>*/}
                 <input
                   className="input-feild"
-                  type="text"
+                  type="number"
                   placeholder="* phone Number"
                   required
+                  onChange={(e) => handle(e)}
+                  id="phone"
+                  value={data.phone}
                 />
               </div>
               <div className="Company">
@@ -50,9 +94,12 @@ function Contact() {
                   type="text"
                   placeholder="* Tell us something your problem"
                   required
+                  onChange={(e) => handle(e)}
+                  id="desc"
+                  value={data.desc}
                 />
               </div>
-              <button className="Submit" type="Submit">
+              <button className="Submit my-3" type="Submit">
                 Submit
               </button>
             </div>
