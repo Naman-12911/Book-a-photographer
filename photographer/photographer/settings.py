@@ -63,7 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'react-cart/build') # adding react templates
+            #os.path.join(BASE_DIR, 'react-cart/build') # adding react templates
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -163,7 +163,7 @@ STATIC_URL = '/static/'
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS= [
-    os.path.join(BASE_DIR,'react-cart/build/static')
-]
+#STATICFILES_DIRS= [
+ #   os.path.join(BASE_DIR,'react-cart/build/static')
+#]
 AUTH_USER_MODEL = 'account.User'
