@@ -25,7 +25,7 @@ SECRET_KEY = '5y&i0l)iuy-$v!7e7fdfbz6mfga#jqt2gbg+$kpj9w=l#uvo1q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['photographerhire.herokuapp.com','localhost']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware', # file for the serve static files
     'corsheaders.middleware.CorsMiddleware', # add middle ware for the react
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
