@@ -6,6 +6,8 @@ import Alert from "./components/Alert";
 import Contact from "./components/Contact";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+//comment
+
 const App = () => {
   const [alert, setAlert] = useState(null);
 
