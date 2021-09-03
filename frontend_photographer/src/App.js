@@ -17,6 +17,9 @@ const App = () => {
           <Route exact path="/contact">
             <Contact />
           </Route>
+          <Route exact path="/Form">
+            <Form />
+          </Route>
         </Switch>
       </Router>
     </>
