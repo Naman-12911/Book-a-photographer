@@ -23,6 +23,7 @@ const App = () => {
       setAlert(null);
     }, 1500);
   };
+  // app.js file
   return (
     <>
       <Router>
