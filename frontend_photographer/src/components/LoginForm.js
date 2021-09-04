@@ -8,6 +8,7 @@ function LoginForm(props) {
     email: "",
     password: "",
   });
+  const { setLogin } = props;
   function sumbit(e) {
     e.preventDefault();
     axios
@@ -63,9 +64,9 @@ function LoginForm(props) {
           <button className="FormField__Button mr-20" type="Submit">
             Log In
           </button>
-          <Link to="/SignupForm" className="FormField__link">
-            Create an Account
-          </Link>
+          <p onClick={() => setLogin("signup")} className="FormField__link">
+            Create an Accoun t
+          </p>
         </div>
       </form>
     </div>
