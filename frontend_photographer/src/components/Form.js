@@ -18,7 +18,7 @@ function Form() {
             <button
               //activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link"
-              onClick={setLogin("login")}
+              onClick={() => setLogin("login")}
             >
               Log In
             </button>{" "}
@@ -26,11 +26,15 @@ function Form() {
             <button
               //activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link "
-              onClick={setLogin("signup")}
+              onClick={() => setLogin("signup")}
             >
               Sign Up
             </button>
-            {login === "login" ? <LoginForm /> : <SignupForm />}
+            {login === "login" ? (
+              <LoginForm setLogin={setLogin} />
+            ) : (
+              <SignupForm />
+            )}
           </div>
         </div>
       </div>
