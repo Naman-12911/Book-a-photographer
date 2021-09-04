@@ -18,8 +18,8 @@ class Register(APIView):
         return Response(serializer.data)
    
 class Login(APIView):
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
+    #permission_classes = [IsAuthenticated]
+    #authentication_classes = [JWTAuthentication]
     def post(self,request):
         email = request.data['email']
         password = request.data['password']
