@@ -25,7 +25,7 @@ SECRET_KEY = '5y&i0l)iuy-$v!7e7fdfbz6mfga#jqt2gbg+$kpj9w=l#uvo1q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['photographerhire.herokuapp.com','localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -46,7 +46,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware', # file for the serve static files
     'corsheaders.middleware.CorsMiddleware', # add middle ware for the react
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -63,7 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            #os.path.join(BASE_DIR, 'react-cart/build') # adding react templates
+            os.path.join(BASE_DIR, 'react-cart/build') # adding react templates
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -163,7 +162,7 @@ STATIC_URL = '/static/'
 
 
 STATIC_URL = '/static/'
-#STATICFILES_DIRS= [
- #   os.path.join(BASE_DIR,'react-cart/build/static')
-#]
+STATICFILES_DIRS= [
+    os.path.join(BASE_DIR,'react-cart/build/static')
+]
 AUTH_USER_MODEL = 'account.User'

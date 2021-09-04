@@ -1,6 +1,7 @@
 import React from "react";
-import "./index.css";
-import photo1 from "./image/photo1.jpg";
+import { Link } from "react-router-dom";
+import "../css/index.css";
+//import photo1 from "./image/photo1.jpg";
 const Header = () => {
   return (
     <>
@@ -16,13 +17,10 @@ const Header = () => {
             culpa deserunt delectus suscipit nulla consequuntur eum vero
             reprehenderit, quisquam sed sequi.
           </p>
-          <a href="/" className="header-btn">
+          <Link to="/form/LogIn" className="header-btn">
             Hire a Photographer
-          </a>
+          </Link>
           <br />
-          <a href="/" className="header-btn">
-            Earn Money By Photography
-          </a>
         </div>
       </div>
     </>

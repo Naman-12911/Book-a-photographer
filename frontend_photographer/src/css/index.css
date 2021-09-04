@@ -26,7 +26,7 @@ input {
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 10.9;
-  background-image: url("./image/photo2.jpg");
+  background-image: url("../components/image/photo2.jpg");
 }
 
 nav ul li a:hover {

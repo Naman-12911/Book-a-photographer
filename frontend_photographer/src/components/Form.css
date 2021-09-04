@@ -1,0 +1,134 @@
+/* Signup  */
+* {
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+div {
+  display: block;
+}
+a {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+a:hover {
+  color: #0a58ca;
+}
+.App {
+  height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
+}
+.App__Aside {
+  width: 50%;
+  color: #5ed0c0;
+  height: 5rem;
+}
+.App .App__Aside img {
+  width: 107%;
+  height: 322%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+}
+/* .photo{
+  width: auto;
+  height: auto;
+  background-color: #9da6b1;
+} */
+.App__Form {
+  width: 50%;
+  background-color: #f2f5f8;
+  padding: 25px 40px;
+  overflow: auto;
+}
+.PageSwitcher {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10%;
+  margin-right: 30px;
+}
+.PageSwitcher__Item:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.PageSwitcher__Item:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.PageSwitcher__Item--Active {
+  background-color: #5ed0c0;
+  color: #fff;
+}
+.PageSwitcher__Item {
+  background-color: #4c5d72;
+  color: #9da6b1;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+}
+.FormTitle {
+  color: rgb(5, 5, 5);
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+.FormField {
+  margin-bottom: 40px;
+}
+.FormField__Label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: rgb(7, 7, 7);
+}
+.FormField__Input {
+  width: 85%;
+  background-color: transparent;
+  border: none;
+  color: rgb(10, 10, 10);
+  outline: none;
+  border-bottom: 1px solid #445366;
+  font-size: 1em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+.FormTitle__Link--Active {
+  color: #fff;
+  border-bottom: 1px solid #199087;
+}
+.FormTitle__Link {
+  color: #707c8b;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.7em;
+  margin: 0 10px;
+  padding-bottom: 5px;
+}
+.FormField__link {
+  color: black;
+}
+.FormField__Button {
+  background-color: #52c4b9;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  padding: 15px 70px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+.mr-20 {
+  margin-right: 20px !important;
+}
+.Form__CheckboxLabel {
+  font-size: 0.9em;
+  color: rgb(7, 7, 7);
+}
+.Form__Checkbox {
+  color: rgb(7, 7, 7);
+}

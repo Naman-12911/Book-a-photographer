@@ -1,0 +1,26 @@
+.devloper-img {
+  height: 44%;
+  width: 44%;
+  margin-top: 1rem;
+  border-radius: 50%;
+  box-shadow: 3px 3px 10px rgb(1, 18, 27);
+  margin-left: 10rem;
+}
+
+.img-member {
+  font-family: "Baloo Bhai 2", cursive;
+  margin-top: 2rem;
+  margin-left: 16rem;
+}
+.developer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.main-head {
+  padding: 2rem;
+  text-align: center;
+  color: purple;
+  justify-content: center;
+  margin-bottom: 5rem;
+  font-family: "Baloo Bhai 2", cursive;
+}
