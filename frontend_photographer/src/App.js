@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Navbar from "../src/components/Navbar";
-import Header from "../src/components/Header";
+import Home from "./components/Home";
 import Footer from "../src/components/Footer";
 import Alert from "./components/Alert";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Form from "./components/Form";
-import SignupForm from "./components/SignupForm";
-import LoginForm from "./components/LoginForm";
 import naman from "../src/components/image/Naman Garg.jpeg";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -33,7 +31,7 @@ const App = () => {
         <Alert alert={alert} />
         <Switch>
           <Route exact path="/">
-            <Header />
+            <Home />
           </Route>
           <Route exact path="/contact">
             <Contact showAlert={showAlert} />
