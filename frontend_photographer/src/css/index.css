@@ -1,8 +1,6 @@
 body {
   margin: 0px;
   padding: 0px;
-
-  background-color: #ffffff;
   font-family: "Montserrat", sans-serif;
 }
 * {
@@ -28,7 +26,7 @@ input {
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 10.9;
-  background-image: url("./image/photo2.jpg");
+  background-image: url("../components/image/photo2.jpg");
 }
 
 nav ul li a:hover {
@@ -85,7 +83,6 @@ nav ul li a:hover {
   background-color: #353739 !important;
   width: 100%;
   height: 100vh;
-  background-color: #ffffff;
   box-sizing: border-box;
   display: flex;
   align-items: center;

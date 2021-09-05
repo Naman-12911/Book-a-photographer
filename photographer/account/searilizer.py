@@ -4,7 +4,7 @@ from rest_framework import serializers
 class UserSerializers(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'first_name','last_name','phone_no','email','password']
+        fields = ['id', 'first_name','last_name','phone_no','email','password','user_type']
         extra_kwargs = {
             'password' :{'write_only':True}  #  to does not return password in api ## postman
         }
