@@ -1,6 +1,6 @@
 import React from "react";
-import photo1 from "./image/photo1.jpg";
-import "../css/about.css";
+import photo1 from "../image/photo1.jpg";
+import "../../css/about.css";
 
 function About(props) {
   return (

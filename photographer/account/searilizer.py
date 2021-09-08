@@ -1,4 +1,4 @@
-from .models import User
+from .models import User, photographer
 from rest_framework import serializers
 
 class UserSerializers(serializers.ModelSerializer):
@@ -16,3 +16,9 @@ class UserSerializers(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
+class photographerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = photographer
+        feilds = ['id','email','user','phone_numbe','image1','image2','image3','image4','image5','speaclization',' work_experience',' price']
+        
