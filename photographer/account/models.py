@@ -21,11 +21,12 @@ class User(AbstractUser):
         return self.email
 
 class photographer(models.Model):
-    user = models.OneToOneField(User , on_delete=models.CASCADE)
+    email = models.EmailField(unique=True)
+    #user = models.OneToOneField(User , on_delete=models.CASCADE, default=email)
     name = models.CharField(max_length= 200) 
-    email = models.EmailField()
-    phone_number = models.BigIntegerField()
-    image1 = models.ImageField() # entre url of the Image
+    
+    phone_number = models.BigIntegerField(unique=True)
+    image1 = models.ImageField(null=True) # entre url of the Image
     image3 = models.ImageField(null=True)  # entre image of photogapher to represent 
     image2 = models.ImageField(null=True) # entre image of photogapher to represent 
     image4 = models.ImageField(null=True) # entre image of photogapher to represent 

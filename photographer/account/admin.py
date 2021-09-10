@@ -24,4 +24,6 @@ class customUserAdmin(UserAdmin):
   search_fields = ('email',)
   ordering = ('email', )
 admin.site.register(User, customUserAdmin)
-admin.site.register(photographer)
+class photographerAdmin(admin.ModelAdmin):
+    readonly_fields = ('id',)
+admin.site.register(photographer,photographerAdmin)
