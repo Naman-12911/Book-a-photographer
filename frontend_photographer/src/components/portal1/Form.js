@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
-import "./Form.css";
-import photo3 from "./image/photo3.jpg";
+import "../../css/Form.css";
+import photo3 from "../image/photo3.jpg";
 
 function Form() {
   const [login, setLogin] = useState("login");
@@ -16,7 +16,6 @@ function Form() {
           <div className="PageSwitcher"></div>
           <div className="FormTitle">
             <button
-              //activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link"
               onClick={() => setLogin("login")}
             >
@@ -24,7 +23,6 @@ function Form() {
             </button>{" "}
             or{" "}
             <button
-              //activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link "
               onClick={() => setLogin("signup")}
             >

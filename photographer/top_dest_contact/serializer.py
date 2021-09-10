@@ -9,4 +9,4 @@ class  contactSerializer(serializers.ModelSerializer):
 class  top_destinationSerializer(serializers.ModelSerializer):
     class Meta:
         model = destination
-        fields = ['id', 'place', 'popular_for', 'tumbnail', 'pic1', 'pic2', 'pic3', 'decription']
+        fields = ['id', 'place', 'popular_for', 'tumbnail', 'slug', 'decription']

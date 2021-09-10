@@ -21,8 +21,19 @@ class User(AbstractUser):
         return self.email
 
 class photographer(models.Model):
+    email = models.EmailField(unique=True)
+    #user = models.OneToOneField(User , on_delete=models.CASCADE, default=email)
+    name = models.CharField(max_length= 200) 
+    
+    phone_number = models.BigIntegerField(unique=True)
+    image1 = models.ImageField(null=True) # entre url of the Image
+    image3 = models.ImageField(null=True)  # entre image of photogapher to represent 
+    image2 = models.ImageField(null=True) # entre image of photogapher to represent 
+    image4 = models.ImageField(null=True) # entre image of photogapher to represent 
+    image5 = models.ImageField(null=True) # entre image of photogapher to represent 
+    speaclization = models.CharField(max_length=200) # fill photographer spelization
+    work_experience = models.TextField() # entre work enxperince of the user.
+    price = models.IntegerField() # entre price of the photographer.
 
-    user = models.OneToOneField(User , on_delete=models.CASCADE)
-    work_experience = models.CharField(max_length=200)
     def __str__(self):
-        return self.work_experience
+        return self.speaclization

@@ -108,6 +108,8 @@ a:hover {
   font-size: 1.7em;
   margin: 0 10px;
   padding-bottom: 5px;
+  margin-bottom: 2rem;
+  background-color: none;
 }
 .FormField__link {
   color: black;

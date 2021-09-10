@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "../css/index.css";
+import "../../css/index.css";
 import axios from "axios";
 function Contact(props) {
   const url = "http://localhost:8000/top_dest_contact/contact/";
