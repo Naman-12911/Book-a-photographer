@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
-import "./Form.css";
+import "../css/Form.css";
 import photo3 from "./image/photo3.jpg";
 
 function Form() {
