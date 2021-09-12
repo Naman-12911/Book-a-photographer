@@ -7,7 +7,7 @@ import Contact from "../components/portal1/Contact";
 import About from "../components/portal1/About";
 import Form from "../components/portal1/Form";
 import naman from "../components/image/Naman Garg.jpeg";
-import { BrowserRouter as Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 // portal 1
 
@@ -32,10 +32,10 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/contact">
+        <Route path="/contact">
           <Contact showAlert={showAlert} />
         </Route>
-        <Route exact path="/about">
+        <Route path="/about">
           <About
             para="All rounder"
             head="Naman Garg"
@@ -46,7 +46,7 @@ const App = () => {
           <About para="Backend" head="Sourab" linkdin="" photo={naman} />
           <About para="Faltu" head="Kashish" linkdin="" photo={naman} />
         </Route>
-        <Route exact path="/form/LogIn">
+        <Route path="/form/LogIn">
           <Form />
         </Route>
       </Switch>

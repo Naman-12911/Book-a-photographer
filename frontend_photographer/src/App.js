@@ -12,7 +12,7 @@ const App = () => {
   // app.js file
   return (
     <>
-      <Router>{true ? <Appshell /> : <Root />}</Router>
+      <Router>{false ? <Appshell /> : <Root />}</Router>
     </>
   );
 };
