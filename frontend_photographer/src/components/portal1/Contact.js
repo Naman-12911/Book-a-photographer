@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import "../../css/index.css";
-import axios from "axios";
+import ai from "../Apis";
 function Contact(props) {
-  const url = "http://localhost:8000/top_dest_contact/contact/";
+  const url = "top_dest_contact/contact/";
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -12,24 +12,22 @@ function Contact(props) {
   });
   function sumbit(e) {
     e.preventDefault();
-    axios
-      .post(url, {
-        name: data.name,
-        email: data.email,
-        phone: parseInt(data.phone),
-        desc: data.desc,
-      })
-      .then((res) => {
-        console.log(res.data);
-        setData({
-          name: "",
-          email: "",
-          phone: "",
-          desc: "",
-        });
-        props.showAlert("Your problem has been sumbitted!", "success");
-        //alert("nnnnnnnnnnnn");
+    ai.post(url, {
+      name: data.name,
+      email: data.email,
+      phone: parseInt(data.phone),
+      desc: data.desc,
+    }).then((res) => {
+      console.log(res.data);
+      setData({
+        name: "",
+        email: "",
+        phone: "",
+        desc: "",
       });
+      props.showAlert("Your problem has been sumbitted!", "success");
+      //alert("nnnnnnnnnnnn");
+    });
   }
   function handle(e) {
     const newdata = { ...data };

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
+import ai from "../Apis";
 
 function LoginForm(props) {
-  const url = "http://localhost:8000/account/login/";
+  const url = "account/login/";
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -10,20 +10,18 @@ function LoginForm(props) {
   const { setLogin } = props;
   function sumbit(e) {
     e.preventDefault();
-    axios
-      .post(url, {
-        email: data.email,
-        password: data.password,
-      })
-      .then((res) => {
-        console.log(res.data);
-        setData({
-          email: "",
-          password: "",
-        });
-        props.showAlert("Your problem has been sumbitted!", "success");
-        //alert("nnnnnnnnnnnn");
+    ai.post(url, {
+      email: data.email,
+      password: data.password,
+    }).then((res) => {
+      console.log(res.data);
+      setData({
+        email: "",
+        password: "",
       });
+      props.showAlert("Your problem has been sumbitted!", "success");
+      //alert("nnnnnnnnnnnn");
+    });
   }
   function handle(e) {
     const newdata = { ...data };

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
+import ai from "../Apis";
 function SignupForm(props) {
   // signup api
-  const url = "http://localhost:8000/account/register/";
+  const url = "account/register/";
   const [data, setData] = useState({
     first_name: "",
     last_name: "",
@@ -13,28 +13,26 @@ function SignupForm(props) {
   });
   function sumbit(e) {
     e.preventDefault();
-    axios
-      .post(url, {
-        first_name: data.first_name,
-        last_name: data.last_name,
-        email: data.email,
-        phone_no: parseInt(data.phone_no),
-        password: data.password,
-        type_choice: data.type_choice,
-      })
-      .then((res) => {
-        console.log(res.data);
-        setData({
-          first_name: "",
-          last_name: "",
-          email: "",
-          phone_no: "",
-          password: "",
-          type_choice: "",
-        });
-        //props.showAlert("Your problem has been sumbitted!", "success");
-        alert("nnnnnnnnnnnn");
+    ai.post(url, {
+      first_name: data.first_name,
+      last_name: data.last_name,
+      email: data.email,
+      phone_no: parseInt(data.phone_no),
+      password: data.password,
+      type_choice: data.type_choice,
+    }).then((res) => {
+      console.log(res.data);
+      setData({
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone_no: "",
+        password: "",
+        type_choice: "",
       });
+      //props.showAlert("Your problem has been sumbitted!", "success");
+      alert("nnnnnnnnnnnn");
+    });
   }
   function handle(e) {
     const newdata = { ...data };

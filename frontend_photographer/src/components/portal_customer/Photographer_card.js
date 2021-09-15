@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -11,12 +10,13 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import naman from "../image/Naman Garg.jpeg";
 import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
+import { Link } from "react-router-dom";
+import ai from "../Apis";
+
 // function for the style the card
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,12 +49,11 @@ export default function Photographer_card() {
     setExpanded(!expanded);
   };
   // get request for the photograhers
-  const [phot, setPhoto] = useState([]);
-  const fetchURL = "http://localhost:8000/account/photographer-account/";
+  const [photo, setPhoto] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      const request = axios
-        .get(fetchURL)
+      const request = ai
+        .get("account/photographer-account/")
         .then((res) => {
           console.log(res);
           setPhoto(res.data);
@@ -70,59 +69,59 @@ export default function Photographer_card() {
   return (
     <div className="container my-4">
       <Card className={classes.root}>
-        <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-              R
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title="Shrimp and Chorizo Paella"
-          subheader="September 14, 2016"
-        />
-        <CardMedia
-          className={classes.media}
-          image={naman}
-          title="Paella dish"
-        />
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-          <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>Method:</Typography>
-            <Typography paragraph>
-              Heat 1/2 cup of the broth in a pot until simmering, add saffron
-              and set aside for 10 minutes.
-            </Typography>
-          </CardContent>
-        </Collapse>
+        {photo.map((photo) => (
+          <div key={photo.id}>
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe" className={classes.avatar}>
+                  {photo.name.charAt(0).toUpperCase()}
+                </Avatar>
+              }
+              action={<IconButton aria-label="settings"></IconButton>}
+              title={photo.name}
+            />
+            <CardMedia
+              className={classes.media}
+              image={naman}
+              title="Paella dish"
+            />
+            <CardContent>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <h6>speaclizations</h6>
+                {photo.speaclization}
+              </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+              <IconButton aria-label="add to favorites">
+                <FavoriteIcon /> 12
+              </IconButton>
+              <div className="mx-3">
+                <Link to={`/${photo.id}`}> Book Now</Link>
+              </div>
+              <IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+              <CardContent>
+                <Typography paragraph>
+                  <h6>Work Experience:</h6>
+                </Typography>
+                <Typography paragraph>
+                  {photo.work_experience.slice(0, 150)}...{" "}
+                  <Link to={`/${photo.id}`}> Read more</Link>
+                </Typography>
+              </CardContent>
+            </Collapse>
+          </div>
+        ))}
       </Card>
     </div>
   );
