@@ -25,7 +25,9 @@ SECRET_KEY = '5y&i0l)iuy-$v!7e7fdfbz6mfga#jqt2gbg+$kpj9w=l#uvo1q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    
+]
 
 
 # Application definition
@@ -127,7 +129,7 @@ CORS_ORIGIN_ALLOW_ALL=True # true for the react
 from datetime import timedelta
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=2880),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,
@@ -158,11 +160,30 @@ SIMPLE_JWT = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS= [
     os.path.join(BASE_DIR,'react-cart/build/static')
 ]
 AUTH_USER_MODEL = 'account.User'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# add manual
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# add manual
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+# rst framework AUTH
+REST_FRAMEWORK = {
+     'DEFAULT_PERMISSION_CLASSES': [
+         'rest_framework.permissions.IsAuthenticated',
+         'rest_framework.permissions.IsAdminUser',
+         ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+     'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+     )
+}

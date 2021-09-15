@@ -67,6 +67,7 @@ nav ul li a:hover {
   justify-content: center;
   align-items: center;
   background-color: #236c7e;
+  text-decoration: none;
   box-shadow: 5px 10px 30px rgba(2, 82, 255, 0.137);
   border-radius: 10px;
   color: #ffffff;

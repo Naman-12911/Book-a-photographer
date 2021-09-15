@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 function LoginForm(props) {
@@ -35,8 +34,8 @@ function LoginForm(props) {
   return (
     <div className="FormCenter">
       <form className="FormFeilds" onSubmit={(e) => sumbit(e)}>
+        {/* email input */}
         <div className="FormField">
-          <label className="FormField__Label">E-mail</label>
           <input
             type="email"
             className="FormField__Input"
@@ -47,8 +46,8 @@ function LoginForm(props) {
             value={data.email}
           />
         </div>
+        {/* password input */}
         <div className="FormField">
-          <label className="FormField__Label">Password</label>
           <input
             type="password"
             className="FormField__Input"
@@ -65,7 +64,7 @@ function LoginForm(props) {
             Log In
           </button>
           <p onClick={() => setLogin("signup")} className="FormField__link">
-            Create an Accoun t
+            Create an Account
           </p>
         </div>
       </form>
