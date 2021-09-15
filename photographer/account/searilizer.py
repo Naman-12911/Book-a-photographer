@@ -52,6 +52,6 @@ class UserLoginSerializer(serializers.Serializer):
 class photographerSerializer(serializers.ModelSerializer):
     class Meta:
         model = photographer
-        fields = ['id','email','phone_number','image1','image2','image3','image4','image5','speaclization','work_experience','price']
+        fields = ['id','name','email','phone_number','image1','image2','image3','image4','image5','speaclization','work_experience','price']
         #fields = "__all__"
         
