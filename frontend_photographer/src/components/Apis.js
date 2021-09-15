@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const ai = axios.create({
-  baseURL: "http://localhost:8000/",
+  baseURL: " https://photographerhire.herokuapp.com/",
 });
 
 export default ai;
