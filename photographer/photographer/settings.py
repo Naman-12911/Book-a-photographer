@@ -156,15 +156,15 @@ SIMPLE_JWT = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-# allow localhost 3000 to acced apis
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # add manual
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
+# allow localhost 3000 to acced apis
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000'
 ]
