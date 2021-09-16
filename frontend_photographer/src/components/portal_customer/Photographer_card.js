@@ -9,13 +9,17 @@ import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import naman from "../image/Naman Garg.jpeg";
 import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 import { Link } from "react-router-dom";
 import ai from "../Apis";
+import Checkbox from "@material-ui/core/Checkbox";
+import Favorite from "@material-ui/icons/Favorite";
+import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
+import Grid from "@material-ui/core/Grid";
+import { Container } from "@material-ui/core";
 
 // function for the style the card
 const useStyles = makeStyles((theme) => ({
@@ -66,63 +70,84 @@ export default function Photographer_card() {
     fetchData();
   }, []);
 
+  const [increment, setIncrement] = useState(0);
+
   return (
-    <div className="container my-4">
-      <Card className={classes.root}>
-        {photo.map((photo) => (
-          <div key={photo.id}>
-            <CardHeader
-              avatar={
-                <Avatar aria-label="recipe" className={classes.avatar}>
-                  {photo.name.charAt(0).toUpperCase()}
-                </Avatar>
-              }
-              action={<IconButton aria-label="settings"></IconButton>}
-              title={photo.name}
-            />
-            <CardMedia
-              className={classes.media}
-              image={naman}
-              title="Paella dish"
-            />
-            <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-                <h6>speaclizations</h6>
-                {photo.speaclization}
-              </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <FavoriteIcon /> 12
-              </IconButton>
-              <div className="mx-3">
-                <Link to={`/${photo.id}`}> Book Now</Link>
+    <div className="container my-4" id="repeatcard">
+      <Container>
+        <Grid container>
+          {photo.map((photo) => (
+            <Grid item xs={12} sm={6} md={4}>
+              <div className="mx-4">
+                <Card className={classes.root}>
+                  <div key={photo.id}>
+                    <CardHeader
+                      avatar={
+                        <Avatar aria-label="recipe" className={classes.avatar}>
+                          {photo.name.charAt(0).toUpperCase()}
+                        </Avatar>
+                      }
+                      action={<IconButton aria-label="settings"></IconButton>}
+                      title={photo.name}
+                    />
+                    <CardMedia className={classes.media} image={naman} />
+                    <CardContent>
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        <h6>speaclizations</h6>
+                        {photo.speaclization}
+                      </Typography>
+                    </CardContent>
+                    <CardActions disableSpacing>
+                      {/* like button*/}
+                      <IconButton aria-label="add to favorites">
+                        {
+                          <Checkbox
+                            icon={<FavoriteBorder />}
+                            checkedIcon={<Favorite />}
+                            name="checkedH"
+                            onClick={() =>
+                              increment >= 0 ? setIncrement(increment + 1) : ""
+                            }
+                          />
+                        }
+                        {increment}
+                      </IconButton>
+                      <div className="mx-3">
+                        <Link to={`/${photo.id}`}> Book Now</Link>
+                      </div>
+                      <IconButton
+                        className={clsx(classes.expand, {
+                          [classes.expandOpen]: expanded,
+                        })}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                      >
+                        <ExpandMoreIcon />
+                      </IconButton>
+                    </CardActions>
+                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+                      <CardContent>
+                        <Typography paragraph>
+                          <h6>Work Experience:</h6>
+                        </Typography>
+                        <Typography paragraph>
+                          {photo.work_experience.slice(0, 150)}...{" "}
+                          <Link to={`/${photo.id}`}> Read more</Link>
+                        </Typography>
+                      </CardContent>
+                    </Collapse>
+                  </div>
+                </Card>
               </div>
-              <IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded,
-                })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMoreIcon />
-              </IconButton>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <CardContent>
-                <Typography paragraph>
-                  <h6>Work Experience:</h6>
-                </Typography>
-                <Typography paragraph>
-                  {photo.work_experience.slice(0, 150)}...{" "}
-                  <Link to={`/${photo.id}`}> Read more</Link>
-                </Typography>
-              </CardContent>
-            </Collapse>
-          </div>
-        ))}
-      </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
     </div>
   );
 }

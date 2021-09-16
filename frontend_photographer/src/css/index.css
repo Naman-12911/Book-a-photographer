@@ -153,3 +153,6 @@ nav ul li a:hover {
   padding: 15px;
   size: 3px;
 }
+#repeatcard {
+  grid-template-columns: repeat(3, 3fr);
+}
