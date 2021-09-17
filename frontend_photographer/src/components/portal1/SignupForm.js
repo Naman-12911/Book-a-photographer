@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import ai from "../Apis";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormLabel from "@material-ui/core/FormLabel";
+
 function SignupForm(props) {
   // signup api
   const url = "account/register/";
@@ -13,6 +18,11 @@ function SignupForm(props) {
   });
   function sumbit(e) {
     e.preventDefault();
+    const regexp = /^[0-9\b]+$/;
+    if (data.phone_no.length !== 10 || !regexp.test(data.phone_no)) {
+      alert("please coorect phone numer");
+      return;
+    }
     ai.post(url, {
       first_name: data.first_name,
       last_name: data.last_name,
@@ -31,7 +41,7 @@ function SignupForm(props) {
         type_choice: "",
       });
       //props.showAlert("Your problem has been sumbitted!", "success");
-      alert("nnnnnnnnnnnn");
+      alert("you are signup!");
     });
   }
   function handle(e) {
@@ -40,6 +50,9 @@ function SignupForm(props) {
     setData(newdata);
     console.log(newdata);
   }
+  const handleChange = (event) => {
+    setData({ ...data, type_choice: event.target.value });
+  };
 
   return (
     <div className="FormCenter">
@@ -82,7 +95,7 @@ function SignupForm(props) {
         </div>
         <div className="FormField">
           <input
-            type="number"
+            type="text"
             className="FormField__Input"
             id="phone_no"
             placeholder="phone Number *"
@@ -105,8 +118,8 @@ function SignupForm(props) {
             required
           />
         </div>
-        {/*
-        <div className="FormField">
+
+        {/* <div className="FormField">
           <input
             type="text"
             className="FormField__Input"
@@ -115,22 +128,27 @@ function SignupForm(props) {
             name="type_choice"
             value={data.type_choice}
             onChange={(e) => handle(e)}
-            required
           />
-        </div>
-        */}
+        </div> */}
 
-        <div className="FormField">
-          <label className="FormField__Label">Select type of user </label>
-          <select onChange={(e) => handle(e)}>
-            <option value={`"photographer"{data.type_choice}`}>
-              As a photographer
-            </option>
-            <option value={`"customer"{data.type_choice}`}>
-              As a customer
-            </option>
-          </select>
-        </div>
+        <FormLabel component="legend">Gender</FormLabel>
+        <RadioGroup
+          aria-label="gender"
+          name="controlled-radio-buttons-group"
+          value={data.type_choice}
+          onChange={handleChange}
+        >
+          <FormControlLabel
+            value="customer"
+            control={<Radio />}
+            label="Female"
+          />
+          <FormControlLabel
+            value="photographer"
+            control={<Radio />}
+            label="Male"
+          />
+        </RadioGroup>
 
         <div className="FormField">
           <button className=" Submit FormField__Button mr-20" type="submit">
