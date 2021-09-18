@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../../css/Main.css";
 import { NavLink } from "react-router-dom";
+import FormPage from "./FormPage";
 import {Dropdown,DropdownButton } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Main()  {
   return (
@@ -34,13 +36,11 @@ function Main()  {
           <div className='button'>
             <DropdownButton title='More'>
               <Dropdown.Menu show>
-                <Dropdown.Item eventKey="1">Profile</Dropdown.Item>
-                <Dropdown.Item eventKey="2">Esle</Dropdown.Item>
+                <Dropdown.Item eventKey="1">My Profile</Dropdown.Item>
                 <Dropdown.Item eventKey="3">Setting</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item eventKey="4">Log Out</Dropdown.Item>
               </Dropdown.Menu>
-
             </DropdownButton>
           </div>
       </nav>
