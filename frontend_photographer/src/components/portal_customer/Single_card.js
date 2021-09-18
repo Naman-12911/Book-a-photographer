@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import ai from "../Apis";
+
 import { useHistory, useParams } from "react-router-dom";
 function Cards_page() {
   const [blog, setBlog] = useState([]);
   const parms = useParams();
-  const fetchURL = `http://localhost:8000/top_dest_contact/top-destination/${parms.slug}`;
+  const fetchURL = `http://localhost:8000/`;
   useEffect(() => {
     async function fetchData() {
-      const request = await axios
-        .get(fetchURL)
+      const request = await ai
+        .get(`top_dest_contact/top-destination/${parms.slug}`)
         .then((res) => {
           console.log(res);
           setBlog(res.data);

@@ -25,9 +25,7 @@ SECRET_KEY = '5y&i0l)iuy-$v!7e7fdfbz6mfga#jqt2gbg+$kpj9w=l#uvo1q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,9 +46,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware', # add middle ware for the react
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # file for the serve static files
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # add middle ware for the react
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -63,9 +62,7 @@ ROOT_URLCONF = 'photographer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'react-cart/build') # adding react templates
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,7 +121,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-CORS_ORIGIN_ALLOW_ALL=True # true for the react
 
 from datetime import timedelta
 
@@ -161,22 +157,20 @@ SIMPLE_JWT = {
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS= [
-    os.path.join(BASE_DIR,'react-cart/build/static')
-]
-AUTH_USER_MODEL = 'account.User'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-# add manual
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # add manual
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+# allow localhost 3000 to acced apis
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000'
+]
+# edit the user mode.
+AUTH_USER_MODEL = 'account.User'
+
 # rst framework AUTH
 REST_FRAMEWORK = {
      'DEFAULT_PERMISSION_CLASSES': [
@@ -185,5 +179,6 @@ REST_FRAMEWORK = {
          ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
      'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-     )
+     ),
+    #'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPaginaion',
 }

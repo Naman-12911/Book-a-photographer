@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import ai from "../Apis";
 import { Link } from "react-router-dom";
 function Cards() {
   // fetch all the blogs using axios library.
   const [blog, setBlog] = useState([]);
-  const fetchURL = "http://localhost:8000/top_dest_contact/top-destination/";
   useEffect(() => {
     async function fetchData() {
-      const request = axios
-        .get(fetchURL)
+      const request = ai
+        .get("top_dest_contact/top-destination/")
         .then((res) => {
           console.log(res);
           setBlog(res.data);

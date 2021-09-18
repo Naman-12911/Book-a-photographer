@@ -24,7 +24,6 @@ class photographer(models.Model):
     email = models.EmailField(unique=True)
     #user = models.OneToOneField(User , on_delete=models.CASCADE, default=email)
     name = models.CharField(max_length= 200) 
-    
     phone_number = models.BigIntegerField(unique=True)
     image1 = models.ImageField(null=True) # entre url of the Image
     image3 = models.ImageField(null=True)  # entre image of photogapher to represent 
@@ -33,6 +32,9 @@ class photographer(models.Model):
     image5 = models.ImageField(null=True) # entre image of photogapher to represent 
     speaclization = models.CharField(max_length=200) # fill photographer spelization
     work_experience = models.TextField() # entre work enxperince of the user.
+    awards = models.TextField(null=True) # entre awards if any awards 
+    company_colaboration = models.TextField(null =True) # entre any company colloration
+    preffred_location = models.CharField(null=True, max_length= 200) # any preferd loction you want.
     price = models.IntegerField() # entre price of the photographer.
 
     def __str__(self):

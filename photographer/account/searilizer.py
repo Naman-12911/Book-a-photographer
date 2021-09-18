@@ -16,7 +16,6 @@ class UserSerializers(serializers.ModelSerializer):
     # convert password to hash key
     def create(self, validated_data):
         password = validated_data.pop('password',None)
-        phone_no = validated_data.pop('phone_no',None)
         instance = self.Meta.model(**validated_data)
         if password is not None:
             instance.set_password(password)
@@ -53,6 +52,6 @@ class UserLoginSerializer(serializers.Serializer):
 class photographerSerializer(serializers.ModelSerializer):
     class Meta:
         model = photographer
-        fields = ['id','email','phone_number','image1','image2','image3','image4','image5','speaclization','work_experience','price']
+        fields = ['id','name','email','phone_number','image1','image2','image3','image4','image5','speaclization','work_experience','price']
         #fields = "__all__"
         

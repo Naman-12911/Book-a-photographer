@@ -13,6 +13,9 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.views import APIView
+from .pagination import mypagination
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
 # Create your views here.
 # user registration 
 class Register(APIView):
@@ -43,11 +46,13 @@ class  Login(RetrieveAPIView):
 
         return Response(response, status=status_code)
 
-#permission_classes = [IsAuthenticated]
+#permission_classes = 
 # #authentication_classes = [JWTAuthentication]
 
 # photographer APIs with CURD operations
-
+#@api_view(['GET'])
+#@permission_classes([IsAuthenticated,])
+#@authentication_classes([JWTAuthentication,])
 @csrf_exempt
 def photographer_post(request):  
         # post api

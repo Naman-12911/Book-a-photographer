@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.views import APIView
+from account.pagination import mypagination
 # api  for contact
 # post request to post the contact form
 @csrf_exempt
@@ -30,6 +31,7 @@ def destination_list(request):
             destination_blog = destination.objects.all()
             serializer = top_destinationSerializer(destination_blog, many=True)
             return JsonResponse(serializer.data, safe=False)
+            pagination_list = mypagination
     except:
         print("please try after some Time Thanks!")
 # fetch all the blogs according to their slug feild

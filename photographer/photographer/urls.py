@@ -1,13 +1,11 @@
 
 from django.contrib import admin
 from django.urls import path,include
-from photographer.views import index
 from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView,TokenVerifyView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/',include('account.urls')), # account url
     path('top_dest_contact/', include('top_dest_contact.urls')), #contact url
-    path('', index),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # get a token
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'), # refresh a token
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'), # verify a token
