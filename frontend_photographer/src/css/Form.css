@@ -38,7 +38,7 @@ a:hover {
 } */
 .App__Form {
   width: 50%;
-  background-color: #f2f5f8;
+  background-color: #fff;
   padding: 25px 40px;
   overflow: auto;
 }

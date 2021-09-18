@@ -1,26 +1,10 @@
-import React, { useState, useEffect } from "react";
-import clsx from "clsx";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import naman from "../image/Naman Garg.jpeg";
 import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import ai from "../Apis";
-import Checkbox from "@material-ui/core/Checkbox";
-import Favorite from "@material-ui/icons/Favorite";
-import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
-import Cards from "./Card";
+import Cards from "./Photographer_main_card";
 
 // function for the style the card
 const useStyles = makeStyles((theme) => ({
@@ -71,16 +55,22 @@ export default function Photographer_card() {
     fetchData();
   }, []);
 
-  const [increment, setIncrement] = useState(0);
-
   return (
     <div className="container my-4" id="repeatcard">
       <Container>
-        {/* <Grid  spacing={2}> */}
-        {photo.map((photo, key) => (
-          <Cards photo={photo} key={key} />
-        ))}
-        {/* </Grid> */}
+        <Grid
+          container
+          spacing={2}
+          direction="row"
+          justify="flex-start center"
+          alignItems="flex-start"
+        >
+          {photo.map((photo, key) => (
+            <Grid item xs={12} sm={6} md={4}>
+              <Cards photo={photo} key={key} />
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </div>
   );

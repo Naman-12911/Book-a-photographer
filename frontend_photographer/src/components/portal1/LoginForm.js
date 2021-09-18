@@ -62,7 +62,7 @@ function LoginForm(props) {
             Log In
           </button>
           <p onClick={() => setLogin("signup")} className="FormField__link">
-            Create an Accoun t
+            Create an Account
           </p>
         </div>
       </form>

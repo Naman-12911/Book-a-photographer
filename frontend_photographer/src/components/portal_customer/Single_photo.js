@@ -21,7 +21,7 @@ function Single_photo() {
     fetchData();
   }, []);
 
-  return <div> hello</div>;
+  return <div></div>;
 }
 
 export default Single_photo;
