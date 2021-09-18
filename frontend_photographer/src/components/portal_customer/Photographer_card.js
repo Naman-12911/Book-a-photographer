@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -11,15 +12,15 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import naman from "../image/Naman Garg.jpeg";
+=======
+>>>>>>> beefa2d2f4c8557eb2e0a8a94c89992377564947
 import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import ai from "../Apis";
-import Checkbox from "@material-ui/core/Checkbox";
-import Favorite from "@material-ui/icons/Favorite";
-import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
+import Cards from "./Photographer_main_card";
 
 // function for the style the card
 const useStyles = makeStyles((theme) => ({
@@ -70,14 +71,19 @@ export default function Photographer_card() {
     fetchData();
   }, []);
 
-  const [increment, setIncrement] = useState(0);
-
   return (
     <div className="container my-4" id="repeatcard">
       <Container>
-        <Grid container>
-          {photo.map((photo) => (
+        <Grid
+          container
+          spacing={2}
+          direction="row"
+          justify="flex-start center"
+          alignItems="flex-start"
+        >
+          {photo.map((photo, key) => (
             <Grid item xs={12} sm={6} md={4}>
+<<<<<<< HEAD
               <div className="mx-4">
                 <Card className={classes.root}>
                   <div key={photo.id}>
@@ -144,6 +150,9 @@ export default function Photographer_card() {
                   </div>
                 </Card>
               </div>
+=======
+              <Cards photo={photo} key={key} />
+>>>>>>> beefa2d2f4c8557eb2e0a8a94c89992377564947
             </Grid>
           ))}
         </Grid>

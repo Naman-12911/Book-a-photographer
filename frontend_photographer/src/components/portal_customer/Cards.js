@@ -21,7 +21,7 @@ function Cards() {
   }, []);
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapper my-3">
         <div className="container">
           <div className="row">
             {blog.map((blog) => (

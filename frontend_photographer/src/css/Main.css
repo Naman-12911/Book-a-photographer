@@ -7,14 +7,22 @@
   font-family: "Jost", sans-serif;
 }
 
-html {
+div .navbar-font-size nav .main-nav {
   font-size: 62.5%;
 }
 
-.logo h2 a{
+.logo h2 a {
   text-decoration: none;
 }
-
+#logo-text {
+  font-size: 62.5%;
+}
+.menu-link ul li a {
+  font-size: 62.5%;
+}
+#button-disable #more-dropdown {
+  font-size: 62.5%;
+}
 li {
   list-style: none;
 }
@@ -25,11 +33,10 @@ li {
 
 .main-nav {
   width: 100%;
-  height: 7rem;
+  height: 3.5rem;
   display: grid;
   grid-template-columns: 10rem 1fr 2fr 1fr 10rem;
   background-color: #23232d;
-  
 }
 
 .logo {
@@ -38,7 +45,7 @@ li {
   justify-content: start;
   align-items: center;
   color: #fff;
-  height: 7em;
+  height: 3em;
 }
 
 .menu-link {
@@ -46,24 +53,27 @@ li {
 }
 
 .menu-link ul {
-  height: 7rem;
+  height: 3rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-
+.menu-link ul li a {
+  text-decoration: none;
+}
+#button-disable {
+  margin-top: -0.8rem;
+}
 
 /* ----------- Grid part ends ----------------- */
 
-
-.logo h2 {   /* this logo h2 is not working ....correct it*/
-    font-size: 2.5rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    color:#fff;
+.logo h2 {
+  /* this logo h2 is not working ....correct it */
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
 }
-
-
 
 .menu-link ul li {
   font-size: 1.8rem;
@@ -74,42 +84,49 @@ li {
   color: rgba(195, 195, 207, 0.8);
   transition: 0.5s;
 }
-.menu-link ul li:hover > a {
+.menu-link ul li:hover a {
   transform-origin: left;
   color: rgba(0, 0, 3, 1);
   transition: 0.5s;
   text-decoration: none;
-  
 }
 
-/* Dropdown Button using bootstrap*/
+/* Dropdown Button using bootstrap */
 
-.button{
-    color: #fff;
-    font-size: 1.8rem;
-    height: 10rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.button {
+  color: #fff;
+  font-size: 1rem;
+  height: 7.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .dropdown {
-    height: 3em;
-    position: relative;
-    border-color: #9d9fa1;
-    font-size: 1.8rem;
+  height: 3em;
+  position: relative;
+  border-color: #9d9fa1;
+  font-size: 1.8rem;
 }
 
-.btn-check:active+.btn-primary, .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #17191b;
-    border-color: #3e4042;
-    font-size: 1.8rem;
+.btn-check:active + .btn-primary,
+.btn-check:checked + .btn-primary,
+.btn-primary.active,
+.btn-primary:active,
+.show .btn-primary.dropdown-toggle {
+  background-color: #17191b;
+  border-color: #3e4042;
+  font-size: 1.8rem;
 }
-[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
-    cursor: pointer;
-    position: relative;
-    background-color: #17191b;
-    border-color: #9d9fa1;
-    font-size: 1.8rem;
+
+#button-disable button:not(:disabled) {
+  cursor: pointer;
+  position: relative;
+  background-color: #17191b;
+  border-color: #9d9fa1;
+  font-size: 1.8rem;
+}
+#dropdown a {
+  text-decoration: none;
+  color: black;
 }
