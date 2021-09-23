@@ -1,14 +1,8 @@
 import React from "react";
 import "../../css/Main.css";
-<<<<<<< HEAD
-import { NavLink } from "react-router-dom";
-import FormPage from "./FormPage";
-import {Dropdown,DropdownButton } from "react-bootstrap";
-import { Link } from "react-router-dom";
-=======
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownButton } from "react-bootstrap";
->>>>>>> beefa2d2f4c8557eb2e0a8a94c89992377564947
+import Profile from './Profile';
 
 function Main() {
   return (
@@ -30,7 +24,7 @@ function Main() {
               <Link to="/top-destination">Top Destination</Link>
             </li>
             <li>
-              <Link to="/bokings">Bookings</Link>
+              <Link to="/bookings">Bookings</Link>
             </li>
             <li>
               <Link to="/Blogs">Blogs</Link>
@@ -39,25 +33,12 @@ function Main() {
               <Link to="/contact">contact</Link>
             </li>
           </ul>
-<<<<<<< HEAD
-          </div>
-          <div className='button'>
-            <DropdownButton title='More'>
-              <Dropdown.Menu show>
-                <Dropdown.Item eventKey="1">My Profile</Dropdown.Item>
-                <Dropdown.Item eventKey="3">Setting</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item eventKey="4">Log Out</Dropdown.Item>
-              </Dropdown.Menu>
-            </DropdownButton>
-          </div>
-=======
         </div>
         <div className="button" id="button-disable">
           <DropdownButton title="More" id="more-dropdown">
             {/* <Dropdown.Menu show> */}
             <Dropdown.Item eventKey="1" id="dropdown">
-              <Link to="/profile"> Profile</Link>
+              <Link to="/Profile"> Profile</Link>
             </Dropdown.Item>
             <Dropdown.Item eventKey="3" id="dropdown">
               <Link to="/logout"> Log out</Link>
@@ -69,7 +50,6 @@ function Main() {
             {/* </Dropdown.Menu> */}
           </DropdownButton>
         </div>
->>>>>>> beefa2d2f4c8557eb2e0a8a94c89992377564947
       </nav>
     </div>
   );

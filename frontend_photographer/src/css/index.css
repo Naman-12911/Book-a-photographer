@@ -14,10 +14,10 @@ button {
   outline: none;
   border: none;
 }
-input {
+/* input {
   outline: none;
   border: none;
-}
+} */
 .header {
   width: 100%;
   height: 768px;

@@ -4,11 +4,18 @@ import Photographer_card from "../components/portal_customer/Photographer_card";
 import Main from "../components/portal_customer/Main";
 import { BrowserRouter as Switch, Route } from "react-router-dom";
 import Single_photo from "../components/portal_customer/Single_photo";
+import Profile from "../components/portal_customer/Profile";
+
 // portal 2
 function Appshell() {
   return (
     <>
       <Main />
+      <Switch>
+      <Route exact path="/Profile">
+          <Profile />
+        </Route>
+      </Switch>
       <Switch>
         {/* enable the photographer */}
         <Route exact path="/">
@@ -26,6 +33,7 @@ function Appshell() {
         <Route exact path="/blog/:slug">
           <Single_Card />
         </Route>
+        
       </Switch>
     </>
   );

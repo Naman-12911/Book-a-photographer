@@ -1,0 +1,70 @@
+.about-page{
+    padding: 20%;
+    padding-top: 20px;
+    
+}
+
+/* book now button */
+.info-page{
+    display: flex;
+}
+.book-now{
+    float: left;
+    width: 50%;
+    display: flex;
+}
+.button-info{
+    color:#fff;
+    padding: 1px 10px 2px 10px;
+    background-color: #2196F3;
+    font-family: 'Source Sans Pro', sans-serif;
+    border-radius: 5px;
+}
+.book-now-button{
+    margin: 0px 150px;
+    display: flex;
+    float: left;
+    margin-right: 10px;
+    margin-left: 300px;
+    
+}
+.book-now .button-info{
+    float: left;
+    display: flex;
+}
+
+.img-div img{
+    width: 150px;
+    height: 150px;
+    display: flex;     
+}
+.page-username{
+    border: 1px solid #000;
+}
+
+.book-now #username{
+    margin-top: 10px;
+    width: 20%;
+    
+}
+.row-page{
+    display: flex;
+}
+.column-page{
+    float: left;
+    width: 50%;
+    display: flex;
+}
+
+.row-labels{
+    border: 1px solid #000;
+    margin: auto;
+}
+
+/* image container*/
+.column-img {
+    float: left;
+    width: 20%;
+    padding: 5px;
+  }
+
