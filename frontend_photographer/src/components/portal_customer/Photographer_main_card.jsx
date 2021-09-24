@@ -72,10 +72,14 @@ function Cards({ photo, key }) {
             action={<IconButton aria-label="settings"></IconButton>}
             title={photo.name}
           />
-          <CardMedia className={classes.media} image={naman} />
+          <CardMedia
+            className={classes.media}
+            src="http://localhost:8000/images/post_images/bike_fyU3hhR.jfif"
+          />
           <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
               <h6>speaclizations</h6>
+              {/* style={{ display: "block", textAlign: "right" }} */}
               {photo.speaclization}
             </Typography>
           </CardContent>

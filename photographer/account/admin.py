@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
-from .models import User, photographer
+from .models import User
 class customUserAdmin(UserAdmin):
   #form = UserChangeForm
   fieldsets = (
@@ -24,6 +24,4 @@ class customUserAdmin(UserAdmin):
   search_fields = ('email',)
   ordering = ('email', )
 admin.site.register(User, customUserAdmin)
-class photographerAdmin(admin.ModelAdmin):
-    readonly_fields = ('id',)
-admin.site.register(photographer,photographerAdmin)
+

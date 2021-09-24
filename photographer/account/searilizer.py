@@ -1,4 +1,4 @@
-from .models import User, photographer
+from .models import User
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import update_last_login
@@ -49,9 +49,3 @@ class UserLoginSerializer(serializers.Serializer):
             'email':user.email,
             'token': jwt_token
         }
-class photographerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = photographer
-        fields = ['id','name','email','phone_number','image1','image2','image3','image4','image5','speaclization','work_experience','price']
-        #fields = "__all__"
-        

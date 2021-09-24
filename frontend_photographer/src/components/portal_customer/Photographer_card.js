@@ -7,6 +7,7 @@ import { Container } from "@material-ui/core";
 import Cards from "./Photographer_main_card";
 
 // function for the style the card
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -42,7 +43,7 @@ export default function Photographer_card() {
   useEffect(() => {
     async function fetchData() {
       const request = ai
-        .get("account/photographer-account/")
+        .get("photographer-account/photographer-account/")
         .then((res) => {
           console.log(res);
           setPhoto(res.data);
@@ -66,7 +67,7 @@ export default function Photographer_card() {
           alignItems="flex-start"
         >
           {photo.map((photo, key) => (
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4.5}>
               <Cards photo={photo} key={key} />
             </Grid>
           ))}

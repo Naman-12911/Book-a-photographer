@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ai from "../Apis";
 import { Link } from "react-router-dom";
+import Pagination from "./Pagination";
 function Cards() {
   // fetch all the blogs using axios library.
   const [blog, setBlog] = useState([]);
+  const [current, setCurrent] = useState(1);
+  // const [pageSize] = useState(0);
   useEffect(() => {
     async function fetchData() {
       const request = ai
@@ -19,12 +22,45 @@ function Cards() {
     }
     fetchData();
   }, []);
+  // pagination
+
+  let preClick = async () => {
+    // privious page
+    async function fetchData() {
+      const request = ai
+        .get(`top_dest_contact/top-destination/?page=${current - 1}`)
+        .then((res) => {
+          setBlog(res.data);
+        })
+        .catch((err) => {});
+      return request;
+    }
+    fetchData();
+    setCurrent(current - 1);
+  };
+  let nextClick = async () => {
+    // next page
+
+    async function fetchData() {
+      const request = ai
+        .get(`top_dest_contact/top-destination/?page=${current + 1}&pageSize`)
+        .then((res) => {
+          setBlog(res.data);
+        })
+        .catch((err) => {});
+      return request;
+    }
+    fetchData();
+    setCurrent(current + 1);
+  };
+
+  console.log("next");
   return (
     <>
-      <div className="wrapper my-3">
+      <div className="wrapper">
         <div className="container">
           <div className="row">
-            {blog.map((blog) => (
+            {blog?.results?.map((blog) => (
               <div className="col-md-6 col-lg-4" key={blog.id}>
                 <div className="card mx-30">
                   <img
@@ -55,6 +91,28 @@ function Cards() {
             ))}
           </div>
           <br />
+        </div>
+      </div>
+      {/* <Pagination /> */}
+      <div>
+        <div className="d-flex justify-content-between">
+          <button
+            type="button"
+            disabled={current <= 1}
+            className="btn btn-dark mx-5 my-3"
+            onClick={preClick}
+          >
+            {" "}
+            &larr; Previous
+          </button>
+          <button
+            type="button"
+            className="btn btn-dark mx-5 my-3"
+            onClick={nextClick}
+          >
+            {" "}
+            Next &rarr;
+          </button>
         </div>
       </div>
     </>
