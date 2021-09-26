@@ -1,0 +1,98 @@
+.about-page {
+  padding: 10%;
+  padding-top: 20px;
+  background-color: azure;
+}
+
+/* book now button */
+.info-page {
+  display: flex;
+}
+.book-now {
+  float: left;
+  width: 50%;
+  display: flex;
+}
+.button-info {
+  color: #fff;
+  background-color: #2196f3;
+  font-family: "Source Sans Pro", sans-serif;
+  margin-top: 3rem;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 10px;
+}
+.button-info:hover {
+  cursor: pointer;
+  background-color: green;
+  transition: 2sec;
+}
+.book-now-button {
+  margin: 0px 150px;
+  display: flex;
+  float: left;
+  margin-right: 10px;
+  margin-left: 300px;
+}
+.book-now .button-info {
+  float: left;
+  display: flex;
+}
+
+.img-div img {
+  width: 150px;
+  height: 150px;
+  display: flex;
+}
+.page-username {
+  border: 1px solid #000;
+}
+
+.book-now #username {
+  margin-top: 10px;
+  width: 20%;
+}
+.row-page {
+  display: flex;
+}
+.column-page {
+  float: left;
+  display: flex;
+}
+
+/* image container*/
+.column-img {
+  float: left;
+  width: 20%;
+  height: 20%;
+  padding: 15px;
+  margin-top: 1rem;
+}
+.column-img img {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2rem;
+  grid-row-gap: 6rem;
+}
+.info p {
+  font-family: "Baloo Bhai 2", cursive;
+}
+.about-page #about-page {
+  font-weight: 600;
+}
+
+.column-page p {
+  font-family: "Baloo Bhai 2", cursive;
+  margin-left: 2rem;
+  font-weight: 500;
+}
+
+.book-now p {
+  font-family: "Baloo Bhai 2", cursive;
+  margin-top: 12px;
+  margin-left: 5rem;
+  font-weight: 500;
+}
+.column-page h5 {
+  margin-left: 5rem;
+}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ai from "../Apis";
 import { Link } from "react-router-dom";
-import Pagination from "./Pagination";
 function Cards() {
   // fetch all the blogs using axios library.
   const [blog, setBlog] = useState([]);
@@ -106,6 +105,7 @@ function Cards() {
             &larr; Previous
           </button>
           <button
+            disabled={current >= 2}
             type="button"
             className="btn btn-dark mx-5 my-3"
             onClick={nextClick}

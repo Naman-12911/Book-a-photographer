@@ -14,6 +14,7 @@ from . import pagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework import generics # import genric view for the img url
 
 # Create your views here.
 @csrf_exempt
@@ -30,23 +31,14 @@ def photographer_post(request):
         return JsonResponse(serializer.errors, status=400)
     # get request to fetch the data
     
-    elif request.method == "GET":
-        photographer_feild = photographer.objects.all()
-        serializer = photographerSerializer(photographer_feild, many=True)
-        return JsonResponse(serializer.data, safe=False)
-    
 @csrf_exempt
 def photographerId_get(request,pk):
     try:
         photographer_id = photographer.objects.get(pk=pk)
     except photographer_id.DoesNotExist:
         return HttpResponse(status=404)
-    # get request to fetch all the data according to the id
-    if request.method == 'GET': 
-        serializer = photographerSerializer(photographer_id)
-        return JsonResponse(serializer.data)
     # Patch request to update the data
-    elif request.method == 'PUT': # put request to updat the partical data
+    if request.method == 'PUT': # put request to updat the partical data
         data = JSONParser().parse(request)
         serializer = photographerSerializer(photographer_id, data=data)
         if serializer.is_valid():
@@ -60,11 +52,11 @@ def photographerId_get(request,pk):
 
 class LikeListCreate(APIView):
 
-    def get(self,request,pk):#function to get total number of likes to particular post
-        post = photographer.objects.filter(pk=pk) # find which post's likes are to be extracted
-        like_count = post.likepost.count()# counts total user likes ,besides my code is wrong
-        serializer = photographer(like_count,many=True)
-        return Response(serializer.data)
+    # def get(self,request,pk):#function to get total number of likes to particular post
+    #     post = photographer.objects.filter(pk=pk) # find which post's likes are to be extracted
+    #     like_count = post.likepost.count()# counts total user likes ,besides my code is wrong
+    #     serializer = photographer(like_count,many=True)
+    #     return Response(serializer.data)
 
     def post(self,request,pk):#function to add likes to post
         # how do I check if user is already liked the post ?
@@ -77,3 +69,40 @@ class LikeListCreate(APIView):
             serializer.save(likeusers,likepost)
             return Response(serializer.data,status=status.HTTP_201_CREATED)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+@csrf_exempt
+def email(request,pk):
+    try:
+        photographer_id = photographer.objects.get(pk=pk)
+    except photographer_id.DoesNotExist:
+        return HttpResponse(status=404)
+from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny,IsAuthenticated
+from rest_framework import viewsets
+from django.shortcuts import get_object_or_404
+
+class photographer_get(viewsets.ModelViewSet): # to fetch all the photographer main thingd to use gives umg url
+    permission_classes = [AllowAny]
+    queryset = photographer.objects.all()
+    serializer_class = photographerSerializer
+    # def retrieve(self, request, pk=None):
+    
+        # Returns a single object
+        # and this is not gives the img and file url in postman 
+        
+        # photographer_id = get_object_or_404(self.queryset,pk=pk)
+        # serializer_class = photographerSerializer(photographer_id)
+        # return Response(serializer_class.data)
+
+
+
+class single_photographer(generics.ListAPIView): #to fect onyly 1 photgrapher details in main things to use is gives img url
+
+    serializer_class =photographerSerializer
+    queryset = photographer.objects.all()
+    permission_classes = [AllowAny] 
+
+    def get(self, request, pk=None):
+        imgobj = photographer.objects.get(pk=pk)
+        serializer = photographerSerializer(imgobj, context= 
+        {'request': request})
+        return Response( serializer.data)

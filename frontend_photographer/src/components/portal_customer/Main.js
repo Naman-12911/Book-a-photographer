@@ -4,6 +4,7 @@ import boy from "../image/boy.png";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import ai from "../Apis";
+import Profile from "../photographer_portal/Profile";
 
 function Main() {
   const [photo, setPhoto] = useState([]);

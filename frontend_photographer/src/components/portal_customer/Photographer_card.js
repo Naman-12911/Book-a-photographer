@@ -5,6 +5,7 @@ import ai from "../Apis";
 import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
 import Cards from "./Photographer_main_card";
+import Single_photo from "./Single_photo";
 
 // function for the style the card
 
@@ -43,7 +44,7 @@ export default function Photographer_card() {
   useEffect(() => {
     async function fetchData() {
       const request = ai
-        .get("photographer-account/photographer-account/")
+        .get("api/img/")
         .then((res) => {
           console.log(res);
           setPhoto(res.data);
