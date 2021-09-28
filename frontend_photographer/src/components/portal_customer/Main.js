@@ -3,18 +3,18 @@ import "../../css/Main.css";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import Profile from './Profile';
+import  navbar_logo from "../image/navbar_logo.PNG";
 
 function Main() {
   return (
     <div id="navbar-font-size">
       <nav className="main-nav">
         {/* 1st logo part  */}
-        <div className="logo">
-          <h2>
-            <Link id="logo-text" to="/">
-              LOGO
-            </Link>
-          </h2>
+        <div class="inner-logo">
+              <div className='navimg'> <img id='nav_img' src={navbar_logo} alt="" />
+              </div>
+              <div className='logodiv'><a id ='nav_text'href="#">Photography</a>
+              </div>
         </div>
 
         {/* 2nd menu part  */}

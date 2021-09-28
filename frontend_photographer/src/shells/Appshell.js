@@ -5,6 +5,7 @@ import Main from "../components/portal_customer/Main";
 import { BrowserRouter as Switch, Route } from "react-router-dom";
 import Single_photo from "../components/portal_customer/Single_photo";
 import Profile from "../components/portal_customer/Profile";
+import Footer from "../components/portal_customer/Footer";
 
 // portal 2
 function Appshell() {
@@ -35,6 +36,8 @@ function Appshell() {
         </Route>
         
       </Switch>
+      <Footer />
+
     </>
   );
 }
