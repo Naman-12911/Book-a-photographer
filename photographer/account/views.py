@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from .searilizer import UserSerializers, photographerSerializer,UserLoginSerializer
+from .searilizer import UserSerializers,UserLoginSerializer
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
-from .models import User, photographer # import models
+from .models import User # import models
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.parsers import JSONParser
@@ -13,9 +13,9 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.views import APIView
-from .pagination import mypagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework_simplejwt.tokens import RefreshToken
 # Create your views here.
 # user registration 
 class Register(APIView):
@@ -46,48 +46,19 @@ class  Login(RetrieveAPIView):
 
         return Response(response, status=status_code)
 
-#permission_classes = 
-# #authentication_classes = [JWTAuthentication]
+# Logiout apis
 
-# photographer APIs with CURD operations
-#@api_view(['GET'])
-#@permission_classes([IsAuthenticated,])
-#@authentication_classes([JWTAuthentication,])
+#@permission_classes([IsAuthenticated])
 @csrf_exempt
-def photographer_post(request):  
-        # post api
-    if request.method == 'POST': 
-        data = JSONParser().parse(request)
-        serializer = photographerSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
-    # get request to fetch the data
-    elif request.method == "GET":
-        photographer_feild = photographer.objects.all()
-        serializer = photographerSerializer(photographer_feild, many=True)
-        return JsonResponse(serializer.data, safe=False)
-    
-@csrf_exempt
-def photographerId_get(request,pk):
-    try:
-        photographer_id = photographer.objects.get(pk=pk)
-    except photographer_id.DoesNotExist:
-        return HttpResponse(status=404)
-    # get request to fetch all the data according to the id
-    if request.method == 'GET': 
-        serializer = photographerSerializer(photographer_id)
-        return JsonResponse(serializer.data)
-    # Patch request to update the data
-    elif request.method == 'PUT': # put request to updat the partical data
-        data = JSONParser().parse(request)
-        serializer = photographerSerializer(photographer_id, data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data)
-        return JsonResponse(serializer.errors, status=400)
-    # delete request to delete accoriding to id.
-    elif request.method == 'DELETE': 
-        photographer_id.delete()
-        return HttpResponse("data delete",status=204)
+class logout(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        try:
+            refresh_token = request.data["refresh_token"]
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+
+            return Response(status=status.HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

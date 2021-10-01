@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     # app
     'account',
     'top_dest_contact',
+    'photographer_thing',
     'rest_framework_simplejwt',# simple jwt
+    "rest_framework_simplejwt.token_blacklist", # add token to blacklist
 ]
 
 MIDDLEWARE = [
@@ -156,14 +158,18 @@ SIMPLE_JWT = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# static files
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
 # add manual
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+MEDIA_ROOT = os.path.join(BASE_DIR,'static/images/')
+MEDIA_URL  = "/images/"
+
+
 # allow localhost 3000 to acced apis
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000'
@@ -182,3 +188,10 @@ REST_FRAMEWORK = {
      ),
     #'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPaginaion',
 }
+# email configration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "ancoder01@gmail.com"
+EMAIL_HOST_PASSWORD = "ymtgccgomwasqlrd"

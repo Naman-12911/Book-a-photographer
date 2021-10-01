@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Jost", sans-serif;
+  /* font-family: "Jost", sans-serif; */
 }
 
 div .navbar-font-size nav .main-nav {
@@ -36,7 +36,11 @@ li {
   height: 3.5rem;
   display: grid;
   grid-template-columns: 10rem 1fr 2fr 1fr 10rem;
-  background-color: #23232d;
+  background-color: rgb(18, 25, 48);
+  box-shadow: 0 5px 10px rgb(50 13 136 / 25%);
+  position: fixed;
+  transition: 0.2s;
+  z-index: 10000;
 }
 
 .logo {
@@ -81,14 +85,16 @@ li {
 
 .menu-link ul li a {
   text-transform: capitalize;
-  color: rgba(195, 195, 207, 0.8);
+  color: #fff;
   transition: 0.5s;
+  font-family: "Rajdhani", sans-serif;
 }
 .menu-link ul li:hover a {
   transform-origin: left;
-  color: rgba(0, 0, 3, 1);
-  transition: 0.5s;
+  /* color: rgba(0, 0, 3, 1); */
+  transition: width 0.5s;
   text-decoration: none;
+  background-image: linear-gradient(90deg, #0ff);
 }
 
 /* Dropdown Button using bootstrap */
@@ -130,6 +136,7 @@ li {
   text-decoration: none;
   color: black;
 }
+<<<<<<< HEAD
 
 /* logo container */
 .inner-logo{
@@ -169,3 +176,51 @@ li {
   background-color: transparent; 
   color:#ededed;
 }
+=======
+/* picture */
+#color-height {
+  height: 20rem;
+  background-color: #121930;
+}
+#boyset {
+  height: 16rem;
+  width: 43%;
+  margin-top: 3rem;
+  margin-left: 42rem;
+}
+#livethe {
+  color: #fff;
+  margin-top: -14rem;
+  margin-left: 2rem;
+  font-size: 3.8rem;
+  font-family: "Baloo Bhai 2", cursive;
+}
+#typewriter {
+  margin-left: 2rem;
+  margin-top: 5rem;
+  font-size: 2rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typewriter 2s steps(13) infinite alternate,
+    blink 800ms steps(13) infinite normal;
+  border-right: 5px solid #fff;
+  font-family: "Baloo Bhai 2", cursive;
+}
+@keyframes typewriter {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 32%;
+  }
+}
+@keyframes blink {
+  from {
+    border-color: #fff;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+>>>>>>> c4c8b492a8865c7c4568b84cb686665bf0d672b9

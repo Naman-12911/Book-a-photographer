@@ -8,7 +8,11 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.views import APIView
-from account.pagination import mypagination
+from photographer_thing import pagination
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+
 # api  for contact
 # post request to post the contact form
 @csrf_exempt
@@ -25,15 +29,17 @@ def contact(request):
         print("please try after some Time Thanks!") 
 
 # fetch all the blogs 
+@api_view(['GET',])
+@permission_classes([AllowAny,])
 def destination_list(request):
-    try:
-        if request.method == "GET":# get request to fetch the data
-            destination_blog = destination.objects.all()
-            serializer = top_destinationSerializer(destination_blog, many=True)
-            return JsonResponse(serializer.data, safe=False)
-            pagination_list = mypagination
-    except:
-        print("please try after some Time Thanks!")
+    paginator = pagination.mypagination()
+    # paginator.page_size = 7
+    destination_blog = destination.objects.all()
+    result_page = paginator.paginate_queryset(destination_blog, request)
+    serializer = top_destinationSerializer(result_page, many=True)
+    return paginator.get_paginated_response(serializer.data)
+
+    
 # fetch all the blogs according to their slug feild
 def top_destination_slug(request, slug):
     try:
