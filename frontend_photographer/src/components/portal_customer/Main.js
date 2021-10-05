@@ -3,13 +3,8 @@ import "../../css/Main.css";
 import boy from "../image/boy.png";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-<<<<<<< HEAD
-import Profile from './Profile';
-import  navbar_logo from "../image/navbar_logo.PNG";
-=======
 import ai from "../Apis";
 import Profile from "../photographer_portal/Profile";
->>>>>>> c4c8b492a8865c7c4568b84cb686665bf0d672b9
 
 function Main() {
   const [photo, setPhoto] = useState([]);
@@ -29,17 +24,6 @@ function Main() {
     fetchData();
   }, []);
   return (
-<<<<<<< HEAD
-    <div id="navbar-font-size">
-      <nav className="main-nav">
-        {/* 1st logo part  */}
-        <div class="inner-logo">
-              <div className='navimg'> <img id='nav_img' src={navbar_logo} alt="" />
-              </div>
-              <div className='logodiv'><a id ='nav_text'href="#">Photography</a>
-              </div>
-        </div>
-=======
     <>
       <div id="navbar-font-size">
         <nav className="main-nav">
@@ -51,7 +35,6 @@ function Main() {
               </Link>
             </h2>
           </div>
->>>>>>> c4c8b492a8865c7c4568b84cb686665bf0d672b9
 
           {/* 2nd menu part  */}
           <div className="menu-link">

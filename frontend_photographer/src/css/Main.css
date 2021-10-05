@@ -136,47 +136,6 @@ li {
   text-decoration: none;
   color: black;
 }
-<<<<<<< HEAD
-
-/* logo container */
-.inner-logo{
-  float: left; 
-  height: 67px; 
-  padding: 2px; 
-  font-size: 20px; 
-  font-weight: bold;
-  content: "";
-  display: table;
-  clear: both;
-}
-.logo-nav{
-  float:left; 
-  font-size:14px; 
-  height: 50px; 
-  border-radius: 50%;
-}
-.logodiv{
-  float: left;
-  width: 20%;
-  font:22px Arial, sans-serif;
-  font-weight: 800;
-  padding-top: 17px;
-
-}
-.navimg{
-  float: left;
-  padding: 5px 10px;
-  height: 100%;
-}
-.navimg #nav_img{
-  height:50px;
-}
-.logodiv #nav_text{
-  text-decoration: none; 
-  background-color: transparent; 
-  color:#ededed;
-}
-=======
 /* picture */
 #color-height {
   height: 20rem;
@@ -207,6 +166,7 @@ li {
   border-right: 5px solid #fff;
   font-family: "Baloo Bhai 2", cursive;
 }
+
 @keyframes typewriter {
   from {
     width: 0%;
@@ -223,4 +183,3 @@ li {
     border-color: transparent;
   }
 }
->>>>>>> c4c8b492a8865c7c4568b84cb686665bf0d672b9
