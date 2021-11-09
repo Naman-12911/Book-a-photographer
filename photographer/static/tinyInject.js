@@ -6,6 +6,7 @@ document.head.appendChild(script);
 
 script.onload = function () {
   tinymce.init({
+    theme: 'advanced',
     selector: "#id_decription",
     height: 656,
     plugins: [

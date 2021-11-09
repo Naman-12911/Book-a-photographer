@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'account',
     'top_dest_contact',
     'photographer_thing',
+    'customer',
     'rest_framework_simplejwt',# simple jwt
     "rest_framework_simplejwt.token_blacklist", # add token to blacklist
 ]

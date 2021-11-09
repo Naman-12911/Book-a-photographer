@@ -46,10 +46,10 @@ function Main() {
                 <Link to="/bokings">Bookings</Link>
               </li>
               <li>
-                <Link to="/Blogs">Blogs</Link>
+                <Link to="#">Blogs</Link>
               </li>
               <li>
-                <Link to="/contact">contact</Link>
+                <Link to="#">contact</Link>
               </li>
             </ul>
           </div>

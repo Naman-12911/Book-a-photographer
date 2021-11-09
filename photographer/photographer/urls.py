@@ -16,6 +16,7 @@ urlpatterns = [
     path('account/',include('account.urls')), # account url
     path('photographer-account/',include('photographer_thing.urls')), # url for photographer things
     path('top_dest_contact/', include('top_dest_contact.urls')), #contact url
+    path('customer/', include('customer.urls')), # coustomer  url
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # get a token
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'), # refresh a token
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'), # verify a token

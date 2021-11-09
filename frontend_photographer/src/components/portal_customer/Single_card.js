@@ -19,11 +19,27 @@ function Cards_page() {
     }
     fetchData();
   }, []);
+
+// convert html to text for the desccription
+// function getText(html){
+//   var divContainer= document.getElementById("blogdes");
+//   divContainer.innerHTML = html;
+//   return divContainer.textContent || divContainer.innerText || "";
+// }
+console.log("next");
+function getText(text){
+  var previews= document.getElementsByClassName("preview");
+  Array.from(previews).forEach((element)=>{
+    element.innerHTML = element.innerText;
+  })
+  //return preview.innerText;
+}
+
   return (
     <div class="container my-3">
       <h2 className="blog-post-title">{blog.place}</h2>
       <h6 className="blog-post-meta"> popular for {blog.popular_for} </h6>
-      <p>{blog.decription}</p>
+      <p id="blogdes">{getText(blog.decription)}</p>
       <hr />
     </div>
   );

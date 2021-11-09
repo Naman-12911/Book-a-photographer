@@ -22,6 +22,7 @@ function Cards() {
     fetchData();
   }, []);
   // pagination
+  console.log({blog})
 
   let preClick = async () => {
     // privious page
@@ -54,6 +55,12 @@ function Cards() {
   };
 
   console.log("next");
+  function getText(html){
+    var divContainer= document.createElement("div");
+    divContainer.innerHTML = html;
+    return divContainer.textContent || divContainer.innerText || "";
+}
+
   return (
     <>
       <div className="wrapper">
@@ -75,7 +82,8 @@ function Cards() {
                       popular For {blog.popular_for} Photo shoot
                     </h6>
                     <p className="card-text">
-                      {blog.decription.slice(0, 100)}...
+                      {/* {blog.decription.slice(0, 100)}... */}
+                      {getText(blog.decription.slice(0, 100))}
                     </p>
                     <Link
                       to={`/blog/${blog.slug}`}
