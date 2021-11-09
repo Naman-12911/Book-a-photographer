@@ -166,6 +166,7 @@ li {
   border-right: 5px solid #fff;
   font-family: "Baloo Bhai 2", cursive;
 }
+
 @keyframes typewriter {
   from {
     width: 0%;

@@ -1,41 +1,23 @@
 import React from "react";
-//import logo from "./image/logo3.jpg";
-import { Link } from "react-router-dom";
+import  navbar_logo from "../image/navbar_logo.PNG";
+// import { Link } from "react-router-dom";
+import "../../css/Navbar.css";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          Logo
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="/navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-            <li className="nav-item">
-              <Link className="nav-link" aria-current="page" to="/contact">
-                Contact
-              </Link>
-            </li>
-            <li className="nav-item " id="naman">
-              <Link className="nav-link p-2" to="/about">
-                About
-              </Link>
-            </li>
-          </ul>
+    <div class="main-header">
+        <div class="inner-header">
+            <div class="inner-logo">
+              <div className='navimg'> <img id='nav_img' src={navbar_logo} alt="" />
+              </div>
+              <div className='logodiv'><a id ='nav_text'href="#">Photography</a>
+              </div>
+            </div>
+            <div class="header-link"><a  id ='nav-id' href="Contact">Contact</a></div>
+            <div class="header-link"><a  id ='nav-id' href="About">About</a></div>
+            
         </div>
-      </div>
-    </nav>
+    </div>
   );
 }
 export default Navbar;

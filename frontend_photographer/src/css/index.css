@@ -20,7 +20,7 @@ button {
 } */
 .header {
   width: 100%;
-  height: 768px;
+  height: 600px;
   position: relative;
   background-color: #15151d;
   background-repeat: no-repeat;
@@ -155,4 +155,11 @@ nav ul li a:hover {
 }
 #repeatcard {
   grid-template-columns: repeat(3, 3fr);
+}
+.footer-portal2{
+  background-color: #23232d;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  size: 3px;
 }

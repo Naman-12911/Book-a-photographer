@@ -4,6 +4,7 @@ import Photographer_card from "../components/portal_customer/Photographer_card";
 import Main from "../components/portal_customer/Main";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Single_photo from "../components/portal_customer/Single_photo";
+import Footer from "../components/portal1/Footer";
 
 // portal 2
 function Appshell() {
@@ -28,6 +29,8 @@ function Appshell() {
           <Single_Card />
         </Route>
       </Switch>
+      <Footer />
+
     </>
   );
 }
