@@ -34,6 +34,13 @@
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+    let previews=document.getElementsByClassName('preview');
+    Array.from(previews).forEach((element))=>{
+        element.innerHTML=element.innerText;
+    })
+  </script>
     <!--- google reviews script code -->
     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
 

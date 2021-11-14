@@ -55,11 +55,7 @@ function Cards() {
   };
 
   console.log("next");
-  function getText(html){
-    var divContainer= document.createElement("div");
-    divContainer.innerHTML = html;
-    return divContainer.textContent || divContainer.innerText || "";
-}
+
 
   return (
     <>
@@ -83,7 +79,12 @@ function Cards() {
                     </h6>
                     <p className="card-text">
                       {/* {blog.decription.slice(0, 100)}... */}
-                      {getText(blog.decription.slice(0, 100))}
+                      {/* this div tag for to convert html to text  */}
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: blog.decription.slice(0, 100)
+                        }}>
+                    </div>
                     </p>
                     <Link
                       to={`/blog/${blog.slug}`}

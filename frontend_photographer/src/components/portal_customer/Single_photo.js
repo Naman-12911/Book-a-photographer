@@ -37,6 +37,8 @@ function Single_photo() {
     }
     fetchData();
   }, []);
+  // set timeout for the booking the button.
+ 
 
   return (
     <div className="about-page">
@@ -95,7 +97,7 @@ function Single_photo() {
           <h5>Price</h5>
           <p id="price">₹ {photo.price} per hour</p>
         </div>
-        <div className="elfsight-app-76967bfc-e956-4551-9f87-28c3c34fbd58"></div>
+        {/* <div className="elfsight-app-76967bfc-e956-4551-9f87-28c3c34fbd58"></div> */}
       </div>
       <div className="book-now-button">
         <button className="button-info">Book Now</button>

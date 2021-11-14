@@ -39,18 +39,18 @@ function Main() {
           {/* 2nd menu part  */}
           <div className="menu-link">
             <ul>
+            <li>
+                <Link to="/">Photographers</Link>
+              </li>
               <li>
                 <Link to="/top-destination">Top Destination</Link>
               </li>
               <li>
-                <Link to="/bokings">Bookings</Link>
+                <Link to="#">Bookings</Link>
               </li>
-              <li>
-                <Link to="#">Blogs</Link>
-              </li>
-              <li>
+              {/* <li>
                 <Link to="#">contact</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="button" id="button-disable">
