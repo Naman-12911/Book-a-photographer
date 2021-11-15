@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../css/index.css";
-//import photo1 from "./image/photo1.jpg";
+import photo1 from "../image/photo1.jpg";
 const Header = () => {
   return (
     <>

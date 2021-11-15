@@ -18,10 +18,10 @@ class photographer(models.Model):
     price = models.IntegerField() # entre price of the photographer.
 
     def __str__(self):
-        return self.speaclization
+        return self.email
     
 class like(models.Model):
     likeusers = models.ManyToManyField(User)
     likepost = models.ForeignKey(photographer ,on_delete=models.CASCADE,null=True,related_name='likepost')
     def __str__(self):
-        return self.likepost
+        return self.likeusers.count()

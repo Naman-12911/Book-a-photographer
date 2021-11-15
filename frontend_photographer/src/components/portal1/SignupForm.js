@@ -14,13 +14,14 @@ function SignupForm(props) {
     email: "",
     phone_no: "",
     password: "",
-    type_choice: "",
+    user_type: "",
   });
+  // check the phone number is correct or not
   function sumbit(e) {
     e.preventDefault();
     const regexp = /^[0-9\b]+$/;
     if (data.phone_no.length !== 10 || !regexp.test(data.phone_no)) {
-      alert("please coorect phone numer");
+      alert("please correct phone numer");
       return;
     }
     ai.post(url, {
@@ -29,7 +30,7 @@ function SignupForm(props) {
       email: data.email,
       phone_no: parseInt(data.phone_no),
       password: data.password,
-      type_choice: data.type_choice,
+      user_type: data.user_type,
     }).then((res) => {
       console.log(res.data);
       setData({
@@ -38,7 +39,7 @@ function SignupForm(props) {
         email: "",
         phone_no: "",
         password: "",
-        type_choice: "",
+        user_type: "",
       });
       //props.showAlert("Your problem has been sumbitted!", "success");
       alert("you are signup!");
@@ -51,7 +52,7 @@ function SignupForm(props) {
     console.log(newdata);
   }
   const handleChange = (event) => {
-    setData({ ...data, type_choice: event.target.value });
+    setData({ ...data, user_type: event.target.value });
   };
 
   return (
@@ -131,22 +132,22 @@ function SignupForm(props) {
           />
         </div> */}
 
-        <FormLabel component="legend">Gender</FormLabel>
+        <FormLabel component="legend">User Type</FormLabel>
         <RadioGroup
-          aria-label="gender"
-          name="controlled-radio-buttons-group"
+          aria-label="type_choice"
+          name="type_choice"
           value={data.type_choice}
           onChange={handleChange}
         >
           <FormControlLabel
             value="customer"
             control={<Radio />}
-            label="Female"
+            label="Customer"
           />
           <FormControlLabel
-            value="photographer"
+            value="photographerr"
             control={<Radio />}
-            label="Male"
+            label="Photographer"
           />
         </RadioGroup>
 

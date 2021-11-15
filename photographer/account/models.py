@@ -13,9 +13,10 @@ class User(AbstractUser):
         ('photographer', 'Photographer'),
         ('customer','Customer'),
     )
-    user_type = models.CharField(choices = type_choice,max_length=20, default='customer')
+    user_type = models.CharField(choices = type_choice,max_length=20)
     USERNAME_FIELD = 'email'
     objects = CustomUserManager() 
     REQUIRED_FIELDS = []
     def __str__(self):
         return self.email
+# default='customer'

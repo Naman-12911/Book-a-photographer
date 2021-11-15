@@ -37,6 +37,8 @@ function Single_photo() {
     }
     fetchData();
   }, []);
+  // set timeout for the booking the button.
+ 
 
   return (
     <div className="about-page">
@@ -49,42 +51,24 @@ function Single_photo() {
         <br />
       </div>
       <br />
-      {/* <div className="img-div">
+      <div className="img-div">
         <div className="row-img">
           <div className="column-img">
-            <img id='images'src={photo.image1} alt="Naman" />
+            <img src={photo.image1} alt="Naman" />
           </div>
           <div className="column-img">
-            <img id='images' src={photo.image2} alt="Naman" />
+            <img src={photo.image2} alt="Naman" />
           </div>
           <div className="column-img">
-            <img id='images' src={photo.image3} alt="Naman" />
+            <img src={photo.image3} alt="Naman" />
           </div>
           <div className="column-img">
-            <img id='images' src={photo.image4} alt="Naman" />
+            <img src={photo.image4} alt="Naman" />
           </div>
-          <div className='main-img'>
-          <div className="column-imgs" role="button">
-            <img  className='column-img-add' src="//www.gstatic.com/images/icons/material/system_gm/2x/add_a_photo_gm_blue_24dp.png" alt="Naman" />
-          </div>
+          <div className="column-img">
+            <img src={photo.image5} alt="Naman" />
           </div>
         </div>
-      </div> */}
-      <div className='main-img'>
-          <div className="column-imgs" role="button">
-            <img  className='column-img-add' src="//www.gstatic.com/images/icons/material/system_gm/2x/add_a_photo_gm_blue_24dp.png" alt="Naman" />
-          </div>
-          <div className="column-imgs" role="button">
-            <img  className='column-img-add' src="//www.gstatic.com/images/icons/material/system_gm/2x/add_a_photo_gm_blue_24dp.png" alt="Naman" />
-          </div>
-          <div className="column-imgs" role="button">
-            <img  className='column-img-add' src="//www.gstatic.com/images/icons/material/system_gm/2x/add_a_photo_gm_blue_24dp.png" alt="Naman" />
-          </div>
-          <div className="column-imgs" role="button">
-            <img  className='column-img-add' src="//www.gstatic.com/images/icons/material/system_gm/2x/add_a_photo_gm_blue_24dp.png" alt="Naman" />
-          </div>
-
-          
       </div>
       <br />
       <div className="info">
@@ -113,7 +97,7 @@ function Single_photo() {
           <h5>Price</h5>
           <p id="price">₹ {photo.price} per hour</p>
         </div>
-        <div class="elfsight-app-76967bfc-e956-4551-9f87-28c3c34fbd58"></div>
+        {/* <div className="elfsight-app-76967bfc-e956-4551-9f87-28c3c34fbd58"></div> */}
       </div>
       <div className="book-now-button">
         <button className="button-info">Book Now</button>

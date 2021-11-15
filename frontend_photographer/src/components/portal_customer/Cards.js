@@ -22,6 +22,7 @@ function Cards() {
     fetchData();
   }, []);
   // pagination
+  console.log({blog})
 
   let preClick = async () => {
     // privious page
@@ -54,6 +55,8 @@ function Cards() {
   };
 
   console.log("next");
+
+
   return (
     <>
       <div className="wrapper">
@@ -75,7 +78,13 @@ function Cards() {
                       popular For {blog.popular_for} Photo shoot
                     </h6>
                     <p className="card-text">
-                      {blog.decription.slice(0, 100)}...
+                      {/* {blog.decription.slice(0, 100)}... */}
+                      {/* this div tag for to convert html to text  */}
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: blog.decription.slice(0, 100)
+                        }}>
+                    </div>
                     </p>
                     <Link
                       to={`/blog/${blog.slug}`}

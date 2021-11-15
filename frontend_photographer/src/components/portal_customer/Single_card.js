@@ -19,11 +19,22 @@ function Cards_page() {
     }
     fetchData();
   }, []);
+
+
+console.log("next");
+
+
   return (
     <div class="container my-3">
+   
       <h2 className="blog-post-title">{blog.place}</h2>
       <h6 className="blog-post-meta"> popular for {blog.popular_for} </h6>
-      <p>{blog.decription}</p>
+      {/* <p id="blogdes">{blog.decription}</p> */}
+      <div
+        dangerouslySetInnerHTML={{
+          __html: blog.decription
+        }}>
+      </div>
       <hr />
     </div>
   );

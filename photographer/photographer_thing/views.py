@@ -15,6 +15,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import generics # import genric view for the img url
+from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny,IsAuthenticated
+from rest_framework import viewsets
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 @csrf_exempt
@@ -75,10 +79,7 @@ def email(request,pk):
         photographer_id = photographer.objects.get(pk=pk)
     except photographer_id.DoesNotExist:
         return HttpResponse(status=404)
-from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny,IsAuthenticated
-from rest_framework import viewsets
-from django.shortcuts import get_object_or_404
+
 
 class photographer_get(viewsets.ModelViewSet): # to fetch all the photographer main thingd to use gives umg url
     permission_classes = [AllowAny]
