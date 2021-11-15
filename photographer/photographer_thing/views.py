@@ -19,6 +19,8 @@ from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
+from account.models import User
+from django.db.models import Q
 
 # Create your views here.
 @csrf_exempt
@@ -54,25 +56,31 @@ def photographerId_get(request,pk):
         photographer_id.delete()
         return HttpResponse("data delete",status=204)
 
+
+ # like apis 
+@csrf_exempt
 class LikeListCreate(APIView):
+    def get(self,pk):#function to get total number of likes to particular post
+         post = photographer.objects.filter(pk=pk) # find which post's likes are to be extracted
+         like_count = post.likepost.count()# counts total user likes ,besides my code is wrong
+         serializer = photographer(like_count,many=True)
+         return Response(serializer.data)
 
-    # def get(self,request,pk):#function to get total number of likes to particular post
-    #     post = photographer.objects.filter(pk=pk) # find which post's likes are to be extracted
-    #     like_count = post.likepost.count()# counts total user likes ,besides my code is wrong
-    #     serializer = photographer(like_count,many=True)
-    #     return Response(serializer.data)
-
-    def post(self,request,pk):#function to add likes to post
-        # how do I check if user is already liked the post ?
-        likeusers = request.user
+    def post(self,pk):
+        likeusers = User.objects.get(id=34) # user find for testing purpose
         likepost = photographer.objects.filter(pk=pk)
-        new_like = like(likeusers=request.user, likepost=likepost)
+        check = like.objects.filter(Q(likeusers=likeusers) & Q(likepost = likepost.last() ))
+        if(check.exists()):
+            return Response({
+                "status": status.HTTP_400_BAD_REQUEST,
+                "message":"Already Liked"
+                })
+        new_like = like.objects.create(likeusers=likeusers, likepost=likepost.last())
         new_like.save()
-        serializer = likeSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(likeusers,likepost)
-            return Response(serializer.data,status=status.HTTP_201_CREATED)
-        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+        serializer = likeSerializer(new_like)
+        return Response(serializer.data,status=status.HTTP_201_CREATED)
+
+
 @csrf_exempt
 def email(request,pk):
     try:
