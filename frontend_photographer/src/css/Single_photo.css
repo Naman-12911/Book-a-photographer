@@ -61,19 +61,45 @@
 }
 
 /* image container*/
-.column-img {
+/* .column-img {
   float: left;
   width: 20%;
   height: 20%;
   padding: 15px;
   margin-top: 1rem;
 }
-.column-img img {
+.column-img #images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
   grid-row-gap: 6rem;
+} */
+/* new img div */
+.main-img{
+  /* padding-left: 72px;
+  padding-right: 16px; */
+  height: 150px;
 }
+.column-imgs{
+  border: 2px solid #efefef;
+  margin: 11px 30px 0 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 110px;
+  width: 20%;
+  vertical-align: top;
+}
+.column-img-add {
+    height: 24px;
+    width: 24px;
+    left: 50%;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+/* img end */
+
 .info p {
   font-family: "Baloo Bhai 2", cursive;
 }
