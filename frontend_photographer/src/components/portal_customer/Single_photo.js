@@ -38,7 +38,6 @@ function Single_photo() {
     fetchData();
   }, []);
   // set timeout for the booking the button.
- 
 
   return (
     <div className="about-page">

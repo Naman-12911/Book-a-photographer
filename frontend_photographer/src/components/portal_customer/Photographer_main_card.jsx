@@ -94,7 +94,8 @@ function Cards({ photo, key }) {
                   }
                 />
               }
-              {increment}
+              {/* {increment} */}
+              {photo.like}
             </IconButton>
             <div className="mx-3">
               <Link to={`/${photo.id}`}> Book Now</Link>
