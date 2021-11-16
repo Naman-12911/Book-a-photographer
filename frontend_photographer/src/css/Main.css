@@ -21,7 +21,7 @@ div .navbar-font-size nav .main-nav {
   font-size: 62.5%;
 }
 #button-disable #more-dropdown {
-  font-size: 62.5%;
+  font-size: 45%;
 }
 li {
   list-style: none;
@@ -43,6 +43,30 @@ li {
   z-index: 10000;
 }
 
+.logodiv_main{
+  float: left;
+  width: 20%;
+  font:22px Arial, sans-serif;
+  font-weight: 800;
+  padding-top: 17px;
+
+}
+.navimg_main{
+  float: left;
+  padding: 5px 10px;
+  height: 100%;
+}
+.navimg_main #nav_img{
+  height: 46px;
+  float: left;
+  margin-left: 50%;
+}
+
+.logodiv_main #nav_text{
+  text-decoration: none; 
+  background-color: transparent; 
+  color:#ededed;
+}
 .logo {
   display: grid;
   grid-column: 2/3;

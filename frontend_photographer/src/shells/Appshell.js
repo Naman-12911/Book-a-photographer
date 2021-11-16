@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Single_photo from "../components/portal_customer/Single_photo";
 import Footer from "../components/portal1/Footer";
 
+
 // portal 2
 function Appshell() {
   return (
@@ -27,10 +28,11 @@ function Appshell() {
         {/* enable the single destination */}
         <Route exact path="/blog/:slug">
           <Single_Card />
-        </Route>
+        </Route>        
       </Switch>
+      
       <Footer />
-
+     
     </>
   );
 }

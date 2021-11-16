@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../css/Main.css";
 import boy from "../image/boy.png";
+import  new_logo from "../image/new_logo.png";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import ai from "../Apis";
@@ -28,13 +29,10 @@ function Main() {
       <div id="navbar-font-size">
         <nav className="main-nav">
           {/* 1st logo part  */}
-          <div className="logo">
-            <h2>
-              <Link id="logo-text" to="/">
-                LOGO
-              </Link>
-            </h2>
-          </div>
+          <div className='navimg_main'> <img id='nav_img' src={new_logo} alt="" />
+              </div>
+          <div className='logodiv_main'><Link id ='nav_text' to="/">Photography</Link>
+              </div>
 
           {/* 2nd menu part  */}
           <div className="menu-link">
