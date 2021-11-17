@@ -1,86 +1,112 @@
-import React from "react";
+import React, { useState} from "react";
 import { Image } from "react-bootstrap";
 import "../../css/Profile.css";
+import {Button, Modal} from "react-bootstrap";
 function Profile() {
+   // set timeout for the booking the button.
+   const [show, setShow] = useState(false);
+   const handleClose = () => setShow(false);
+   const handleShow = () => setShow(true);
+ 
   return (
     <>
-      <div className="main-profile">
-        <div className="profileCover">
-          {/* cover img */}
-          <div className="CoverImg">
-            <input type="file" id="file-1" accept="image/*" />
-            <label for="file-1" id="file-1-preview">
-              <img className="cover-img" src="https://bit.ly/3ubuq5o" alt="" />
-            </label>
-          </div>
-          {/* user img */}
-          <div className="userimg">
-            <input type="file" id="file-1" accept="image/*" />
-            <label for="file-1" id="file-1-preview">
-              <img className="img" src="https://bit.ly/3ubuq5o" alt="" />
-            </label>
-          </div>
+      <div class="wrapper bg-white mt-sm-5">
+    <h4 class="pb-4 border-bottom">My Profile</h4>
+    
+    {/* the below code for user profile and name (if we want) */}
+    {/* <div class="d-flex align-items-start py-3 border-bottom"> <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img_profile" alt="" />
+        <div class="pl-sm-4 pl-2" id="img-section"> <b>Profile Photo</b>
+            <p id='para'>Accepted file type .png. Less than 1MB</p> <button class="btn button border" id='profile_btn'><b>Upload</b></button>
         </div>
-        <div className="info">
-          <div>Name</div>
-          <input
-            type="text"
-            className="form-control"
-            name="name"
-            id="exampleInputname"
-          />
-          <br />
-          <div>
-            <div>Contact Number</div>
-            <input
-              type="text"
-              className="form-control"
-              name="contactnumber"
-              id="exampleInputnumber"
-            />
-            <br />
-            <div>Email address</div>
-            <input
-              type="email"
-              className="form-control"
-              name="email"
-              id="exampleInputEmail1"
-            />
-            <br />
-          </div>
+    </div> */}
+    <div class="py-2">
+        <div class="row py-2">
+            <div class="col-md-6"> 
+            <label class='profile_label' for="firstname">First Name</label> 
+            <input 
+            type="text" 
+            class="bg-light form-control" 
+            placeholder="Name"/> 
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3"> 
+            <label class='profile_label' for="lastname">Last Name</label> 
+            <input 
+            type="text" 
+            class="bg-light form-control" 
+            placeholder="Last"/> 
+            </div>
         </div>
-        <div className="info">
-          {/* Enter your fields of spelcization */}
-          <div>Enter your fields of specialization</div>
-          <textarea
-            className="form-control"
-            id="exampleFormControlTextarea1"
-            placeholder="Enter your fields of specialization"
-          />
-          <br />
-          {/* Enter your work expericed */}
-          <div>Enter your work experience</div>
-          <textarea
-            className="form-control"
-            id="exampleFormControlTextarea1"
-            placeholder="Enter your work experience"
-          />
-          <br />
-          {/* Enter your Awards */}
-          <div>Enter your Awards</div>
-          <textarea
-            className="form-control"
-            id="exampleFormControlTextarea1"
-            placeholder="Enter your Awards"
-          />
+        <div class="row py-2">
+            <div class="col-md-6"> 
+            <label class='profile_label'  for="email">Email Address</label> 
+            <input type="text" 
+            class="bg-light form-control" 
+            placeholder="Email"/> 
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3"> 
+            <label class='profile_label'  for="phone">Phone Number</label> 
+            <input type="tel" 
+            class="bg-light form-control" 
+            placeholder="Phone Number"/> 
+            </div>
         </div>
-        <br />
-        <div align="center">
-          <button type="submit" className="btn btn-primary">
-            Save
-          </button>
         </div>
-      </div>
+
+        
+      <Button className="nextButton" onClick={handleShow} >
+      &#128393; Edit
+        </Button>
+         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <Modal show={show} onHide={handleClose} bd-example-modal-lg>
+          <Modal.Header >
+            <Modal.Title><h3 >Edit &#9998;</h3></Modal.Title>
+          </Modal.Header >
+          <Modal.Body >
+          <div class="py-2">
+            <div class="row py-2">
+            <div class="col-md-6"> 
+            <label class='profile_label' for="firstname">First Name</label> 
+            <input 
+            type="text" 
+            class="bg-light form-control" 
+            placeholder="Name"/> 
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3"> 
+            <label class='profile_label' for="lastname">Last Name</label> 
+            <input 
+            type="text" 
+            class="bg-light form-control" 
+            placeholder="Last"/> 
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-md-6"> 
+            <label class='profile_label'  for="email">Email Address</label> 
+            <input type="text" 
+            class="bg-light form-control" 
+            placeholder="Email"/> 
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3"> 
+            <label class='profile_label'  for="phone">Phone Number</label> 
+            <input type="tel" 
+            class="bg-light form-control" 
+            placeholder="Phone Number"/> 
+            </div>
+        </div>
+        </div>
+
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save 
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        </div>
+  </div>
     </>
   );
 }
