@@ -15,9 +15,11 @@ a:hover {
 }
 .App {
   height: 100vh;
+  width: 100%;
   display: -ms-flexbox;
   display: flex;
   color: #fff;
+  flex-direction: row;
 }
 .App__Aside {
   width: 50%;
