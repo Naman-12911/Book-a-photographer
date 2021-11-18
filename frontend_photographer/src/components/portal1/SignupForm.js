@@ -120,18 +120,6 @@ function SignupForm(props) {
           />
         </div>
 
-        {/* <div className="FormField">
-          <input
-            type="text"
-            className="FormField__Input"
-            id="type_choice"
-            placeholder="type_choice *"
-            name="type_choice"
-            value={data.type_choice}
-            onChange={(e) => handle(e)}
-          />
-        </div> */}
-
         <FormLabel component="legend">User Type</FormLabel>
         <RadioGroup
           aria-label="type_choice"

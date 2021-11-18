@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ai from "../Apis";
 import "../../css/Single_photo.css";
+import {Button, Modal} from "react-bootstrap";
+import Book_now from "./Book_now";
 function Single_photo() {
   const [photo, setPhoto] = useState([]);
   const parms = useParams();
-
+// fetch the data for the photographer
   useEffect(() => {
     async function fetchData() {
       const request = await ai
@@ -22,23 +24,57 @@ function Single_photo() {
     fetchData();
   }, []);
   // for only images
-  useEffect(() => {
-    async function fetchData() {
-      const request = await ai
-        .get("images/")
-        .then((res) => {
-          console.log(res);
-          setPhoto(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      return request;
-    }
-    fetchData();
-  }, []);
-  // set timeout for the booking the button.
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const request = await ai
+  //       .get("images/")
+  //       .then((res) => {
+  //         console.log(res);
+  //         setPhoto(res.data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //     return request;
+  //   }
+  //   fetchData();
+  // }, []);
+  // for modal to code ..
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  // post request for modal data to booking the photographer finally.
+  const url = "customer/booking/"
+  const [data, setData] = useState({
+    address: "",
+    near_by: "",
+    phone_number: "",
+  });
+  function sumbit(e) {
+    e.preventDefault();
+    ai.post(url, {
+      address: data.address,
+      near_by: data.near_by,
+      phone_number: parseInt(data.phone_number),
+    }).then((res) => {
+      console.log(res.data);
+      setData({
+        address: "",
+        near_by: "",
+        phone_number: "",
+      });
+      //props.showAlert("Your problem has been sumbitted!", "success");
+      alert("your booking has been done");
+    });
+  }
+  function handle(e) {
+    const newdata = { ...data };
+    newdata[e.target.id] = e.target.value;
+    setData(newdata);
+    console.log(newdata);
+  }
+  
   return (
     <div className="about-page">
       <div className="info-page">
@@ -98,10 +134,80 @@ function Single_photo() {
         </div>
         {/* <div className="elfsight-app-76967bfc-e956-4551-9f87-28c3c34fbd58"></div> */}
       </div>
-      <div className="book-now-button">
-        <button className="button-info">Book Now</button>
-      </div>
+
+       {/* Confirmation for the booking the photographer */}
+
+        <Button className="nextButton" onClick={handleShow} >
+          Book Now
+        </Button>
+
+            <div className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <Modal show={show} onHide={handleClose} bd-example-modal-lg>
+            <form className="form-container" onSubmit={(e) => sumbit(e)}>
+              <Modal.Header >
+
+                <Modal.Title><h3>Confirmation!</h3></Modal.Title>
+              </Modal.Header >
+              <Modal.Body >
+            
+                <h5>Enter your Details</h5>
+              <br />
+                <div>Contact Number</div>
+                <input
+                  type="number"
+                  className="form-control"
+                  name="phone_number"
+                  placeholder='*Contact number'
+                  onChange={(e) => handle(e)}
+                  id="phone_number"
+                  value={data.phone_number}
+                  required
+
+                />
+                <br />
+                <div>Near by</div>
+              <input
+                type="text"
+                className="form-control"
+                name="near_by"
+                placeholder='*Near by' required
+                id="near_by"
+                onChange={(e) => handle(e)}
+                value={data.near_by}
+
+              />
+              <br />
+
+                <div>Address</div>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="address"
+                  placeholder='*Address'
+                  id="address"
+                  required
+                  onChange={(e) => handle(e)}
+                  value={data.address}
+                />
+              
+              </Modal.Body>
+              
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <button className="Submit my-1" type="Submit">
+                Book Now
+              </button>
+              </Modal.Footer>
+              </form>
+
+            </Modal>
+            </div>
+
+      {/* </div> */}
     </div>
+
   );
 }
 

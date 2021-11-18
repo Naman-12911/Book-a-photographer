@@ -28,10 +28,11 @@ function Appshell() {
         {/* enable the single destination */}
         <Route exact path="/blog/:slug">
           <Single_Card />
-        </Route>
+        </Route>        
       </Switch>
+      
       <Footer />
-
+     
     </>
   );
 }

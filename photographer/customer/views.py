@@ -4,7 +4,7 @@ from .models import Bookings
 from rest_framework.permissions import AllowAny
 from rest_framework.decorators import api_view
 from rest_framework.decorators import api_view, permission_classes
-from django.http import HttpResponse,JsonResponse
+from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.

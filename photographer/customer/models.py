@@ -5,7 +5,7 @@ import datetime
 # Create your models here.
 class Bookings(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    photographer = models.ForeignKey(photographer,on_delete=models.CASCADE,null=True)
+    photographer = models.ForeignKey(photographer,on_delete=models.CASCADE,null=True, related_name="photographer_set")
     address = models.CharField(max_length=100, null=True)
     near_by = models.CharField(max_length=100, null=True)
     phone_number = models.BigIntegerField(null=True)
