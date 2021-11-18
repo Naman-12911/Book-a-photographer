@@ -7,6 +7,9 @@ import Contact from "../components/portal1/Contact";
 import About from "../components/portal1/About";
 import Form from "../components/portal1/Form";
 import naman from "../components/image/Naman Garg.jpeg";
+import faizan from "../components/image/faizan.jpeg"
+import saurav from "../components/image/saurav.jpeg"
+import kashish from "../components/image/kashish.jpeg"
 import { Switch, Route } from "react-router-dom";
 
 // portal 1
@@ -37,14 +40,29 @@ const App = () => {
         </Route>
         <Route path="/about">
           <About
-            para="All rounder"
+            para="All Rounder"
             head="Naman Garg"
             photo={naman}
             linkdin="https://www.linkedin.com/in/naman-garg-935658201/"
           />
-          <About para="Front-end" head="Faizan" linkdin="" photo={naman} />
-          <About para="Backend" head="Sourab" linkdin="" photo={naman} />
-          <About para="Faltu" head="Kashish" linkdin="" photo={naman} />
+          <About
+            para="Front-end"
+            head="Faizan Ahmad"
+            photo={faizan}
+            linkdin="https://www.linkedin.com/in/faizan-ahmad-913965207/"
+          />
+          <About
+            para="Back-end"
+            head="Saurav"
+            photo={saurav}
+            linkdin="https://www.linkedin.com/in/saurav-singh-20b4821a7"
+          />
+          <About
+            para="Faltu"
+            head="Kashish"
+            photo={kashish}
+            linkdin="https://www.linkedin.com/in/kashu-sharma-671711210/"
+          />
         </Route>
         <Route path="/form/LogIn">
           <Form />

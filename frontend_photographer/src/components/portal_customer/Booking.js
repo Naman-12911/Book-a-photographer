@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-export default function Book_now() {
+export default function Booking() {
     return (
         <div>
             
