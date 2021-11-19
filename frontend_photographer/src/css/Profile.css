@@ -1,3 +1,4 @@
+
 * {
     margin:0px;
     padding:0px;
@@ -61,3 +62,98 @@
 .userimg input{
     display: none;
 }
+
+
+
+/* customer profile CSS starts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: aliceblue
+}
+
+.wrapper_profile {
+    padding: 30px 50px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin: 10px auto;
+    max-width: 600px
+}
+
+.pb-4{
+    letter-spacing: -1px;
+    font-weight: 400
+}
+
+/* .img_profile {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    object-fit: cover
+}
+
+#img-section #para{
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+    text-align: justify
+}
+
+#img-section b,
+#img-section button{
+    font-size: 14px
+} */
+
+.profile_label {
+    margin-bottom: 0;
+    font-size: 25px;
+    font-weight: 500;
+    color: #777;
+    padding-left: 3px
+}
+
+.form-control {
+    border-radius: 10px
+}
+
+input[placeholder] {
+    font-weight: 500
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 1.5px solid #0779e4
+}
+
+
+.bg-light select:focus {
+    outline: none
+}
+
+.btn #profile_btn button {
+    background-color: #fff;
+    color: #0779e4
+}
+
+.btn #profile_btn button :hover {
+    background-color: #0779e4;
+    color: #fff
+}
+
+
+@media(max-width:576px) {
+    .wrapper {
+        padding: 25px 20px
+    }
+
+}
+/* customer profile CSS ends */

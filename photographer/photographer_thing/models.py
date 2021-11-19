@@ -22,7 +22,7 @@ class photographer(models.Model):
         return self.email
     @property # for count all the likes
     def getlike(self):
-        return self.like.count()
+        return like.objects.filter(post=self).count()
     
 class like(models.Model):
     likeusers = models.ForeignKey(User,on_delete=models.CASCADE,null=True )

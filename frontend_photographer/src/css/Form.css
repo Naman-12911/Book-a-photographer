@@ -15,9 +15,11 @@ a:hover {
 }
 .App {
   height: 100vh;
+  width: 100%;
   display: -ms-flexbox;
   display: flex;
   color: #fff;
+  flex-direction: row;
 }
 .App__Aside {
   width: 50%;
@@ -98,14 +100,13 @@ a:hover {
   border-bottom: 1px solid #199087;
 }
 .FormTitle__Link {
-  color: #707c8b;
   text-decoration: none;
   display: inline-block;
   font-size: 1.7em;
   margin: 0 10px;
   padding-bottom: 5px;
   margin-bottom: 2rem;
-  background-color: none;
+  background-color: white;
 }
 .FormField__link {
   color: black;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../css/index.css";
-import photo1 from "../image/photo1.jpg";
+
 const Header = () => {
   return (
     <>
@@ -12,13 +12,11 @@ const Header = () => {
             <span> Hire </span> and <span> Earn Money </span>by Photography
           </h1>
           <p className="detail">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio
-            provident magni, ratione aliquid accusamus quos repudiandae aut quas
-            culpa deserunt delectus suscipit nulla consequuntur eum vero
-            reprehenderit, quisquam sed sequi.
+          Photography is an artistic pursuit, and like all art forms, 
+          the attraction lies not in its earning potential but in the person’s desire to do something fun, creative, and worthwhile.
           </p>
           <Link to="/form/LogIn" className="header-btn">
-            Hire a Photographer
+            Hire a Photographer / Earn by photography
           </Link>
           <br />
         </div>

@@ -5,7 +5,6 @@ import  new_logo from "../image/new_logo.png";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import ai from "../Apis";
-import Profile from "../photographer_portal/Profile";
 
 function Main() {
   const [photo, setPhoto] = useState([]);
@@ -54,7 +53,7 @@ function Main() {
           <div className="button" id="button-disable">
             <DropdownButton title="more" id="more-dropdown">
               <Dropdown.Item eventKey="1" id="dropdown">
-                <Link to="#"> Profile</Link>
+                <Link to="/photographer_portal/Profile">My Profile</Link>
               </Dropdown.Item>
               <Dropdown.Item eventKey="3" id="dropdown">
                 <Link to="#"> Log out</Link>

@@ -55,9 +55,10 @@ nav ul li a:hover {
   color: #236c7e;
 }
 .intro p {
-  color: white;
+  color:powderblue;
   font-weight: 150000;
-  font-size: medium;
+  font-size: large;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .header-btn {
