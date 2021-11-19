@@ -10,7 +10,7 @@ function Profile() {
  
   return (
     <>
-      <div class="wrapper bg-white mt-sm-5">
+      <div class="wrapper_profile bg-white mt-sm-5">
     <h4 class="pb-4 border-bottom">My Profile</h4>
     
     {/* the below code for user profile and name (if we want) */}
@@ -52,7 +52,7 @@ function Profile() {
         </div>
         </div>
 
-        
+
       <Button className="nextButton" onClick={handleShow} >
       &#128393; Edit
         </Button>

@@ -8,13 +8,13 @@ import Footer from "../components/portal1/Footer";
 import Profile from "../components/photographer_portal/Profile";
 import Booking from "../components/portal_customer/Booking";
 
-
 // portal 2
 function Appshell() {
   return (
     <>
-      <Main />
+      <Main />      
       <Switch>
+  
         {/* enable the photographer */}
         <Route exact path="/">
           <Photographer_card />

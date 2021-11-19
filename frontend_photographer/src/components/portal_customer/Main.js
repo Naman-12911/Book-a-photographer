@@ -5,7 +5,8 @@ import  new_logo from "../image/new_logo.png";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import ai from "../Apis";
-import Profile from "../photographer_portal/Profile"
+import Profile from "../photographer_portal/Profile";
+
 
 function Main() {
   const [photo, setPhoto] = useState([]);
@@ -73,6 +74,8 @@ function Main() {
         <h2 id="livethe"> Live The Passion</h2>
         <h1 id="typewriter"> Book the Photographer</h1>
       </div>
+          
+      
     </>
   );
 }
