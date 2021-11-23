@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ai from "../Apis";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 function Cards_page() {
   const [blog, setBlog] = useState([]);
   const parms = useParams();

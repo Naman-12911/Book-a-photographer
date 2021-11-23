@@ -89,12 +89,13 @@ function Cards({ photo, key }) {
                   icon={<FavoriteBorder />}
                   checkedIcon={<Favorite />}
                   name="checkedH"
-                  onClick={() =>
-                    increment >= 0 ? setIncrement(increment + 1) : ""
-                  }
+                  // onClick={() =>
+                  //   increment >= 0 ? setIncrement(increment + 1) : ""
+                  // }
                 />
               }
-              {increment}
+              {/* {increment} */}
+              {photo.like}
             </IconButton>
             <div className="mx-3">
               <Link to={`/${photo.id}`}> Book Now</Link>

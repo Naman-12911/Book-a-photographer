@@ -95,10 +95,12 @@ function Cards() {
                     </Link>
                   </div>
                 </div>
+                <br/>
               </div>
             ))}
           </div>
           <br />
+          <br/>
         </div>
       </div>
       {/* <Pagination /> */}

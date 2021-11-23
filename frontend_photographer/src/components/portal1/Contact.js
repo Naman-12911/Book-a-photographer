@@ -25,8 +25,8 @@ function Contact(props) {
         phone: "",
         desc: "",
       });
-      props.showAlert("Your problem has been sumbitted!", "success");
-      //alert("nnnnnnnnnnnn");
+      //props.showAlert("Your problem has been sumbitted!", "success");
+      alert("your form is sumbited");
     });
   }
   function handle(e) {

@@ -16,10 +16,13 @@ class photographer(models.Model):
     company_colaboration = models.TextField(null =True) # entre any company colloration
     preffred_location = models.CharField(null=True, max_length= 200) # any preferd loction you want.
     price = models.IntegerField() # entre price of the photographer.
-    like = models.ManyToManyField(User, blank=True, related_name='post_likes')
+    like = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
         return self.email
+    @property # for count all the likes
+    def getlike(self):
+        return like.objects.filter(post=self).count()
     
 class like(models.Model):
     likeusers = models.ForeignKey(User,on_delete=models.CASCADE,null=True )

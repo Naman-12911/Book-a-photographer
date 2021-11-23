@@ -5,8 +5,7 @@ import Main from "../components/portal_customer/Main";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Single_photo from "../components/portal_customer/Single_photo";
 import Footer from "../components/portal1/Footer";
-import Profile from "../components/photographer_portal/Profile";
-import Booking from "../components/portal_customer/Booking";
+import Profile from "../components/portal_customer/Profile";
 
 // portal 2
 function Appshell() {
@@ -27,9 +26,9 @@ function Appshell() {
         <Route exact path="/:id">
           <Single_photo />
         </Route>
-        <Route exact path="/booking">
+        {/* <Route exact path="/booking">
           <Booking />
-        </Route>
+        </Route> */}
          {/* enable the photographer_portal/Profile */}
         <Route exact path="/photographer_portal/Profile">
           <Profile />
