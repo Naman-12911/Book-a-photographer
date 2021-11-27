@@ -1,32 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../../css/Main.css";
-import boy from "../image/boy.png";
 import  new_logo from "../image/new_logo.png";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-import ai from "../Apis";
 
 function Main() {
-  const [photo, setPhoto] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const request = ai
-        .get("photographer-account/photographer-account/")
-        .then((res) => {
-          console.log(res);
-          setPhoto(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      return request;
-    }
-    fetchData();
-  }, []);
   return (
     <>
       <div id="navbar-font-size">
-        <nav className="main-nav">
+        <nav className="main-nav" id="main-navbar">
           {/* 1st logo part  */}
           <div className='navimg_main'> <img id='nav_img' src={new_logo} alt="" />
               </div>
@@ -66,11 +48,6 @@ function Main() {
             </DropdownButton>
           </div>
         </nav>
-      </div>
-      <div id="color-height">
-        <img src={boy} alt="img" id="boyset"></img>
-        <h2 id="livethe"> Live The Passion</h2>
-        <h1 id="typewriter"> Book the Photographer</h1>
       </div>
     </>
   );

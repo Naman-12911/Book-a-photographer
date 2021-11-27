@@ -31,7 +31,7 @@ li {
  
 /* navbar style start  */
 
-.main-nav {
+#main-navbar {
   width: 100%;
   height: 3.5rem;
   display: grid;
@@ -41,6 +41,7 @@ li {
   position: fixed;
   transition: 0.2s;
   z-index: 10000;
+  
 }
 
 .logodiv_main{
