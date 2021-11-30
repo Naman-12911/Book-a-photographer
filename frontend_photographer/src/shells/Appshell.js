@@ -7,13 +7,13 @@ import Single_photo from "../components/portal_customer/Single_photo";
 import Footer from "../components/portal1/Footer";
 import Profile from "../components/portal_customer/Profile";
 
-
 // portal 2
 function Appshell() {
   return (
     <>
-      <Main />
+      <Main />      
       <Switch>
+  
         {/* enable the photographer */}
         <Route exact path="/">
           <Photographer_card />
