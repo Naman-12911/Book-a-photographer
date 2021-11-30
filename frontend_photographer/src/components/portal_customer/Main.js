@@ -21,27 +21,6 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 
 
 function Main() {
-<<<<<<< HEAD
-  const [photo, setPhoto] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const request = ai
-        .get("photographer-account/photographer-account/")
-        .then((res) => {
-          console.log(res);
-          setPhoto(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      return request;
-    }
-    fetchData();
-  }, []);
-
-  
-=======
->>>>>>> 6ab6cc5ae5fb5d200b3338b675598d5e30047d2c
   return (
     
     <>
@@ -87,16 +66,6 @@ function Main() {
           </div>
         </nav>
       </div>
-<<<<<<< HEAD
-      <div id="color-height">
-        <img src={boy} alt="img" id="boyset"></img>
-        <h2 id="livethe"> Live The Passion</h2>
-        <h1 id="typewriter"> Book the Photographer</h1>
-      </div>
-          
-      
-=======
->>>>>>> 6ab6cc5ae5fb5d200b3338b675598d5e30047d2c
     </>
   );
 }
