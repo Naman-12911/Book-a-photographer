@@ -5,7 +5,7 @@ import ai from "../Apis";
 import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
 import Cards from "./Photographer_main_card";
-import Single_photo from "./Single_photo";
+import Main_navbar from "./Main_navbar";
 
 // function for the style the card
 
@@ -58,6 +58,8 @@ export default function Photographer_card() {
   }, []);
 
   return (
+    <>
+    <Main_navbar/>
     <div className="container my-4" id="repeatcard">
       <Container>
         <Grid
@@ -75,5 +77,6 @@ export default function Photographer_card() {
         </Grid>
       </Container>
     </div>
+    </>
   );
 }

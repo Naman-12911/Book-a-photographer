@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ai from "../Apis";
 import { useParams } from "react-router-dom";
+import Main_navbar from "./Main_navbar";
 function Cards_page() {
   const [blog, setBlog] = useState([]);
   const parms = useParams();
@@ -25,6 +26,8 @@ console.log("next");
 
 
   return (
+    <>
+    <Main_navbar/>
     <div class="container my-3">
    
       <h2 className="blog-post-title">{blog.place}</h2>
@@ -37,6 +40,7 @@ console.log("next");
       </div>
       <hr />
     </div>
+    </>
   );
 }
 

@@ -10,7 +10,6 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import naman from "../image/Naman Garg.jpeg";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -53,6 +52,7 @@ function Cards({ photo, key }) {
     return color;
   }
   return (
+    <>
     <div className="mx-4">
       <Card className={classes.root}>
         <div key={photo.id}>
@@ -125,6 +125,7 @@ function Cards({ photo, key }) {
         </div>
       </Card>
     </div>
+    </>
   );
 }
 
