@@ -16,7 +16,7 @@ const Header = () => {
           the attraction lies not in its earning potential but in the person’s desire to do something fun, creative, and worthwhile.
           </p>
           <Link to="/form/LogIn" className="header-btn">
-            Hire a Photographer / Earn by photography
+           Get Started
           </Link>
           <br />
         </div>

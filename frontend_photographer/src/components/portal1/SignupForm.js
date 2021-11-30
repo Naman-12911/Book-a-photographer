@@ -7,7 +7,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 
 function SignupForm(props) {
   // signup api
-  const url = "account/register/";
+  const url = "account/register";
   const [data, setData] = useState({
     first_name: "",
     last_name: "",
@@ -42,7 +42,7 @@ function SignupForm(props) {
         user_type: "",
       });
       //props.showAlert("Your problem has been sumbitted!", "success");
-      alert("you are signup!");
+      alert("you are signup! please verify your email");
     });
   }
   function handle(e) {

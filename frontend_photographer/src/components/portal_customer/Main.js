@@ -6,6 +6,22 @@ import { Link } from "react-router-dom";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import ai from "../Apis";
 
+
+//      My Changes
+
+//  Constructor(props){
+//    super(props)
+//    const token = localStorage.getItem("token")
+//    let loggedIn = true
+//    if (token == null){
+//      loggedIn = false
+//    }
+//    this.state= {
+//      loggedIn
+//    }
+//  }
+
+
 function Main() {
   const [photo, setPhoto] = useState([]);
   useEffect(() => {
@@ -23,7 +39,10 @@ function Main() {
     }
     fetchData();
   }, []);
+
+  
   return (
+    
     <>
       <div id="navbar-font-size">
         <nav className="main-nav">
