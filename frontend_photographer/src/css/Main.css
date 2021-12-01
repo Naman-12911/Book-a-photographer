@@ -38,7 +38,7 @@ li {
   grid-template-columns: 10rem 1fr 2fr 1fr 10rem;
   background-color: rgb(18, 25, 48);
   box-shadow: 0 5px 10px rgb(50 13 136 / 25%);
-  position: fixed;
+ 
   transition: 0.2s;
   z-index: 10000;
   

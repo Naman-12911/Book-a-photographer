@@ -4,8 +4,9 @@ import React, { useState, useEffect } from "react";
 import ai from "../Apis";
 import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
-import Cards from "./Photographer_main_card";
-import Main_navbar from "./Main_navbar";
+import Cards from "./PhotographerMainCard";
+import Main_navbar from "./MainNavbar";
+// import { Redirect } from 'react-router';
 
 // function for the style the card
 

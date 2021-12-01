@@ -18,7 +18,7 @@ a:hover {
   width: 100%;
   display: -ms-flexbox;
   display: flex;
-  color: #fff;
+  background-color: #fff;
   flex-direction: row;
 }
 .App__Aside {
@@ -27,7 +27,7 @@ a:hover {
   height: 5rem;
 }
 .App .App__Aside img {
-  width: 107%;
+  width: 100%;
   height: 322%;
   align-items: center;
   justify-content: center;

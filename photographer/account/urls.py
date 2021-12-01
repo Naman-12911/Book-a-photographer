@@ -6,6 +6,6 @@ from account import views
 urlpatterns = [
     path('register/', Register.as_view(),name="register"),
     path('login/', Login.as_view()),
-    path('logout/',views.logout,name='logout'),
+    path('logout/',logout.as_view(),name='logout'),
     path('email-verify/',VerifyEmail.as_view(),name="email-verify")
 ]

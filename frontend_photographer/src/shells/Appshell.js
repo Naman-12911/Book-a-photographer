@@ -1,44 +1,43 @@
 import Cards from "../components/portal_customer/Cards";
-import Single_Card from "../components/portal_customer/Single_card";
-import Photographer_card from "../components/portal_customer/Photographer_card";
+import SingleCard from "../components/portal_customer/SingleCard";
+import PhotographerCard from "../components/portal_customer/PhotographerCard";
 import Main from "../components/portal_customer/Main";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Single_photo from "../components/portal_customer/Single_photo";
+import { Switch, Route } from "react-router-dom";
+import SinglePhoto from "../components/portal_customer/SinglePhoto";
 import Footer from "../components/portal1/Footer";
 import Profile from "../components/portal_customer/Profile";
+// import LoginForm from "../components/portal1/LoginForm";
+// import Logout from "../components/portal1/Logout";
+import Booking from "../components/portal_customer/Booking"
 
 // portal 2
 function Appshell() {
   return (
     <>
-      <Main />      
-      <Switch>
-  
-        {/* enable the photographer */}
-        <Route exact path="/">
-          <Photographer_card />
-        </Route>
-        {/* enable the top-destination */}
+     { <Main /> }     
+      <Switch>        
+         <Route exact path="/">
+          <PhotographerCard />
+        </Route> 
+         
         <Route exact path="/top-destination">
           <Cards />
         </Route>
-        {/* enable the single photographer */}
-        <Route exact path="/:id">
-          <Single_photo />
-        </Route>
-        {/* <Route exact path="/booking">
-          <Booking />
-        </Route> */}
-         {/* enable the photographer_portal/Profile */}
-        <Route exact path="/photographer_portal/Profile">
-          <Profile />
-        </Route>
-        {/* enable the single destination */}
-        <Route exact path="/blog/:slug">
-          <Single_Card />
-        </Route>        
-      </Switch>
       
+        <Route exact path="/photographer/:id">
+          <SinglePhoto />
+        </Route> 
+        <Route  exact path="/booking" component={Booking} />
+          
+         
+         <Route exact path="/cutomer/Profile">
+          <Profile />
+        </Route> 
+        
+        <Route exact path="/blog/:slug">
+          <SingleCard /> 
+        </Route> 
+      </Switch>
       <Footer />
      
     </>

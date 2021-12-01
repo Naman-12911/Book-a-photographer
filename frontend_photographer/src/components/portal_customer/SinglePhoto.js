@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ai from "../Apis";
 import "../../css/Single_photo.css";
 import {Button, Modal} from "react-bootstrap";
-import Main_navbar from "./Main_navbar";
+import MainNavbar from "./MainNavbar";
 function Single_photo() {
   const [photo, setPhoto] = useState([]);
   const parms = useParams();
@@ -22,7 +22,7 @@ function Single_photo() {
       return request;
     }
     fetchData();
-  }, []);
+  }, [parms.id]);
   
   // for modal to code ..
 
@@ -62,7 +62,7 @@ function Single_photo() {
   
   return (
     <>
-    <Main_navbar/>
+    <MainNavbar/>
     <div className="about-page">
       <div className="info-page">
         <div className="book-now">

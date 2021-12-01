@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import "../../css/Profile.css";
 import {Button, Modal} from "react-bootstrap";
-import Main_navbar from "./Main_navbar";
+import MainNavbar from "./MainNavbar";
 function Profile() {
    // set timeout for the booking the button.
    const [show, setShow] = useState(false);
@@ -10,7 +10,7 @@ function Profile() {
  
   return (
     <>
-    <Main_navbar/>
+    <MainNavbar/>
       <div className="wrapper_profile  mt-sm-5 my-5">
     <h4 className="pb-4 border-bottom">My Profile</h4>
     
