@@ -9,6 +9,7 @@ import Profile from "../components/portal_customer/Profile";
 import LoginForm from "../components/portal1/LoginForm";
 import Logout from "../components/portal1/Logout";
 
+
 // portal 2
 function Appshell() {
   return (
@@ -28,9 +29,6 @@ function Appshell() {
         <Route exact path="/:id">
           <Single_photo />
         </Route>
-        {/* <Route exact path="/booking">
-          <Booking />
-        </Route> */}
          {/* enable the photographer_portal/Profile */}
         <Route exact path="/photographer_portal/Profile">
           <Profile />

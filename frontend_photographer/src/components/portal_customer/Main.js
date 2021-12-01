@@ -42,13 +42,11 @@ function Main() {
                 <Link to="/top-destination">Top Destination</Link>
               </li>
               <li>
-                <Link to="#">Bookings</Link>
+                <Link to="/portal_customer/MyBooking">My Bookings</Link>
               </li>
-              {/* <li>
-                <Link to="#">contact</Link>
-              </li> */}
             </ul>
           </div>
+
           <div className="button" id="button-disable">
             <DropdownButton title="more" id="more-dropdown">
               <Dropdown.Item eventKey="1" id="dropdown">
