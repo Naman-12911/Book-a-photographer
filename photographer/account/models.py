@@ -16,7 +16,7 @@ class User(AbstractUser):
         ('photographer', 'Photographer'),
         ('customer','Customer'),
     )
-    user_type = models.CharField(choices = type_choice,max_length=20)
+    user_type = models.CharField(choices = type_choice,max_length=20,default="customer")
     auth_provider = models.CharField(max_length=255, blank=False, null=False, default=AUTH_PROVIDERS.get('email'))
     USERNAME_FIELD = 'email'
     objects = CustomUserManager() 

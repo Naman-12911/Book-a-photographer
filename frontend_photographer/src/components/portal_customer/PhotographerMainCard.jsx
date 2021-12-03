@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -43,7 +43,7 @@ function Cards({ photo, key }) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const [increment, setIncrement] = useState(0); // usestate for increment the likes
+  // const [increment, setIncrement] = useState(0); // usestate for increment the likes
   // random color genertor for avtar tag.
   function randomColor() {
     let hex = Math.floor(Math.random() * 0xffffff);
@@ -91,14 +91,14 @@ function Cards({ photo, key }) {
                   name="checkedH"
                   // onClick={() =>
                   //   increment >= 0 ? setIncrement(increment + 1) : ""
-                  // }
+                  // }f
                 />
               }
               {/* {increment} */}
               {photo.like}
             </IconButton>
             <div className="mx-3">
-              <Link to={`/${photo.id}`}> Book Now</Link>
+              <Link to={`/photographer/${photo.id}`}> Book Now</Link>
             </div>
             <IconButton
               className={clsx(classes.expand, {
@@ -118,7 +118,7 @@ function Cards({ photo, key }) {
               </Typography>
               <Typography paragraph>
                 {photo.work_experience.slice(0, 150)}...{" "}
-                <Link to={`/${photo.id}`}> Read more</Link>
+                <Link to={`/photographer/${photo.id}`}> Read more</Link>
               </Typography>
             </CardContent>
           </Collapse>

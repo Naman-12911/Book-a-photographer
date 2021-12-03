@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ai from "../Apis";
 import { useParams } from "react-router-dom";
-import Main_navbar from "./Main_navbar";
+import MainNavbar from "./MainNavbar";
 function Cards_page() {
   const [blog, setBlog] = useState([]);
   const parms = useParams();
@@ -19,20 +19,16 @@ function Cards_page() {
       return request;
     }
     fetchData();
-  }, []);
-
-
-console.log("next");
+  }, [parms.slug]);
 
 
   return (
     <>
-    <Main_navbar/>
+    <MainNavbar/>
     <div class="container my-3">
    
       <h2 className="blog-post-title">{blog.place}</h2>
       <h6 className="blog-post-meta"> popular for {blog.popular_for} </h6>
-      {/* <p id="blogdes">{blog.decription}</p> */}
       <div
         dangerouslySetInnerHTML={{
           __html: blog.decription

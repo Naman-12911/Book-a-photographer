@@ -4,10 +4,11 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormLabel from "@material-ui/core/FormLabel";
+import { Redirect } from 'react-router';
 
 function SignupForm(props) {
   // signup api
-  const url = "account/register";
+  const url = "account/register/";
   const [data, setData] = useState({
     first_name: "",
     last_name: "",
@@ -43,7 +44,9 @@ function SignupForm(props) {
       });
       //props.showAlert("Your problem has been sumbitted!", "success");
       alert("you are signup! please verify your email");
+      return <Redirect to="/LoginForm setLogin={setLogin}"/>
     });
+
   }
   function handle(e) {
     const newdata = { ...data };

@@ -1,6 +1,5 @@
 import React, { Component, useState} from "react";
 import { Redirect } from 'react-router';
-import axios from "axios";
 import ai from "../Apis";
 
 // function LoginForm(props) {

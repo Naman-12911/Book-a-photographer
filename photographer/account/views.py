@@ -80,23 +80,6 @@ class Login(generics.GenericAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-# Logiout apis
-
-#@permission_classes([IsAuthenticated])
-@csrf_exempt
-# class logout(APIView):
-#     permission_classes = (IsAuthenticated,)
-
-#     def post(self, request):
-#         try:
-#             refresh_token = request.data["refresh_token"]
-#             token = RefreshToken(refresh_token)
-#             token.blacklist()
-
-#             return Response(status=status.HTTP_205_RESET_CONTENT)
-#         except Exception as e:
-#             return Response(status=status.HTTP_400_BAD_REQUEST)
-
 # api for logout
 class logout(generics.GenericAPIView):
     serializer_class =LogoutSerializer
@@ -108,3 +91,9 @@ class logout(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+# class logout(APIView):
+#     def get(request):
+#         # simply delete the token to force a login
+#         request.user.auth_token.delete()
+#         return Response(status=status.HTTP_200_OK)

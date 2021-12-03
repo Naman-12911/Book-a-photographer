@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ai from "../Apis";
 import { Link } from "react-router-dom";
-import Main_navbar from "./Main_navbar";
+import MainNavbar from "./MainNavbar";
 function Cards() {
   // fetch all the blogs using axios library.
   const [blog, setBlog] = useState([]);
@@ -60,7 +60,7 @@ function Cards() {
 
   return (
     <>
-    <Main_navbar/>
+    <MainNavbar/>
       <div className="wrapper">
         <div className="container">
           <div className="row">
