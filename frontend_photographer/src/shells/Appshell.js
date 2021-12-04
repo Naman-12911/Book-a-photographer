@@ -11,7 +11,7 @@ import Profile from "../components/portal_customer/Profile";
 import Booking from "../components/portal_customer/Booking"
 
 // portal 2
-function Appshell() {
+function Appshell({authInfo,setauthInfo}) {
   return (
     <>
      { <Main /> }     

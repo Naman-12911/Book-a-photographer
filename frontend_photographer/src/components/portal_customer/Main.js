@@ -1,11 +1,16 @@
 import React from "react";
 import "../../css/Main.css";
 import  new_logo from "../image/new_logo.png";
-import { Link } from "react-router-dom";
+import { Link ,useHistory} from "react-router-dom";
+
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
 function Main() {
-
+const history = useHistory()
+const handleLogout=()=>{
+  localStorage.clear()
+  history.push("/")
+}
   return (
     <div>
       <div id="navbar-font-size">
@@ -36,7 +41,7 @@ function Main() {
                 <Link to="/cutomer/Profile">My Profile</Link>
               </Dropdown.Item>
               <Dropdown.Item eventKey="3" id="dropdown">
-                <Link to="#"> Log out</Link>
+                <p onClick={handleLogout}> Log out</p>
               </Dropdown.Item>
 
               <Dropdown.Item eventKey="4" id="dropdown">

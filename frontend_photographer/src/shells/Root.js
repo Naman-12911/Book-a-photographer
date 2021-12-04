@@ -14,7 +14,7 @@ import { Switch, Route } from "react-router-dom";
 
 // portal 1
 
-const App = () => {
+const App = ({authInfo,setauthInfo}) => {
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -65,7 +65,7 @@ const App = () => {
           />
         </Route>
         <Route path="/form/LogIn">
-          <Form />
+          <Form authInfo={authInfo} setauthInfo={setauthInfo} />
         </Route>
       </Switch>
       <Footer />

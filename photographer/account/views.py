@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework.serializers import Serializer
 from .searilizer import JWT_ENCODE_HANDLER, UserSerializers,UserLoginSerializer,EmailVerificationSerializer,LogoutSerializer
 from rest_framework.response import Response
 from .models import User # import models
@@ -92,8 +93,19 @@ class logout(generics.GenericAPIView):
         serializer.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-# class logout(APIView):
-#     def get(request):
-#         # simply delete the token to force a login
-#         request.user.auth_token.delete()
-#         return Response(status=status.HTTP_200_OK)
+# get the user details
+class userData(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    def get(self, request):
+        serializer = UserSerializers(self.request.user)
+        return Response(serializer.data)
+
+# delete account details
+class deleteAccount(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def delete(self, request, *args, **kwargs):
+        user=self.request.user
+        user.delete()
+
+        return Response({"result":"user delete"})

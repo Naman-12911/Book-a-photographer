@@ -1,13 +1,30 @@
-import React, { useState} from "react";
+import React, { useState,useEffect} from "react";
 import "../../css/Profile.css";
 import {Button, Modal} from "react-bootstrap";
 import MainNavbar from "./MainNavbar";
+import ai from '../Apis'
 function Profile() {
    // set timeout for the booking the button.
    const [show, setShow] = useState(false);
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
- 
+  // get the user details 
+  const [Profile_data, setProfile_data] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const request = ai
+        .get("account/profile")
+        .then((res) => {
+          console.log(res);
+          Profile_data(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      return request;
+    }
+    fetchData();
+  }, []);
   return (
     <>
     <MainNavbar/>
@@ -23,29 +40,29 @@ function Profile() {
     <div className="py-2">
         <div className="row py-2">
             <div className="col-md-6"> 
-            <div className='profile_label' for="firstname">First Name</div> 
+            <div className='profile_label' for="firstname">{Profile_data.first_name}</div> 
             </div>
             <div className="col-md-6 pt-md-0 pt-3"> 
-            <div className='profile_label' for="lastname">Last Name</div> 
+            <div className='profile_label' for="lastname">{Profile_data.last_name}</div> 
             
             </div>
         </div>
         <div className="row py-2">
             <div className="col-md-6"> 
-            <div className='profile_label'  for="email">Email Address</div> 
+            <div className='profile_label'  for="email">{Profile_data.email}</div> 
            
             </div>
             <div className="col-md-6 pt-md-0 pt-3"> 
-            <div className='profile_label'  for="phone">Phone Number</div> 
+            <div className='profile_label'  for="phone">{Profile_data.phone_no}</div> 
             
             </div>
         </div>
         </div>
-
         
       <Button className="nextButton" onClick={handleShow} >
       &#128393; Edit
         </Button>
+        {/* form to edit the details of the profile */}
          <div className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <Modal show={show} onHide={handleClose} bd-example-modal-lg>
           <Modal.Header >
