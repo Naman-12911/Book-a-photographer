@@ -30,7 +30,8 @@ button {
 }
 
 nav ul li a:hover {
-  background-color: #c3ccce;
+  /* background-color: #c3ccce; */
+  background-color: rgb(18, 25, 48);
   transition: all ease 0.2s;
 }
 .intro {

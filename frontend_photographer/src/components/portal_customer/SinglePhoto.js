@@ -90,6 +90,9 @@ function Single_photo() {
           <div className="column-img">
             <img src={photo.image5} alt="Naman" />
           </div>
+          {/* <div className="column-img">
+            <img src={photo.image5} alt="Naman" />
+          </div> */}
         </div>
       </div>
       <br />

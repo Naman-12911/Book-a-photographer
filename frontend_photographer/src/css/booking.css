@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+.booking-main{
+    background: white;
+    height: 100%;
+    width: 100%;
+}
+.inner-booking{
+    padding-top: 1.5em;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-bottom:1%
+}
+#main-content {
+    padding: 30px;
+    border-radius: 15px
+}
+
+#main-content .h5,
+#main-content .text-uppercase {
+    font-weight: 600;
+    margin-bottom: 0
+}
+
+
+.order {
+    padding: 10px 30px;
+    min-height: 150px
+}
+
+.order .order-summary {
+    height: 100%
+}
+
+.order .fs-8 {
+    font-size: 0.85rem
+}
+
+.cancel-main{
+   float: right;
+}
+.order .cancelbutton {
+    background-color: #fff;
+    color: #4e2296;
+    border: 1px solid #4e2296
+}
+
+.order .cancelbutton:hover {
+    background-color: #4e2296;
+    color: #fff
+}
+
+
+.bg-light {
+    background-color: #f0ecec !important
+}
+
+
+
+
+/* subtotal, shipping, total starts */
+
+.display-5 {
+    font-size: 1.0rem
+}
