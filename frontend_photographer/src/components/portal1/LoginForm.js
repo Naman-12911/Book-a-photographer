@@ -1,13 +1,13 @@
 import React, { useState} from "react";
-import { Redirect,useHistory } from 'react-router';
+import {useHistory } from 'react-router';
 import ai from "../Apis";
 import {useLocalStorage} from "../../Hooks/useLocalStorage"
 
 function LoginForm(props) {
   const history = useHistory();
   const url = "account/login/";
-  const[Token, setToken] = useLocalStorage("token")
-  const [token] = useLocalStorage('token')
+  const[Token] = useLocalStorage("token")
+  // const [token] = useLocalStorage('token')
 console.log(Token)
   const [data, setData] = useState({
    email: "",
@@ -21,12 +21,15 @@ console.log(Token)
     }).then((res) => {
       console.log(res.data);
       setauthInfo({...authInfo, loggedIn:true})
-      setToken(res.data.tokens.access)
+      localStorage.setItem("token",res.data.tokens.access)
       alert("You are login  has!, been sumbitted!", "success");
       console.log(Token)
       history.push("/")
     }).catch(
-      e=>console.log(e)
+      e=>{console.log(e.response.data)
+      alert(e.response.data.detail)}
+      // error msg
+    
     )
   }
   function handle(e) {

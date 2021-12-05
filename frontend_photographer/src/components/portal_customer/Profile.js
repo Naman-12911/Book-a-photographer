@@ -13,10 +13,10 @@ function Profile() {
   useEffect(() => {
     async function fetchData() {
       const request = ai
-        .get("account/profile")
+        .get("account/profile",{ headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}})
         .then((res) => {
           console.log(res);
-          Profile_data(res.data);
+          setProfile_data(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -40,20 +40,20 @@ function Profile() {
     <div className="py-2">
         <div className="row py-2">
             <div className="col-md-6"> 
-            <div className='profile_label' for="firstname">{Profile_data.first_name}</div> 
+            <div className='profile_label' htmlFor="firstname">{Profile_data.first_name}</div> 
             </div>
             <div className="col-md-6 pt-md-0 pt-3"> 
-            <div className='profile_label' for="lastname">{Profile_data.last_name}</div> 
+            <div className='profile_label' htmlFor="lastname">{Profile_data.last_name}</div> 
             
             </div>
         </div>
         <div className="row py-2">
             <div className="col-md-6"> 
-            <div className='profile_label'  for="email">{Profile_data.email}</div> 
+            <div className='profile_label'  htmlFor="email">{Profile_data.email}</div> 
            
             </div>
-            <div className="col-md-6 pt-md-0 pt-3"> 
-            <div className='profile_label'  for="phone">{Profile_data.phone_no}</div> 
+            <div className="col-md-6 pt-md-0 pt-6"> 
+            <div className='profile_label'  htmlFor="phone">{Profile_data.phone_no}</div> 
             
             </div>
         </div>
@@ -63,7 +63,7 @@ function Profile() {
       &#128393; Edit
         </Button>
         {/* form to edit the details of the profile */}
-         <div className="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <Modal show={show} onHide={handleClose} bd-example-modal-lg>
           <Modal.Header >
             <Modal.Title><h3 >Edit &#9998;</h3></Modal.Title>
@@ -72,14 +72,14 @@ function Profile() {
           <div className="py-2">
             <div className="row py-2">
             <div className="col-md-6"> 
-            <label className='profile_label' for="firstname">First Name</label> 
+            <label className='profile_label' htmlFor="firstname">First Name</label> 
             <input 
             type="text" 
             className="bg-light form-control" 
             placeholder="Name"/> 
             </div>
             <div className="col-md-6 pt-md-0 pt-3"> 
-            <label className='profile_label' for="lastname">Last Name</label> 
+            <label className='profile_label' htmlFor="lastname">Last Name</label> 
             <input 
             type="text" 
             className="bg-light form-control" 
@@ -88,13 +88,13 @@ function Profile() {
         </div>
         <div className="row py-2">
             <div className="col-md-6"> 
-            <label className='profile_label'  for="email">Email Address</label> 
+            <label className='profile_label'  htmlFor="email">Email Address</label> 
             <input type="text" 
             className="bg-light form-control" 
             placeholder="Email"/> 
             </div>
             <div className="col-md-6 pt-md-0 pt-3"> 
-            <label className='profile_label'  for="phone">Phone Number</label> 
+            <label className='profile_label'  htmlFor="phone">Phone Number</label> 
             <input type="tel" 
             className="bg-light form-control" 
             placeholder="Phone Number"/> 

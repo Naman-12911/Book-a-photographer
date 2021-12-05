@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../components/portal1/Navbar";
 import Home from "../components/portal1/Home";
 import Footer from "../components/portal1/Footer";
-import Alert from "../components/portal1/Alert";
 import Contact from "../components/portal1/Contact";
 import About from "../components/portal1/About";
 import Form from "../components/portal1/Form";
@@ -15,28 +14,16 @@ import { Switch, Route } from "react-router-dom";
 // portal 1
 
 const App = ({authInfo,setauthInfo}) => {
-  const [alert, setAlert] = useState(null);
-
-  const showAlert = (message, type) => {
-    setAlert({
-      msg: message,
-      type: type,
-    });
-    setTimeout(() => {
-      setAlert(null);
-    }, 1500);
-  };
   // app.js file
   return (
     <>
       <Navbar />
-      <Alert alert={alert} />
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
         <Route path="/contact">
-          <Contact showAlert={showAlert} />
+          <Contact />
         </Route>
         <Route path="/about">
           <About

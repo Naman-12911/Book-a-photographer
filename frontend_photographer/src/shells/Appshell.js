@@ -6,15 +6,13 @@ import { Switch, Route } from "react-router-dom";
 import SinglePhoto from "../components/portal_customer/SinglePhoto";
 import Footer from "../components/portal1/Footer";
 import Profile from "../components/portal_customer/Profile";
-// import LoginForm from "../components/portal1/LoginForm";
-// import Logout from "../components/portal1/Logout";
 import Booking from "../components/portal_customer/Booking"
 
 // portal 2
 function Appshell({authInfo,setauthInfo}) {
   return (
     <>
-     { <Main /> }     
+     { <Main setauthInfo={setauthInfo} authInfo={authInfo} /> }     
       <Switch>        
          <Route exact path="/">
           <PhotographerCard />

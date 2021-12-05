@@ -5,16 +5,16 @@ import "../../css/Navbar.css";
 
 function Navbar() {
   return (
-    <div class="main-header">
-        <div class="inner-header">
-            <div class="inner-logo">
+    <div className="main-header">
+        <div className="inner-header">
+            <div className="inner-logo">
               <div className='navimg'> <img id='nav_img' src={navbar_logo} alt="" />
               </div>
               <div className='logodiv'><Link id ='nav_text' to="/">Photography</Link>
               </div>
             </div>
-            <div class="header-link"><Link  id ='nav-id' to="Contact">Contact</Link></div>
-            <div class="header-link"><Link  id ='nav-id' to="About">About</Link></div>
+            <div className="header-link"><Link  id ='nav-id' to="/contact">Contact</Link></div>
+            <div className="header-link"><Link  id ='nav-id' to="/about">About</Link></div>
             
         </div>
     </div>

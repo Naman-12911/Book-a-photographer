@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',# instal; rest_framework
-    'corsheaders',# for the react
+    'rest_framework',# instal  rest_framework
+    'corsheaders',# for the react allow cors policy
     # app
     'account',
     'top_dest_contact',
@@ -183,10 +183,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'static/images/')
 MEDIA_URL  = "/images/"
 
 
-# allow localhost 3000 to acced apis
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000'
-]
+
 # edit the user mode.
 AUTH_USER_MODEL = 'account.User'
 
@@ -222,10 +219,28 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "ancoder01@gmail.com"
-EMAIL_HOST_PASSWORD = "ymtgccgomwasqlrd"
+EMAIL_HOST_PASSWORD = "fevtjokuazoahsfw"
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
+
+
+
+
+# allow localhost 3000 to acced apis
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    "http://127.0.0.1:8000",
+]
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+# CORS_ORIGIN_WHITELIST = [
+#     'http://localhost:3000',
+# ]
+
 
 

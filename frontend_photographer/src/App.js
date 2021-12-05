@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { useLocalStorage } from "./Hooks/useLocalStorage";
 import Appshell from "./shells/Appshell";
 import Root from "./shells/Root";
+import {token} from  "./Helper"
 
 // Root is a portal 1 where all the data componets come.
 // Appshell is portal 2 where all the components are come
@@ -11,14 +11,18 @@ import Root from "./shells/Root";
 const App = () => {
   // app.js file
   const [authInfo, setauthInfo] = useState({loggedIn:false})
-  const[token]=useLocalStorage("token")
-  console.log("app", token)
+  const my_token = token()
   useEffect(() => {
-  }, [authInfo.loggedIn])
+    let acc_token = localStorage.getItem("token")
+    if(acc_token){
+      setauthInfo({...authInfo,loggedIn:true})
+    }
+  }, [my_token])
+  
   return (
     <>
-      {/* <Router>{token ? <Appshell/> : <Root   authInfo={authInfo} setauthInfo={setauthInfo} />}</Router> */}
-      <Router>{true ? <Appshell /> : <Root />}</Router>
+      <Router>{authInfo.loggedIn ? <Appshell authInfo={authInfo} setauthInfo={setauthInfo} /> : <Root   authInfo={authInfo} setauthInfo={setauthInfo} />}</Router>
+      {/* <Router>{true ? <Appshell /> : <Root />}</Router> */}
     </>
   );
 };

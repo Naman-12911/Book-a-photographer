@@ -60,7 +60,6 @@ class UserLoginSerializer(serializers.ModelSerializer):
         if filtered_user_by_email.exists() and filtered_user_by_email[0].auth_provider != 'email':
             raise AuthenticationFailed(
                 detail='Please continue your login using ' + filtered_user_by_email[0].auth_provider)
-
         if not user:
             raise AuthenticationFailed('Invalid credentials, try again')
         if not user.is_active:

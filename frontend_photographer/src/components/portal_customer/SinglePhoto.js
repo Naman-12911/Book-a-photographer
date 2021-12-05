@@ -11,7 +11,7 @@ function Single_photo() {
   useEffect(() => {
     async function fetchData() {
       const request = await ai
-        .get(`photographer-account/single-photographer/${parms.id}`)
+        .get(`photographer-account/single-photographer/${parms.id}`,{ headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}})
         .then((res) => {
           console.log(res);
           setPhoto(res.data);
