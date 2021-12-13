@@ -8,7 +8,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
-from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
@@ -80,18 +80,6 @@ class Login(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-
-# api for logout
-class logout(generics.GenericAPIView):
-    serializer_class =LogoutSerializer
-
-    permission_classes = (permissions.IsAuthenticated,)
-
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(status=status.HTTP_204_NO_CONTENT)
     
 # get the user details
 class userData(APIView):
@@ -100,6 +88,15 @@ class userData(APIView):
         serializer = UserSerializers(self.request.user)
         return Response(serializer.data)
 
+# update the user details
+class update_profile(RetrieveUpdateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    serializer_class = UserSerializers
+    def update(self, request, *args, **kwargs):
+        serializer = self.serializer_class(request.user, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
 # delete account details
 class deleteAccount(APIView):
     permission_classes = [permissions.IsAuthenticated]

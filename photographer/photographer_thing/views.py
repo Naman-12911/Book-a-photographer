@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
+from customer.models import Booking
+from customer.serializer import bookingserializer
+from customer.views import booking
 from .searilizer import photographerSerializer, likeSerializer # searilizers
 from rest_framework.response import Response
 from .models import photographer,like               # import models
@@ -40,6 +43,8 @@ def photographer_post(request):
         return JsonResponse(serializer.errors, status=400)
     # get request to fetch the data
     
+
+
 @csrf_exempt
 def photographerId_get(request,pk):
     permission_classes = [IsAuthenticated]
@@ -81,16 +86,10 @@ class LikeListCreate(APIView):
                 })
         new_like = like.objects.create(likeusers=likeusers, likepost=likepost.last())
         new_like.save()
-        serializer = likeSerializer(new_like)
+        serializer = likeSerializer(new_like) 
         return Response(serializer.data,status=status.HTTP_201_CREATED)
 
 
-@csrf_exempt
-def email(request,pk):
-    try:
-        photographer_id = photographer.objects.get(pk=pk)
-    except photographer_id.DoesNotExist:
-        return HttpResponse(status=404)
 
 
 class photographer_get(viewsets.ModelViewSet): # to fetch all the photographer main thingd to use gives umg url

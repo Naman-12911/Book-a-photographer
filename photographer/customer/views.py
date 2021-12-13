@@ -26,16 +26,28 @@ def booking(request):
         serializer =  bookingserializer(booking, many=True)
         return  JsonResponse(serializer.data, safe=False)
     elif request.method == "POST":
-        # data = JSONParser().parse(request)
+        data = JSONParser().parse(request)
         serializer = bookingserializer(data=request.data)
         request.data['user'] = request.user.id
-        if not Booking.status:
-            Booking.status = True
-            Booking.save()
+        # if not Booking.status:
+        #     Booking.status = True
+        #     Booking.save()
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
+
+#booking user id get request
+@permission_classes([permissions.IsAuthenticated])
+
+def booking_id(request, id):
+    try:
+        userid = Booking.objects.filter(user_id=user_id).first()
+    except userid.DoesNotExist:
+        return HttpResponse(status=404)
+    if request.method == 'GET': # get request to fetch all the data according to the id
+        serializer = bookingserializer(userid)
+        return JsonResponse(serializer.data)
 
 
 # @csrf_exempt
