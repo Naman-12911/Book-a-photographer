@@ -1,29 +1,36 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState} from "react";
+import {useHistory } from 'react-router';
+import ai from "../Apis";
+import {useLocalStorage} from "../../Hooks/useLocalStorage"
 
 function LoginForm(props) {
-  const url = "http://localhost:8000/account/login/";
+  const history = useHistory();
+  const url = "account/login/";
+  const[Token] = useLocalStorage("token")
+  // const [token] = useLocalStorage('token')
+console.log(Token)
   const [data, setData] = useState({
-    email: "",
-    password: "",
+   email: "",
   });
-  const { setLogin } = props;
+  const { setLogin ,authInfo, setauthInfo} = props; 
   function sumbit(e) {
     e.preventDefault();
-    axios
-      .post(url, {
-        email: data.email,
-        password: data.password,
-      })
-      .then((res) => {
-        console.log(res.data);
-        setData({
-          email: "",
-          password: "",
-        });
-        props.showAlert("Your problem has been sumbitted!", "success");
-        //alert("nnnnnnnnnnnn");
-      });
+    ai.post(url, {
+      email: data.email,
+      password: data.password,
+    }).then((res) => {
+      console.log(res.data);
+      setauthInfo({...authInfo, loggedIn:true})
+      localStorage.setItem("token",res.data.tokens.access)
+      alert("You are login  has!, been sumbitted!", "success");
+      console.log(Token)
+      history.push("/")
+    }).catch(
+      e=>{console.log(e.response.data)
+      alert(e.response.data.detail)}
+      // error msg
+    
+    )
   }
   function handle(e) {
     const newdata = { ...data };
@@ -31,9 +38,11 @@ function LoginForm(props) {
     setData(newdata);
     console.log(newdata);
   }
+
+
   return (
     <div className="FormCenter">
-      <form className="FormFeilds" onSubmit={(e) => sumbit(e)}>
+      <form className="FormFeilds" onSubmit={(e) => sumbit(e)} >
         {/* email input */}
         <div className="FormField">
           <input
@@ -60,11 +69,11 @@ function LoginForm(props) {
         </div>
 
         <div className="FormField">
-          <button className="FormField__Button mr-20" type="Submit">
+          <button className="FormField__Button mr-20" type="Submit" >
             Log In
-          </button>
+          </button><br />
           <p onClick={() => setLogin("signup")} className="FormField__link">
-            Create an Accoun t
+            Create an Account
           </p>
         </div>
       </form>
@@ -72,4 +81,4 @@ function LoginForm(props) {
   );
 }
 
-export default LoginForm;
+export default LoginForm

@@ -1,10 +1,12 @@
-from .models import User, photographer
+from .models import User
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import update_last_login
-from rest_framework_jwt.settings import api_settings
-JWT_PAYLOAD_HANDLER = api_settings.JWT_PAYLOAD_HANDLER
-JWT_ENCODE_HANDLER = api_settings.JWT_ENCODE_HANDLER
+from rest_framework.exceptions import AuthenticationFailed
+from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib import auth
+
+
 # register serializers
 class UserSerializers(serializers.ModelSerializer):
     class Meta:
@@ -16,7 +18,6 @@ class UserSerializers(serializers.ModelSerializer):
     # convert password to hash key
     def create(self, validated_data):
         password = validated_data.pop('password',None)
-        phone_no = validated_data.pop('phone_no',None)
         instance = self.Meta.model(**validated_data)
         if password is not None:
             instance.set_password(password)
@@ -26,33 +27,76 @@ class UserSerializers(serializers.ModelSerializer):
         return instance
     
 # login serializers
-class UserLoginSerializer(serializers.Serializer):
-    email = serializers.CharField(max_length=255)
-    password = serializers.CharField(max_length=128, write_only=True)
-    token = serializers.CharField(max_length=255, read_only=True)
-    def validate(self, data):
-        email = data.get("email", None)
-        password = data.get("password", None)
-        user = authenticate(email=email, password=password)
-        if user is None:
-            raise serializers.ValidationError(
-                'A user with this email and password is not found.'
-            )
-        try:
-            payload = JWT_PAYLOAD_HANDLER(user)
-            jwt_token = JWT_ENCODE_HANDLER(payload)
-            update_last_login(None, user)
-        except User.DoesNotExist:
-            raise serializers.ValidationError(
-                'User with given email and password does not exists'
-            )
+
+class UserLoginSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(max_length=255, min_length=3)
+    password = serializers.CharField(max_length=68, min_length=6, write_only=True)
+    tokens = serializers.SerializerMethodField()
+
+    def get_tokens(self, obj):
+        user = User.objects.get(email=obj['email'])
+
         return {
-            'email':user.email,
-            'token': jwt_token
+            'refresh': user.tokens()['refresh'],
+            'access': user.tokens()['access']
         }
-class photographerSerializer(serializers.ModelSerializer):
+
     class Meta:
-        model = photographer
-        fields = ['id','email','phone_number','image1','image2','image3','image4','image5','speaclization','work_experience','price']
-        #fields = "__all__"
+        model = User
+        fields = ['email', 'password', 'tokens']
+
+    def validate(self, attrs):
+        email = attrs.get('email', '')
+        password = attrs.get('password', '')
+        filtered_user_by_email = User.objects.filter(email=email)
+        user = auth.authenticate(email=email, password=password)
+
+        if filtered_user_by_email.exists() and filtered_user_by_email[0].auth_provider != 'email':
+            raise AuthenticationFailed(
+                detail='Please continue your login using ' + filtered_user_by_email[0].auth_provider)
+        if not user:
+            raise AuthenticationFailed('Invalid credentials, try again')
+        if not user.is_active:
+            raise AuthenticationFailed('Account disabled, contact admin')
+        if not user.is_verified:
+            raise AuthenticationFailed('Email is not verified')
+
+        return {
+            'email': user.email,
+            'tokens': user.tokens
+        }
+
+        return super().validate(attrs)
+
+# email verification
+class EmailVerificationSerializer(serializers.ModelSerializer):
+    token = serializers.CharField(max_length=555)
+
+    class Meta:
+        model = User
+        fields = ['token']
         
+# logout apis
+class LogoutSerializer(serializers.Serializer):
+    refresh = serializers.CharField()
+
+    default_error_message = {
+        'bad_token': ('Token is expired or invalid')
+    }
+
+    def validate(self, attrs):
+        self.token = attrs['refresh']
+        return attrs
+
+    def save(self, **kwargs):
+        RefreshToken(self.token).blacklist()
+
+# reset password 
+class ResetPasswordEmailRequestSerializer(serializers.Serializer):
+    email = serializers.EmailField(min_length=2)
+
+    redirect_url = serializers.CharField(max_length=500, required=False)
+
+    class Meta:
+        fields = ['email']
+

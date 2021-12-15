@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import ai from "../Apis";
 import { Link } from "react-router-dom";
+import MainNavbar from "./MainNavbar";
 function Cards() {
   // fetch all the blogs using axios library.
   const [blog, setBlog] = useState([]);
-  const fetchURL = "http://localhost:8000/top_dest_contact/top-destination/";
+  const [current, setCurrent] = useState(1);
+  // const [pageSize] = useState(0);
+
   useEffect(() => {
     async function fetchData() {
-      const request = axios
-        .get(fetchURL)
+      const request = ai
+        .get("top_dest_contact/top-destination/",{ headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}})
         .then((res) => {
           console.log(res);
           setBlog(res.data);
@@ -20,12 +23,49 @@ function Cards() {
     }
     fetchData();
   }, []);
+  // pagination
+  console.log({blog})
+
+  let preClick = async () => {
+    // privious page
+    async function fetchData() {
+      const request = ai
+        .get(`top_dest_contact/top-destination/?page=${current - 1}`)
+        .then((res) => {
+          setBlog(res.data);
+        })
+        .catch((err) => {});
+      return request;
+    }
+    fetchData();
+    setCurrent(current - 1);
+  };
+  let nextClick = async () => {
+    // next page
+
+    async function fetchData() {
+      const request = ai
+        .get(`top_dest_contact/top-destination/?page=${current + 1}&pageSize`)
+        .then((res) => {
+          setBlog(res.data);
+        })
+        .catch((err) => {});
+      return request;
+    }
+    fetchData();
+    setCurrent(current + 1);
+  };
+
+  console.log("next");
+
+
   return (
     <>
+    <MainNavbar/>
       <div className="wrapper">
         <div className="container">
           <div className="row">
-            {blog.map((blog) => (
+            {blog?.results?.map((blog) => (
               <div className="col-md-6 col-lg-4" key={blog.id}>
                 <div className="card mx-30">
                   <img
@@ -41,7 +81,13 @@ function Cards() {
                       popular For {blog.popular_for} Photo shoot
                     </h6>
                     <p className="card-text">
-                      {blog.decription.slice(0, 100)}...
+                      {/* {blog.decription.slice(0, 100)}... */}
+                      {/* this div tag for to convert html to text  */}
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: blog.decription.slice(0, 100)
+                        }}>
+                    </div>
                     </p>
                     <Link
                       to={`/blog/${blog.slug}`}
@@ -52,10 +98,35 @@ function Cards() {
                     </Link>
                   </div>
                 </div>
+                <br/>
               </div>
             ))}
           </div>
           <br />
+          <br/>
+        </div>
+      </div>
+      {/* <Pagination /> */}
+      <div>
+        <div className="d-flex justify-content-between">
+          <button
+            type="button"
+            disabled={current <= 1}
+            className="btn btn-dark mx-5 my-3"
+            onClick={preClick}
+          >
+            {" "}
+            &larr; Previous
+          </button>
+          <button
+            disabled={current >= 2}
+            type="button"
+            className="btn btn-dark mx-5 my-3"
+            onClick={nextClick}
+          >
+            {" "}
+            Next &rarr;
+          </button>
         </div>
       </div>
     </>

@@ -1,21 +1,43 @@
 import Cards from "../components/portal_customer/Cards";
-import Single_Card from "../components/portal_customer/Single_card";
-import Photographer_card from "../components/portal_customer/Photographer_card";
-import { BrowserRouter as Switch, Route } from "react-router-dom";
+import SingleCard from "../components/portal_customer/SingleCard";
+import PhotographerCard from "../components/portal_customer/PhotographerCard";
+import Main from "../components/portal_customer/Main";
+import { Switch, Route } from "react-router-dom";
+import SinglePhoto from "../components/portal_customer/SinglePhoto";
+import Footer from "../components/portal1/Footer";
+import Profile from "../components/portal_customer/Profile";
+import BookingLopp from "../components/portal_customer/BookingLopp";
 
 // portal 2
-function Appshell() {
+function Appshell({authInfo,setauthInfo}) {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/">
-          <Photographer_card />
+    <>
+     { <Main setauthInfo={setauthInfo} authInfo={authInfo} /> }     
+      <Switch>        
+         <Route exact path="/">
+          <PhotographerCard />
+        </Route> 
+         
+        <Route exact path="/top-destination">
+          <Cards />
         </Route>
+      
+        <Route exact path="/photographer/:id">
+          <SinglePhoto />
+        </Route> 
+        <Route  exact path="/booking" component={BookingLopp} />
+        
+         <Route exact path="/cutomer/Profile">
+          <Profile />
+        </Route> 
+        
         <Route exact path="/blog/:slug">
-          <Single_Card />
-        </Route>
+          <SingleCard /> 
+        </Route> 
       </Switch>
-    </div>
+      <Footer />
+     
+    </>
   );
 }
 

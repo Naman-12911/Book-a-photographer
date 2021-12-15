@@ -14,13 +14,13 @@ button {
   outline: none;
   border: none;
 }
-input {
+/* input {
   outline: none;
   border: none;
-}
+} */
 .header {
   width: 100%;
-  height: 768px;
+  height: 600px;
   position: relative;
   background-color: #15151d;
   background-repeat: no-repeat;
@@ -30,7 +30,8 @@ input {
 }
 
 nav ul li a:hover {
-  background-color: #c3ccce;
+  /* background-color: #c3ccce; */
+  background-color: rgb(18, 25, 48);
   transition: all ease 0.2s;
 }
 .intro {
@@ -55,9 +56,10 @@ nav ul li a:hover {
   color: #236c7e;
 }
 .intro p {
-  color: white;
-  font-weight: 15000;
-  font-size: medium;
+  color:powderblue;
+  font-weight: 150000;
+  font-size: large;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .header-btn {
@@ -148,6 +150,16 @@ nav ul li a:hover {
 /* footer---container */
 .footer-container {
   background-color: black;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  size: 3px;
+}
+#repeatcard {
+  grid-template-columns: repeat(3, 3fr);
+}
+.footer-portal2{
+  background-color: #23232d;
   text-align: center;
   color: white;
   padding: 15px;

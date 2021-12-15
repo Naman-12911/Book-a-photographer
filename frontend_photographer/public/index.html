@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!-- <link rel="icon" href= "%PUBLIC_URL%/favicon.ico" /> -->
+    <link rel="icon" href= "logo_hd.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -26,7 +27,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <title>React App</title>
+    <title>Photography</title>
   </head>
   <body>
     <script
@@ -34,6 +35,15 @@
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+    let previews=document.getElementsByClassName('preview');
+    Array.from(previews).forEach((element)=>{
+        element.innerHTML=element.innerText;
+    })
+  </script>
+    <!--- google reviews script code -->
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>

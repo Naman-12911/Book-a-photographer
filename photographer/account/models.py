@@ -2,38 +2,31 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser,PermissionsMixin
 from django.utils.translation import ugettext_lazy as _
 from account.managers import CustomUserManager
+from rest_framework_simplejwt.tokens import RefreshToken
 # Create your models here.
 from django.contrib.auth.models import User
 
+AUTH_PROVIDERS = {'google': 'google', 'email': 'email'}
 class User(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
-    phone_no = models.BigIntegerField(unique=True,  null=True)
+    phone_no = models.CharField(unique=True,  null=True,max_length=10)
+    is_verified = models.BooleanField(default=False)
     type_choice = (
         ('photographer', 'Photographer'),
         ('customer','Customer'),
     )
-    user_type = models.CharField(choices = type_choice,max_length=20, default='customer')
+    user_type = models.CharField(choices = type_choice,max_length=20,default="customer")
+    auth_provider = models.CharField(max_length=255, blank=False, null=False, default=AUTH_PROVIDERS.get('email'))
     USERNAME_FIELD = 'email'
     objects = CustomUserManager() 
     REQUIRED_FIELDS = []
     def __str__(self):
         return self.email
-
-class photographer(models.Model):
-    email = models.EmailField(unique=True)
-    #user = models.OneToOneField(User , on_delete=models.CASCADE, default=email)
-    name = models.CharField(max_length= 200) 
-    
-    phone_number = models.BigIntegerField(unique=True)
-    image1 = models.ImageField(null=True) # entre url of the Image
-    image3 = models.ImageField(null=True)  # entre image of photogapher to represent 
-    image2 = models.ImageField(null=True) # entre image of photogapher to represent 
-    image4 = models.ImageField(null=True) # entre image of photogapher to represent 
-    image5 = models.ImageField(null=True) # entre image of photogapher to represent 
-    speaclization = models.CharField(max_length=200) # fill photographer spelization
-    work_experience = models.TextField() # entre work enxperince of the user.
-    price = models.IntegerField() # entre price of the photographer.
-
-    def __str__(self):
-        return self.speaclization
+    def tokens(self):
+        refresh = RefreshToken.for_user(self)
+        return {
+            'refresh': str(refresh),
+            'access': str(refresh.access_token)
+        }
+# default='customer'
