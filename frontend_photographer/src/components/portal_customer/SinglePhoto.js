@@ -30,7 +30,7 @@ function Single_photo() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   // post request for modal data to booking the photographer finally.
-  const url = "customer/booking/"
+  const url = "customer/book/"
   const [data, setData] = useState({
     address: "",
     near_by: "",
@@ -42,7 +42,7 @@ function Single_photo() {
       address: data.address,
       near_by: data.near_by,
       phone_number: parseInt(data.phone_number),
-    }).then((res) => {
+    },{ headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}}).then((res) => {
       console.log(res.data);
       setData({
         address: "",

@@ -1,11 +1,11 @@
 from django.urls import path
-from .views import booking
 from .import views
 from .views import bookings,booking_id
 
 urlpatterns = [
-    path('booking/', views.booking, name='booking'),
     path('book/',bookings.as_view(),name='book'),
-    path('booking-id/<int:pk>/',views.booking_id,name="booking_id")
+    path('booking_id/',views.booking_id.as_view(),name="booking_id"),
+    path('booking_delete/<int:pk>/',views.booking_delete,name="booking_delete"),
+
 ]
 

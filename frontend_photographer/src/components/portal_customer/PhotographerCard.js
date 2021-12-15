@@ -36,12 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Photographer_card() {
   const my_token = token()
-  // const classes = useStyles();
-  // const [expanded, setExpanded] = React.useState(false);
 
-  // const handleExpandClick = () => {
-  //   setExpanded(!expanded);
-  // };
   // get request for the photograhers
   const [photo, setPhoto] = useState([]);
   useEffect(() => {

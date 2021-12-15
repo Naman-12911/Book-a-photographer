@@ -1,8 +1,5 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from customer.models import Booking
-from customer.serializer import bookingserializer
-from customer.views import booking
 from .searilizer import photographerSerializer, likeSerializer # searilizers
 from rest_framework.response import Response
 from .models import photographer,like               # import models
@@ -11,7 +8,6 @@ from rest_framework import viewsets
 from django.http import HttpResponse,JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
-from rest_framework.generics import RetrieveAPIView
 from rest_framework.views import APIView
 from . import pagination
 from rest_framework.permissions import IsAuthenticated
@@ -21,7 +17,6 @@ from rest_framework import generics # import genric view for the img url
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework import viewsets
-from django.shortcuts import get_object_or_404
 from account.models import User
 from django.db.models import Q
 from rest_framework.decorators import api_view, permission_classes

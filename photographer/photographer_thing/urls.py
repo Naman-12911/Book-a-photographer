@@ -9,7 +9,4 @@ urlpatterns = [
     path('photographer-account/<int:pk>/',views. photographerId_get, name=" photographerId_get"), # get request according to Id and Patch, delete request.
     path('like/<int:pk>/',views.LikeListCreate, name = 'post_likes'),
     path('single-photographer/<int:pk>/',single_photographer.as_view()), # genric api for pk img
-    #path('pic/',photographer_get.as_view()), # model viewset api view to fecth all the photographer
-    #path('photographer-account/pic/',views.postview.as_view(), name="postview"),
-
 ]
