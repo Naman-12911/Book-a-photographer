@@ -40,13 +40,13 @@ const App = () => {
         </Route>
         <Route path="/about">
           <About
-            para="All Rounder"
+            para="FULL STACK DEVELOPER"
             head="Naman Garg"
             photo={naman}
             linkdin="https://www.linkedin.com/in/naman-garg-935658201/"
           />
-          <About
-            para="Front-end"
+           <About
+            para="FRONT-END DEVELOPER"
             head="Faizan Ahmad"
             photo={faizan}
             linkdin="https://www.linkedin.com/in/faizan-ahmad-913965207/"
@@ -62,7 +62,7 @@ const App = () => {
             head="Kashish"
             photo={kashish}
             linkdin="https://www.linkedin.com/in/kashu-sharma-671711210/"
-          />
+          /> 
         </Route>
         <Route path="/form/LogIn">
           <Form />

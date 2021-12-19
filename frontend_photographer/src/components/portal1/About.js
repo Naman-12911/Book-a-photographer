@@ -15,7 +15,7 @@ function About(props) {
                 <td>
                   <div className="img-member">
                   <h5>{props.head}</h5>
-                  <p>{props.para}</p> <a href={props.linkdin}><span class="iconify" data-icon="fa:linkedin"></span>linkedIn Profile</a>
+                  <p>{props.para}</p> <a href={props.linkdin}><span className="iconify" data-icon="fa:linkedin"></span>linkedIn Profile</a>
                   </div> 
                 </td>
               </tr>

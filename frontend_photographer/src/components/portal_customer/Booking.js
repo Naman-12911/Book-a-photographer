@@ -10,6 +10,7 @@ function Booking() {
     const [photo, setPhoto] = useState([]);
     const parms = useParams();
   // fetch the data for the photographer
+  
     useEffect(() => {
       async function fetchData() {
         const request = await ai

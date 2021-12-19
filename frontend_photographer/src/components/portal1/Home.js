@@ -7,7 +7,7 @@ const Header = () => {
     <>
       <div className="header">
         <div className="intro">
-          <p>Looking for a Photographer! yes</p>
+          <p>Looking for a Photographer!</p>
           <h1>
             <span> Hire </span> and <span> Earn Money </span>by Photography
           </h1>
