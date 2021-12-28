@@ -1,15 +1,19 @@
-from rest_framework import serializers
+from rest_framework import fields, serializers
 from .models import Booking
+from photographer_thing.models import photographer
 from photographer_thing.searilizer import photographerSerializer
+from account.searilizer import UserSerializers
 
 class bookingserializer(serializers.ModelSerializer):
-    #photographer_set = photographerSerializer()
-    #user = serializers.PrimaryKeyRelatedField(read_only=True, default=serializers.CurrentUserDefault())
+    # photographer = photographerSerializer(many=True)
+    #user = UserSerializers(many=True,read_only=True)
     class Meta:
         model = Booking
-        fields = ['id', 'address','near_by','phone_number','date',"photographer",'user','status']
-        depth = 1
-    # def save(self, **kwargs):
-    #     """Include default for read_only `user` field"""
-    #     kwargs["user"] = self.fields["user"].get_default()
-    #     return super().save(**kwargs)
+        fields = ['id', 'address','near_by','phone_number','date',"photographer",'status','user']
+        #fields = "__all__"
+        # depth = 1
+    def to_representation(self, instance):
+        response = super().to_representation(instance)
+        response['photographer'] = photographerSerializer(instance.photographer).data
+        response['user'] = UserSerializers(instance.user).data
+        return response

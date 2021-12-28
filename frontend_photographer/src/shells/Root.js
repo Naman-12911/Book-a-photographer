@@ -32,8 +32,8 @@ const App = ({authInfo,setauthInfo}) => {
             photo={naman}
             linkdin="https://www.linkedin.com/in/naman-garg-935658201/"
           />
-          <About
-            para="Front-end"
+           <About
+            para="Frontend developer"
             head="Faizan Ahmad"
             photo={faizan}
             linkdin="https://www.linkedin.com/in/faizan-ahmad-913965207/"
@@ -49,7 +49,7 @@ const App = ({authInfo,setauthInfo}) => {
             head="Kashish"
             photo={kashish}
             linkdin="https://www.linkedin.com/in/kashu-sharma-671711210/"
-          />
+          /> 
         </Route>
         <Route path="/form/LogIn">
           <Form authInfo={authInfo} setauthInfo={setauthInfo} />

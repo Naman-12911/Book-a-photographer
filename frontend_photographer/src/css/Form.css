@@ -3,9 +3,9 @@
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
 }
-div {
+/* div {
   display: block;
-}
+} */
 a {
   color: #0d6efd;
   text-decoration: underline;

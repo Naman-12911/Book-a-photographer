@@ -1,5 +1,3 @@
-import axios from 'axios';
-import React from 'react';
 import  "../../css/booking.css";
 import ai from "../Apis"
 
@@ -38,7 +36,7 @@ function Booking({book,key}) {
                         <div className="col-lg-8">
                             <div className="cancel-main d-sm-flex align-items-sm-start justify-content-sm-between">
                                 <div className="cancelbutton btn btn-primary text-uppercase" onClick={()=>handleDelete(book.id)}>Cancel</div>
-                                <div className="cancelbutton btn btn-primary text-uppercase mx-4 disabled">Payment</div>
+                                <div className="cancelbutton btn btn-primary text-uppercase mx-4 disabled">COD</div>
 
                             </div>
                         </div>
@@ -49,6 +47,8 @@ function Booking({book,key}) {
                 <div className="d-flex align-items-center py-2 border-bottom">
                     <div className="display-5">Arriving in </div>
                     <div className="ml-auto ">3 days</div>
+
+
                 </div>
                 <div className="d-flex align-items-center py-2">
                     <div className="display-5" id="total" >Price</div>
