@@ -23,7 +23,7 @@ function Single_photo() {
     }
     fetchData();
   }, [parms.id]);
-  
+  console.log(photo)
   // for modal to code ..
 
   const [show, setShow] = useState(false);
@@ -42,6 +42,7 @@ function Single_photo() {
       address: data.address,
       near_by: data.near_by,
       phone_number: parseInt(data.phone_number),
+      photographer:photo.id
     },{ headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}}).then((res) => {
       console.log(res.data);
       setData({
