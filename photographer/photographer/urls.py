@@ -7,8 +7,6 @@ from django.conf.urls.static import static, serve
 from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView,TokenVerifyView
 from rest_framework import routers
 from photographer_thing.views import photographer_get
-from rest_framework import permissions
-
 
 router = routers.DefaultRouter()
 router.register('img',photographer_get)

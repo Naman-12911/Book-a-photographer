@@ -10,7 +10,7 @@ function Navbar() {
             <div className="inner-logo">
               <div className='navimg'> <img id='nav_img' src={navbar_logo} alt="" />
               </div>
-              <div className='logodiv'><Link id ='nav_text' to="/">Photography</Link>
+              <div className='logodiv'><Link id ='nav_text' to="/">PhotoEpic</Link>
               </div>
             </div>
             <div className="header-link"><Link  id ='nav-id' to="/contact">Contact</Link></div>

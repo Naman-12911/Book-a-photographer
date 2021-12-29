@@ -36,7 +36,7 @@ const handleDelete=()=>{
           {/* 1st logo part  */}
           <div className='navimg_main'> <img id='nav_img' src={new_logo} alt="" />
               </div>
-          <div className='logodiv_main'><Link id ='nav_text' to="/">Photography</Link>
+          <div className='logodiv_main'><Link id ='nav_text' to="/">PhotoEpic</Link>
               </div>
 
           {/* 2nd menu part  */}

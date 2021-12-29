@@ -2,7 +2,6 @@ from django.db import models
 from account.models import User
 class photographer(models.Model):
     email = models.EmailField(unique=True)
-    #user = models.OneToOneField(User , on_delete=models.CASCADE, default=email)
     name = models.CharField(max_length= 200) 
     phone_number = models.BigIntegerField(unique=True)
     image1 = models.ImageField(null=True,upload_to='post_images') # entre url of the Image

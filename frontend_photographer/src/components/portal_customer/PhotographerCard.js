@@ -68,7 +68,7 @@ export default function Photographer_card() {
           alignItems="flex-start"
         >
           {photo.map((photo, key) => (
-            <Grid item xs={12} sm={6} md={4.5}>
+            <Grid item xs={12} sm={6} md={5.1}>
               <Cards photo={photo} key={key} />
             </Grid>
           ))}
