@@ -18,7 +18,7 @@ function BookingLopp() {
           return request;
         }
         fetchData();
-      }, []);
+      }, [book]);
       // pagination
       console.log({book})
     return (

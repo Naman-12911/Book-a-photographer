@@ -12,8 +12,6 @@ class Booking(models.Model):
     status = models.BooleanField(default=False)
     date = models.DateField(default=datetime.date.today)
 
-    print(user)
-
     @staticmethod
     def get_booking_by_customer(user_id):
         return Booking.objects.filter(user=user_id).order_by('_date')

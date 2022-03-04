@@ -30,7 +30,7 @@ function Cards() {
     // privious page
     async function fetchData() {
       const request = ai
-        .get(`top_dest_contact/top-destination/?page=${current - 1}`)
+        .get(`top_dest_contact/top-destination/?page=${current - 1}` ,{ headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}})
         .then((res) => {
           setBlog(res.data);
         })
@@ -45,7 +45,7 @@ function Cards() {
 
     async function fetchData() {
       const request = ai
-        .get(`top_dest_contact/top-destination/?page=${current + 1}&pageSize`)
+        .get(`top_dest_contact/top-destination/?page=${current + 1}`,{ headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}})
         .then((res) => {
           setBlog(res.data);
         })
@@ -85,7 +85,7 @@ function Cards() {
                       {/* this div tag for to convert html to text  */}
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: blog.decription.slice(0, 100)
+                          __html: blog.decription.slice(0, 50)
                         }}>
                     </div>
                     </p>

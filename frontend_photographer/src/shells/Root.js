@@ -27,25 +27,25 @@ const App = ({authInfo,setauthInfo}) => {
         </Route>
         <Route path="/about">
           <About
-            para="FULL STACK DEVELOPER"
+            para="Backend developer"
             head="Naman Garg"
             photo={naman}
             linkdin="https://www.linkedin.com/in/naman-garg-935658201/"
           />
            <About
-            para="FRONT-END DEVELOPER"
+            para="Frontend developer"
             head="Faizan Ahmad"
             photo={faizan}
             linkdin="https://www.linkedin.com/in/faizan-ahmad-913965207/"
           />
           <About
-            para="Back-end"
+            para="File"
             head="Saurav"
             photo={saurav}
             linkdin="https://www.linkedin.com/in/saurav-singh-20b4821a7"
           />
           <About
-            para="Faltu"
+            para="File"
             head="Kashish"
             photo={kashish}
             linkdin="https://www.linkedin.com/in/kashu-sharma-671711210/"

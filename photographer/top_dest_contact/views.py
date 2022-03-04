@@ -34,9 +34,8 @@ def contact(request):
 @api_view(['GET',])
 @permission_classes([permissions.IsAuthenticated])
 def destination_list(request):
-    #permission_classes = (permissions.IsAuthenticated,)
     paginator = pagination.mypagination()
-    # paginator.page_size = 7
+   # paginator.page_size = 5
     destination_blog = destination.objects.all()
     result_page = paginator.paginate_queryset(destination_blog, request)
     serializer = top_destinationSerializer(result_page, many=True)

@@ -21,8 +21,16 @@ const App = () => {
   
   return (
     <>
+<<<<<<< HEAD
       <Router>{authInfo.loggedIn ? <Appshell authInfo={authInfo} setauthInfo={setauthInfo} /> : <Root   authInfo={authInfo} setauthInfo={setauthInfo} />}</Router>
       {/* <Router>{true ? <Appshell /> : <Root />}</Router> */}
+=======
+
+      <Router>{authInfo.loggedIn ? <Appshell authInfo={authInfo} setauthInfo={setauthInfo} /> : <Root   authInfo={authInfo} setauthInfo={setauthInfo} />}</Router>
+      {/* <Router>{true ? <Appshell /> : <Root />}</Router> */}
+
+
+>>>>>>> f5f4ae76a2b9472866cfae0da2a0c2bae4f69807
     </>
   );
 };
