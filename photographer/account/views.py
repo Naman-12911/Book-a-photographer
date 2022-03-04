@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from .searilizer import JWT_ENCODE_HANDLER, UserSerializers,UserLoginSerializer,EmailVerificationSerializer,LogoutSerializer
+from rest_framework.serializers import Serializer
+from .searilizer import UserSerializers,UserLoginSerializer,EmailVerificationSerializer
 from rest_framework.response import Response
 from .models import User # import models
 from rest_framework.permissions import AllowAny,IsAuthenticated
-from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
-from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
@@ -79,21 +79,28 @@ class Login(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-
-# api for logout
-class logout(generics.GenericAPIView):
-    serializer_class =LogoutSerializer
-
+    
+# get the user details
+class userData(APIView):
     permission_classes = (permissions.IsAuthenticated,)
+    def get(self, request):
+        serializer = UserSerializers(self.request.user)
+        return Response(serializer.data)
 
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
+# update the user details
+class update_profile(RetrieveUpdateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    serializer_class = UserSerializers
+    def update(self, request, *args, **kwargs):
+        serializer = self.serializer_class(request.user, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-    
-# class logout(APIView):
-#     def get(request):
-#         # simply delete the token to force a login
-#         request.user.auth_token.delete()
-#         return Response(status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+# delete account details
+class deleteAccount(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def delete(self, request, *args, **kwargs):
+        user=self.request.user
+        user.delete()
+        return Response({"result":"user delete"})

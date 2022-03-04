@@ -1,11 +1,34 @@
 import React from "react";
 import "../../css/Main.css";
 import  new_logo from "../image/new_logo.png";
-import { Link } from "react-router-dom";
+import { Link ,useHistory} from "react-router-dom";
+import ai from "../Apis"
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
-function Main() {
+function Main({authInfo,setauthInfo}) {
+const history = useHistory()
+const handleLogout=()=>{
+  localStorage.clear()
+  setauthInfo({...authInfo,loggedIn:false})
+  history.push("/")
+}
+// delete user request 
+const handleDelete=()=>{
+  ai.delete("account/delete-account/", { headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}})
+  .then(res => {
+    console.log(res.data);
+    alert("Your Account has been delete")
 
+})
+.catch((err) => {
+  console.log(err);
+  alert("contact Our Team")
+  
+})
+  localStorage.clear()  
+  setauthInfo({...authInfo,loggedIn:false})
+  history.push("/")
+}
   return (
     <div>
       <div id="navbar-font-size">
@@ -36,11 +59,11 @@ function Main() {
                 <Link to="/cutomer/Profile">My Profile</Link>
               </Dropdown.Item>
               <Dropdown.Item eventKey="3" id="dropdown">
-                <Link to="#"> Log out</Link>
+                <p onClick={handleLogout}> Log out</p>
               </Dropdown.Item>
 
               <Dropdown.Item eventKey="4" id="dropdown">
-                <Link to="#"> Delete account</Link>
+                <p onClick={handleDelete}> Delete account</p>
               </Dropdown.Item>
               {/* </Dropdown.Menu> */}
             </DropdownButton>

@@ -5,7 +5,8 @@ import ai from "../Apis";
 import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
 import Cards from "./PhotographerMainCard";
-import Main_navbar from "./MainNavbar";
+import MainNavbar from "./MainNavbar";
+import {token} from '../../Helper'
 // import { Redirect } from 'react-router';
 
 // function for the style the card
@@ -34,18 +35,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Photographer_card() {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const my_token = token()
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
   // get request for the photograhers
   const [photo, setPhoto] = useState([]);
   useEffect(() => {
     async function fetchData() {
       const request = ai
-        .get("api/img/")
+        .get("api/img/",  { headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}} )
         .then((res) => {
           console.log(res);
           setPhoto(res.data);
@@ -56,11 +53,11 @@ export default function Photographer_card() {
       return request;
     }
     fetchData();
-  }, []);
+  }, [my_token]);
 
   return (
     <>
-    <Main_navbar/>
+    <MainNavbar/>
     <div className="container my-4" id="repeatcard">
       <Container>
         <Grid

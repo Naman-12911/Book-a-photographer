@@ -12,6 +12,8 @@ from photographer_thing import pagination
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
+from rest_framework import permissions
+from photographer_thing.permissions import IsOwner
 
 # api  for contact
 # post request to post the contact form
@@ -24,14 +26,15 @@ def contact(request):
             if serializer.is_valid():
                 serializer.save()
                 return JsonResponse(serializer.data, status=201)
-            return JsonResponse(serializer.errors, status=400)#
+            return JsonResponse(serializer.errors, status=400)
     except:
         print("please try after some Time Thanks!") 
 
 # fetch all the blogs 
 @api_view(['GET',])
-@permission_classes([AllowAny,])
+@permission_classes([permissions.IsAuthenticated])
 def destination_list(request):
+    #permission_classes = (permissions.IsAuthenticated,)
     paginator = pagination.mypagination()
     # paginator.page_size = 7
     destination_blog = destination.objects.all()
@@ -41,6 +44,7 @@ def destination_list(request):
 
     
 # fetch all the blogs according to their slug feild
+@permission_classes([permissions.IsAuthenticated])
 def top_destination_slug(request, slug):
     try:
         destination_slug = destination.objects.filter(slug=slug).first()

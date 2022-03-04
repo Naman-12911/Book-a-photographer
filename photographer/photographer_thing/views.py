@@ -8,7 +8,6 @@ from rest_framework import viewsets
 from django.http import HttpResponse,JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
-from rest_framework.generics import RetrieveAPIView
 from rest_framework.views import APIView
 from . import pagination
 from rest_framework.permissions import IsAuthenticated
@@ -18,13 +17,15 @@ from rest_framework import generics # import genric view for the img url
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework import viewsets
-from django.shortcuts import get_object_or_404
 from account.models import User
 from django.db.models import Q
-
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework import permissions
+from .permissions import IsOwner
 # Create your views here.
 @csrf_exempt
 def photographer_post(request):  
+    permission_classes = (permissions.IsAuthenticated,)
     paginator = pagination.mypagination()
         # post api
     parser_classes = (MultiPartParser, FormParser)
@@ -37,8 +38,11 @@ def photographer_post(request):
         return JsonResponse(serializer.errors, status=400)
     # get request to fetch the data
     
+
+
 @csrf_exempt
 def photographerId_get(request,pk):
+    permission_classes = [IsAuthenticated]
     try:
         photographer_id = photographer.objects.get(pk=pk)
     except photographer_id.DoesNotExist:
@@ -77,38 +81,23 @@ class LikeListCreate(APIView):
                 })
         new_like = like.objects.create(likeusers=likeusers, likepost=likepost.last())
         new_like.save()
-        serializer = likeSerializer(new_like)
+        serializer = likeSerializer(new_like) 
         return Response(serializer.data,status=status.HTTP_201_CREATED)
 
 
-@csrf_exempt
-def email(request,pk):
-    try:
-        photographer_id = photographer.objects.get(pk=pk)
-    except photographer_id.DoesNotExist:
-        return HttpResponse(status=404)
 
 
 class photographer_get(viewsets.ModelViewSet): # to fetch all the photographer main thingd to use gives umg url
-    permission_classes = [AllowAny]
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = photographer.objects.all()
     serializer_class = photographerSerializer
-    # def retrieve(self, request, pk=None):
-    
-        # Returns a single object
-        # and this is not gives the img and file url in postman 
-        
-        # photographer_id = get_object_or_404(self.queryset,pk=pk)
-        # serializer_class = photographerSerializer(photographer_id)
-        # return Response(serializer_class.data)
-
 
 
 class single_photographer(generics.ListAPIView): #to fect onyly 1 photgrapher details in main things to use is gives img url
 
     serializer_class =photographerSerializer
     queryset = photographer.objects.all()
-    permission_classes = [AllowAny] 
+    permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request, pk=None):
         imgobj = photographer.objects.get(pk=pk)

@@ -8,7 +8,7 @@ function Cards_page() {
   useEffect(() => {
     async function fetchData() {
       const request = await ai
-        .get(`top_dest_contact/top-destination/${parms.slug}`)
+        .get(`top_dest_contact/top-destination/${parms.slug}`, { headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}})
         .then((res) => {
           console.log(res);
           setBlog(res.data);
@@ -25,7 +25,7 @@ function Cards_page() {
   return (
     <>
     <MainNavbar/>
-    <div class="container my-3">
+    <div className="container my-3">
    
       <h2 className="blog-post-title">{blog.place}</h2>
       <h6 className="blog-post-meta"> popular for {blog.popular_for} </h6>

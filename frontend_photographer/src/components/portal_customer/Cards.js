@@ -7,10 +7,11 @@ function Cards() {
   const [blog, setBlog] = useState([]);
   const [current, setCurrent] = useState(1);
   // const [pageSize] = useState(0);
+
   useEffect(() => {
     async function fetchData() {
       const request = ai
-        .get("top_dest_contact/top-destination/")
+        .get("top_dest_contact/top-destination/",{ headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}})
         .then((res) => {
           console.log(res);
           setBlog(res.data);

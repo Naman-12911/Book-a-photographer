@@ -4,7 +4,7 @@ import SignupForm from "./SignupForm";
 import "../../css/Form.css";
 import photo3 from "../image/photo3.jpg";
 
-function Form() {
+function Form({authInfo,setauthInfo}) {
   const [login, setLogin] = useState("login");
   return (
     <>
@@ -29,7 +29,7 @@ function Form() {
               Sign Up
             </button>
             {login === "login" ? (
-              <LoginForm setLogin={setLogin} />
+              <LoginForm setLogin={setLogin} authInfo={authInfo} setauthInfo={setauthInfo} />
             ) : (
               <SignupForm />
             )}
