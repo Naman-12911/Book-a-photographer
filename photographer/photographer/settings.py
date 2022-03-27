@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'customer',
     'rest_framework_simplejwt',# simple jwt
     "rest_framework_simplejwt.token_blacklist", # add token to blacklist
+    'drf_yasg', # swagger apis
 
 ]
 
@@ -87,10 +88,32 @@ WSGI_APPLICATION = 'photographer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'photographer',
+#         'USER': 'postgres',
+#         'PASSWORD': 'naman12911',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'photographer',
+        'USER': 'root',
+        'PASSWORD': 'Naman12#',
+        'HOST': 'localhost',
+        'PORT': '3307',
     }
 }
 

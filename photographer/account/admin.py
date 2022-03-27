@@ -10,7 +10,7 @@ class customUserAdmin(UserAdmin):
       (None, {'fields': ('email', 'password', )}),
       (_('Personal info'), {'fields': ('first_name', 'last_name')}),
       (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', "is_verified",
-                                     'groups', 'user_permissions','user_type'),}),
+                                     'groups', 'user_permissions','is_customer','is_photographer'),}),
       (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
         (_('user_info'), {'fields': ( 'phone_no',)}),
   )
@@ -20,7 +20,7 @@ class customUserAdmin(UserAdmin):
           'fields': ('email', 'password1', 'password2'),
       }),
   )
-  list_display = ['email', 'first_name', 'last_name', 'is_staff' ,"phone_no","user_type"]
+  list_display = ['email', 'first_name', 'last_name', 'is_staff' ,"phone_no","is_customer",'is_photographer']
   search_fields = ('email',)
   ordering = ('email', )
 admin.site.register(User, customUserAdmin)

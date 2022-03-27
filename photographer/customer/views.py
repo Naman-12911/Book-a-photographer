@@ -11,28 +11,9 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import permissions
 from photographer_thing.permissions import IsOwner
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework import generics
 from rest_framework.generics import ListCreateAPIView
 # Create your views here.
-
-# book the photographer with post request
-# class bookings(generics.GenericAPIView):
-#     permission_classes = (permissions.IsAuthenticated,)
-#     serializer_class = bookingserializer
-#     @csrf_exempt
-#     def post(self, request):
-#         booking = request.data
-#         #self.request.data.get('photographer_id')
-#         #request.data["photographer_id"] = photographer.id
-#         serializer = self.serializer_class(data=booking)
-#         #booking.status=True
-#         serializer.is_valid(raise_exception=True)
-       
-#         serializer.save(user=self.request.user)
-#         return Response(status=status.HTTP_201_CREATED)
-
-# get booking by current user 
+ 
 class booking_id(ListCreateAPIView):
     permission_classes= (permissions.IsAuthenticated,)
     queryset = Booking.objects.all()
@@ -41,6 +22,7 @@ class booking_id(ListCreateAPIView):
         return self.queryset.filter(user=self.request.user)
     def perform_create(self, serializer):
         serializer.save(user = self.request.user)
+
 
 # delete request in bookings
 @csrf_exempt
