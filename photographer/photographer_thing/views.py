@@ -62,31 +62,6 @@ def photographerId_get(request,pk):
 
 
  # like apis 
-@csrf_exempt
-class LikeListCreate(APIView):
-    def get(self,pk):#function to get total number of likes to particular post
-         post = photographer.objects.filter(pk=pk) # find which post's likes are to be extracted
-         like_count = post.likepost.count()# counts total user likes ,besides my code is wrong
-         serializer = photographer(like_count,many=True)
-         return Response(serializer.data)
-
-    def post(self,pk):
-        likeusers = User.objects.get(id=34) # user find for testing purpose
-        likepost = photographer.objects.filter(pk=pk)
-        check = like.objects.filter(Q(likeusers=likeusers) & Q(likepost = likepost.last() ))
-        if(check.exists()):
-            return Response({
-                "status": status.HTTP_400_BAD_REQUEST,
-                "message":"Already Liked"
-                })
-        new_like = like.objects.create(likeusers=likeusers, likepost=likepost.last())
-        new_like.save()
-        serializer = likeSerializer(new_like) 
-        return Response(serializer.data,status=status.HTTP_201_CREATED)
-
-
-
-
 class photographer_get(viewsets.ModelViewSet): # to fetch all the photographer main thingd to use gives umg url
     permission_classes = (permissions.IsAuthenticated,)
     queryset = photographer.objects.all()

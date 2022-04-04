@@ -11,7 +11,8 @@ from django.contrib import auth
 class UserSerializers(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'first_name','last_name','phone_no','email','password','user_type']
+        fields = ['id', 'first_name','last_name','phone_no','email','password','is_photographer',
+                  'is_customer']
         extra_kwargs = {
             'password' :{'write_only':True}  #  to does not return password in api ## postman
         }
@@ -32,7 +33,9 @@ class UserLoginSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(max_length=255, min_length=3)
     password = serializers.CharField(max_length=68, min_length=6, write_only=True)
     tokens = serializers.SerializerMethodField()
-
+    is_customer = serializers.BooleanField(read_only=True)
+    is_photographer = serializers.BooleanField(read_only=True)
+    
     def get_tokens(self, obj):
         user = User.objects.get(email=obj['email'])
 
@@ -43,14 +46,13 @@ class UserLoginSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['email', 'password', 'tokens']
+        fields = ['email', 'password', 'tokens','is_customer', 'is_photographer']
 
     def validate(self, attrs):
         email = attrs.get('email', '')
         password = attrs.get('password', '')
         filtered_user_by_email = User.objects.filter(email=email)
         user = auth.authenticate(email=email, password=password)
-
         if filtered_user_by_email.exists() and filtered_user_by_email[0].auth_provider != 'email':
             raise AuthenticationFailed(
                 detail='Please continue your login using ' + filtered_user_by_email[0].auth_provider)
@@ -60,10 +62,12 @@ class UserLoginSerializer(serializers.ModelSerializer):
             raise AuthenticationFailed('Account disabled, contact admin')
         if not user.is_verified:
             raise AuthenticationFailed('Email is not verified')
-
+        
         return {
             'email': user.email,
-            'tokens': user.tokens
+            'tokens': user.tokens,
+            'is_customer': user.is_customer,
+            'is_photographer':user.is_photographer
         }
 
         return super().validate(attrs)
