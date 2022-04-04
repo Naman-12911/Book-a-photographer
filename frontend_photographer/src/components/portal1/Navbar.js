@@ -3,6 +3,7 @@ import  navbar_logo from "../image/navbar_logo.PNG";
  import { Link } from "react-router-dom";
 import "../../css/Navbar.css";
 
+
 function Navbar() {
   return (
     <div className="main-header">
@@ -18,6 +19,7 @@ function Navbar() {
             
         </div>
     </div>
-  );
+    
+  )
 }
 export default Navbar;

@@ -1,4 +1,4 @@
-.main-header{
+ .main-header{
     background-color: #000;
     border-color: #080808;
     min-height: 70px;
@@ -51,9 +51,10 @@
 }
 /* logo container end */
 
+
 /* about and contact */
 
-.header-link{
+ .header-link{
     float:right; 
     font-size:14px; 
     height: 70px; 
@@ -62,9 +63,13 @@
     font-weight: bold;
     padding-top: 20px;
 }
-#nav-id{
+ #nav-id{
    
     text-decoration: none; 
     background-color: transparent; 
     color:#ededed;
-}
+} 
+
+
+
+

@@ -13,12 +13,6 @@ function Profile() {
       <div class="wrapper_profile bg-white mt-sm-5">
     <h4 class="pb-4 border-bottom">My Profile</h4>
     
-    {/* the below code for user profile and name (if we want) */}
-    {/* <div class="d-flex align-items-start py-3 border-bottom"> <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img_profile" alt="" />
-        <div class="pl-sm-4 pl-2" id="img-section"> <b>Profile Photo</b>
-            <p id='para'>Accepted file type .png. Less than 1MB</p> <button class="btn button border" id='profile_btn'><b>Upload</b></button>
-        </div>
-    </div> */}
     <div class="py-2">
         <div class="row py-2">
             <div class="col-md-6"> 
