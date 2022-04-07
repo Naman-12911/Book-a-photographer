@@ -8,11 +8,20 @@ import Footer from "../components/portal1/Footer";
 import Profile from "../components/portal_customer/Profile";
 import BookingLopp from "../components/portal_customer/BookingLopp";
 import Photographersshell from "./Photographersshell";
-
+import { useEffect, useState } from "react";
 // portal 2
+
+
 function Appshell({ authInfo, setauthInfo }) {
   // console.log(authInfo)
-  return authInfo.is_customer ? (
+  useEffect(() => {
+    const role = localStorage.getItem("role");
+    setRole(role)
+  }, [authInfo]);
+
+  const [role, setRole] = useState();
+
+  return false ? (
     <>
       {<Main setauthInfo={setauthInfo} authInfo={authInfo} />}
       <Switch>
