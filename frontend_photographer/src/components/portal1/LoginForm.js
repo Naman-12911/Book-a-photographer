@@ -22,6 +22,7 @@ function LoginForm(props) {
         }).then((res) => {
             setauthInfo(res.data)
             localStorage.setItem("token", res.data.tokens.access)
+            localStorage.setItem('role', res.data.is_customer)
             alert("You are login  has!, been sumbitted!", "success");
             console.log(Token)
             history.push("/")

@@ -11,19 +11,22 @@ import { token } from "./Helper"
 const App = () => {
   // app.js file
   const [authInfo, setauthInfo] = useState({})
+  const token = localStorage.getItem("token")
   console.log(authInfo, "app ka hai")
+  const [localToken, setlocalToken] = useState();
+
   // const my_token = token()
   useEffect(() => {
     let acc_token = localStorage.getItem("token")
     if (acc_token) {
-      setauthInfo({ ...authInfo })
+      setlocalToken(acc_token)
     }
-  }, [])
+  }, [authInfo])
 
   return (
     <>
 
-      <Router>{authInfo?.tokens?.access ? <Appshell authInfo={authInfo} setauthInfo={setauthInfo} />
+      <Router>{localToken ? <Appshell authInfo={authInfo} setauthInfo={setauthInfo} />
         : <Root authInfo={authInfo} setauthInfo={setauthInfo} />}</Router>
       {/* <Router>{true ? <Appshell /> : <Root />}</Router> */}
 
