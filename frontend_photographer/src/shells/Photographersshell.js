@@ -1,7 +1,15 @@
 import React from "react";
+import Photographer_Navbar from "./Photographer/Photographer_Navbar";
+
 
 function Photographersshell() {
-    return <div>Photographersshell</div>;
+    return (
+        <>
+        <Photographer_Navbar/>
+
+
+        </>
+    );
 }
 
 export default Photographersshell;
