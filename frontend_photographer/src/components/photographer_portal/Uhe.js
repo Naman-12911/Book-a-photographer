@@ -1,7 +1,8 @@
 import React from "react";
+import "../../css/uhe.css"
 
 function Uhe() {
-    return <div>
+    return <div className="hello">
         non sensse fellows
     </div>;
 }
