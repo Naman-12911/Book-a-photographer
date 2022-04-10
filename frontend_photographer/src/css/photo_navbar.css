@@ -1,0 +1,233 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    font-family: 'montserrat';
+    background: #e3e9f7
+}
+
+.logo {
+    padding: 20px
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2b2626
+}
+
+nav ul li {
+    list-style: none
+}
+
+nav ul li a {
+    display: block;
+    font-family: 'montserrat';
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: #fff;
+    position: relative;
+    padding: 15px 0px 15px 25px;
+    transition: all 0.5s
+}
+
+nav ul li a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: #e3e9f7;
+    border-radius: 40px 0 0 40px;
+    z-index: -1;
+    transition: all 1s
+}
+
+nav ul li a:hover {
+    color: #2b2626
+}
+
+nav ul li a:hover:before {
+    width: 95%
+}
+
+.photo-container {
+    margin-left: 260px
+}
+
+.section {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    text-align: center
+}
+
+.box-area h2 {
+    text-transform: uppercase;
+    font-size: 30px
+}
+
+
+ */
+
+
+
+
+
+ /* body {
+    background: rgb(99, 39, 120)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+ */
+
+
+
+
+/*      */
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif
+}
+
+body {
+    background-color: #f3f5f9
+}
+
+.photo-container {
+    display: flex;
+    position: relative
+}
+
+.photo-container .photo-side {
+    width: 250px;
+    height: 100%;
+    background: #000;
+    padding: 30px 0px;
+    position: fixed
+}
+
+.photo-container .photo-side h2 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px
+}
+
+.photo-container .photo-side ul li {
+    padding: 15px;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05)
+}
+
+.photo-container .photo-side ul li a {
+    color: #bdb8d7;
+    display: block
+}
+
+.photo-container .photo-side ul li a .fa {
+    width: 25px
+}
+
+.photo-container .photo-side ul li:hover {
+    background-color: #7d777717
+}
+
+.photo-container .photo-side ul li:hover a {
+    color: #fff
+}
+
+.photo-container .photo-side .social_media {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex
+}
+
+.photo-container .photo-side .social_media a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    line-height: 45px;
+    text-align: center;
+    margin: 0 5px;
+    color: #bdb8d7;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px
+}
+
+.photo-container .main_content_photo {
+    width: 100%;
+    margin-left: 250px
+}
+
+.photo-container .main_content_photo .header_photo {
+    padding: 20px;
+    background: #000;
+    color: #fff;
+    border-bottom: 1px solid #e0e4e8
+}
+
+.photo-container .main_content_photo .info {
+    margin: 20px;
+    color: #717171;
+    line-height: 25px
+}
+
+.photo-container .main_content_photo .info div {
+    margin-bottom: 20px
+}

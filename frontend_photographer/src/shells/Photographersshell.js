@@ -1,24 +1,20 @@
 import React from "react";
-<<<<<<< HEAD
-import Photographer_Navbar from "./Photographer/Photographer_Navbar";
-
-
-function Photographersshell() {
-    return (
-        <>
-        <Photographer_Navbar/>
-
-
-        </>
-    );
-=======
-import Uhe from "../components/photographer_portal/Uhe";
+import Ude from "../components/photographer_portal/Ude";
+import Photoprofile from '../components/photographer_portal/Photoprofile';
+import { Switch, Route } from "react-router-dom";
 
 function Photographersshell() {
     return <div>
-        <Uhe />
+        <Ude />
+       <Switch>
+        <Route path="/">
+            <Photoprofile/>  
+        </Route>
+        
+       </Switch>
+       
+            
     </div>;
->>>>>>> 1e452d33d3990e1bd43e51864a15470e2ca118eb
 }
 
 export default Photographersshell;

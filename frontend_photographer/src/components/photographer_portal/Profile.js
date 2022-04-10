@@ -2,6 +2,8 @@ import React, { useState} from "react";
 import { Image } from "react-bootstrap";
 import "../../css/Profile.css";
 import {Button, Modal} from "react-bootstrap";
+
+
 function Profile() {
    // set timeout for the booking the button.
    const [show, setShow] = useState(false);
