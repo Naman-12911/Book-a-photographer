@@ -149,7 +149,12 @@ body {
     display: flex;
     position: relative
 }
-
+.profile_header {
+    padding: 20px;
+    background: #000;
+    color: #fff;
+    border-bottom: 1px solid #e0e4e8
+}
 .photo-container .photo-side {
     width: 250px;
     height: 100%;
@@ -215,7 +220,7 @@ body {
     margin-left: 250px
 }
 
-.photo-container .main_content_photo .header_photo {
+.photo-container .main_content_photo .profile_header {
     padding: 20px;
     background: #000;
     color: #fff;
@@ -224,7 +229,8 @@ body {
 
 .photo-container .main_content_photo .info {
     margin: 20px;
-    color: #717171;
+    /* color: #717171; */
+    color: black;
     line-height: 25px
 }
 
