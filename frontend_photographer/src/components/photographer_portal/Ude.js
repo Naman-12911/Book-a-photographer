@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Modal} from "react-bootstrap";
 import { Link} from "react-router-dom";
-
+import '../../css/chat.css';
 import '../../css/photo_navbar.css';
 
 function Ude() {
@@ -13,12 +13,23 @@ function Ude() {
         <div className="photo-side sidebar">
             <h2>PHOTOEPIC</h2>
             <ul>
-                {/* <li><Link><a href="#"><i class="fa fa-home"></i>My Profile</a></Link></li> */}
-                <li><i class="bi bi-house-door"></i><Link to="/Photoprofile">My Profile</Link></li>
-                <li><a href="#"><i className="bi bi-bell"></i>Notification</a></li>
-                <li><a href="#"><i class="bi bi-speedometer2"></i>Dashboard</a></li>
-                <li><a href="#"><i className="bi bi-box-arrow-left"></i> LogOut</a></li>
+                
+                <li><i class="bi bi-house-door"></i>
+                <Link to="/Photoprofile">My Profile</Link>
+                </li>
+
+                <li><i className="bi bi-bell"></i>
+                <Link to="/Chatting">Chatting </Link>
+                </li>
+                
+                
             </ul>
+            <br />
+            
+            <ul>
+            <li><a href="#" className="dropdown-itemd-flex align-items-center text-white text-decoration-none "><i className="bi bi-box-arrow-left"></i> Sign Out</a></li>
+            </ul>            
+            
         </div>
     </div> 
     
