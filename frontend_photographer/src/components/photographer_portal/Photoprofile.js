@@ -31,7 +31,7 @@ function Photoprofile(){
 {/* Photogharper profile settings  */}
 <div className="photo-container">
 <div className="main_content_photo">
-        <div className="profile_header">MY PROFILE</div>
+        <div className="profile_header">MY PROFILE</div> 
         <div className="info">
         <div class="container rounded bg-white mt-3 mb-4">
     <div class="row">
@@ -40,7 +40,7 @@ function Photoprofile(){
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profile Settings</h4>
-                </div>
+                </div> <hr />
                                         <div class="row mt-5">
                                             <div class="col-md-6">
                                                 <label><h6>First Name</h6></label>
