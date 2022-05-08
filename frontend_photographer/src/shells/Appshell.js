@@ -21,7 +21,7 @@ function Appshell({ authInfo, setauthInfo }) {
 
   const [role, setRole] = useState();
 
-  return false ? (
+  return false  === "true"? (
     <>
       {<Main setauthInfo={setauthInfo} authInfo={authInfo} />}
       <Switch>
