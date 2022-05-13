@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-import React, {useState} from "react";
-import {Button, Modal} from "react-bootstrap";
-import '../../css/photo_navbar.css';
-
-function Photoprofile(){
-
-    // perloadedValue
-    const [data, setData] = useState({
-        first_name: "faizan",
-        last_name: "ahmad",
-        phone_no: "9876543210",
-        address:"xyz",
-        email:"123@gmail.com",
-        Specialization:"Wedding ",
-        Experience:"3years"
-
-      });
-
-
-=======
 import React, {useState,useEffect} from "react";
 import {Button, Modal} from "react-bootstrap";
 import '../../css/photo_navbar.css';
@@ -121,7 +100,6 @@ function Photoprofile(){
         console.log(newdata);
       }
 
->>>>>>> a022e020b976186569b3274bf89df1d082162c7d
 
 // for edit button
 
@@ -138,70 +116,6 @@ function Photoprofile(){
 <div className="main_content_photo">
         <div className="profile_header">MY PROFILE</div> 
         <div className="info">
-<<<<<<< HEAD
-        <div class="container rounded bg-white mt-3 mb-4">
-    <div class="row">
-        
-        <div class=" border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
-                </div> <hr />
-                                        <div class="row mt-5">
-                                            <div class="col-md-6">
-                                                <label><h6>First Name</h6></label>
-                                            </div> 
-                                            <div class="col-md-6">
-                                                <p>{data.first_name}</p>
-                                            </div> 
-                                        </div> 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label><h6>Last Name</h6></label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{data.last_name}</p>
-                                            </div>
-                                        </div> 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label> <h6>Email</h6>  </label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{data.email}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label><h6>Phone</h6></label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{data.phone_no}</p>
-                                            </div>
-                                        </div>
-        
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label><h6>Specialization</h6></label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{data.Specialization}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label><h6>Work Experience</h6></label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{data.Experience}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label><h6>Images</h6></label>
-                                            </div>
-                                            <div class="col-md-6">
-=======
         <div className="container rounded bg-white mt-3 mb-4">
     <div className="row">
         
@@ -288,7 +202,6 @@ function Photoprofile(){
                                                 <label><h6>Images</h6></label>
                                             </div>
                                             <div className="col-md-6">
->>>>>>> a022e020b976186569b3274bf89df1d082162c7d
                                                 <p><input id="file-upload1" type="file"/></p>
                                                 <p><input id="file-upload1" type="file"/></p>
                                                 <p><input id="file-upload1" type="file"/></p>
@@ -296,11 +209,7 @@ function Photoprofile(){
                                             </div>
                                         </div>
     
-<<<<<<< HEAD
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" onClick={handleShow}>Edit Profile</button>
-=======
                 <div className="mt-5 text-center"><button className="btn btn-primary profile-button" type="button" onClick={handleShow}>Build Profile</button>
->>>>>>> a022e020b976186569b3274bf89df1d082162c7d
                 
                 </div> 
             </div>
@@ -308,71 +217,23 @@ function Photoprofile(){
     </div>
 </div>
          
-<<<<<<< HEAD
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <Modal show={show} onHide={handleClose} bd-example-modal-lg>
-        <form className="form-container" >
-=======
         <div className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <Modal show={show} onHide={handleClose} bd-example-modal-lg>
         <form className="form-container"  onSubmit={(e) => sumbit(e)}>
->>>>>>> a022e020b976186569b3274bf89df1d082162c7d
           <Modal.Header >
             <Modal.Title><h3 >Edit &#9998;</h3></Modal.Title>
           </Modal.Header >
           <Modal.Body >
-<<<<<<< HEAD
-          <div class="row mt-2">
-          <div class="row p-3">
-                                            <div class="col-md-6">
-                                                <label><h6>First Name</h6></label>
-                                            </div>
-                                            <div class="col-md-6">
-=======
           <div className="row mt-2">
           <div className="row p-3">
              <div className="col-md-6">
                 <label><h6>Name</h6></label>
                   </div>
                                             <div className="col-md-6">
->>>>>>> a022e020b976186569b3274bf89df1d082162c7d
                                             <input 
                                             type="text" 
                                             className=" form-control" 
                                             placeholder="Name"
-<<<<<<< HEAD
-                                            id="first_name"
-                                            // onChange={(e) => handle(e)}
-                                            value={data.first_name}/>
-                                            </div>
-                                        </div> <br />
-                                        <div class="row p-3">
-                                            <div class="col-md-6">
-                                                <label><h6>Last Name</h6></label>
-                                            </div>
-                                            <div class="col-md-6">
-                                            <input 
-                                                type="text" 
-                                                className=" form-control" 
-                                                placeholder="Last"  
-                                                id="last_name"
-                                                // onChange={(e) => handle(e)}
-                                                value={data.last_name}
-                                                />
-                                            </div>
-                                        </div> <br />
-                                        <div class="row p-3">
-                                            <div class="col-md-6">
-                                                <label><h6>Email</h6></label>
-                                            </div>
-                                            <div class="col-md-6">
-                                            <input 
-                                                type="text" 
-                                                className=" form-control" 
-                                                placeholder="Last"  
-                                                id="last_name"
-                                                // onChange={(e) => handle(e)}
-=======
                                             id="name"
                                             onChange={(e) => handle(e)}
                                             value={data.name}/>
@@ -390,59 +251,10 @@ function Photoprofile(){
                                                 placeholder="Email"  
                                                 id="email"
                                                 onChange={(e) => handle(e)}
->>>>>>> a022e020b976186569b3274bf89df1d082162c7d
                                                 value={data.email}
                                                 />
                                             </div>
                                         </div> <br/>
-<<<<<<< HEAD
-                                        <div class="row p-3">
-                                            <div class="col-md-6">
-                                                <label><h6>Phone</h6></label>
-                                            </div>
-                                            <div class="col-md-6">
-                                            <input 
-                                                type="text" 
-                                                className=" form-control" 
-                                                placeholder="Last"  
-                                                id="last_name"
-                                                // onChange={(e) => handle(e)}
-                                                value={data.phone_no}
-                                                />
-                                            </div>
-                                        </div> <br/>
-                                        <div class="row p-3">
-                                            <div class="col-md-6">
-                                                <label><h6>Specialization</h6></label>
-                                            </div>
-                                            <div class="col-md-6">
-                                            <input 
-                                                type="text" 
-                                                className=" form-control" 
-                                                placeholder="Last"  
-                                                id="last_name"
-                                                // onChange={(e) => handle(e)}
-                                                value={data.Specialization}
-                                                />
-                                            </div>
-                                        </div> 
-                                        <div class="row p-3">
-                                            <div class="col-md-6">
-                                                <label><h6>Work Experience</h6></label>
-                                            </div> 
-                                            <div class="col-md-6 ">
-                                            <input 
-                                                type="text" 
-                                                className="form-control" 
-                                                placeholder="Last"  
-                                                id="last_name"
-                                                // onChange={(e) => handle(e)}
-                                                value={data.Experience}
-                                                />
-                                            </div>
-                                        </div>
-
-=======
                                         <div className="row p-3">
                                             <div className="col-md-6">
                                                 <label><h6>Phone</h6></label>
@@ -584,7 +396,6 @@ function Photoprofile(){
                                             /></p>
                                             
                                         </div>
->>>>>>> a022e020b976186569b3274bf89df1d082162c7d
                 </div>
                  
           </Modal.Body>
@@ -593,11 +404,7 @@ function Photoprofile(){
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-<<<<<<< HEAD
-            <Button variant="primary" onClick={handleClose}>
-=======
             <Button variant="primary" onClick={handleClose} type="sumbit">
->>>>>>> a022e020b976186569b3274bf89df1d082162c7d
               Save 
             </Button>
           </Modal.Footer>
