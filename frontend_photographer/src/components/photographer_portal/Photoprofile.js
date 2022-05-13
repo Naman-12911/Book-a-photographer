@@ -112,7 +112,7 @@ function Photoprofile(){
         
 
 {/* Photogharper profile settings  */}
-<div className="photo-container">
+<div className="photo-container "id="phty">
 <div className="main_content_photo">
         <div className="profile_header">MY PROFILE</div> 
         <div className="info">
